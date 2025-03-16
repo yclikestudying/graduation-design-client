@@ -1,0 +1,19 @@
+.tag[data-v-bac29948] {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.tag .select[data-v-bac29948] {
+  width: 100%;
+  height: 160px;
+}
+.tag .select .title[data-v-bac29948] {
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tag .select .tag .item .tag-item[data-v-bac29948] {
+  margin-left: 3px;
+  margin-top: 3px;
+}

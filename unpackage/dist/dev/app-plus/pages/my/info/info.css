@@ -1,0 +1,37 @@
+.info[data-v-7ec17697] {
+  width: 100vw;
+  height: 100vh;
+  background-color: #F2F2F2;
+}
+.info .scrollView[data-v-7ec17697] {
+  width: 100%;
+  height: 100%;
+}
+.info .scrollView .tag[data-v-7ec17697] {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+.info .scrollView .tag .tag-item[data-v-7ec17697] {
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+.info .scrollView .function .item[data-v-7ec17697] {
+  position: relative;
+  left: 2.5%;
+  width: 95%;
+  border: 1px solid white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.popup-content[data-v-7ec17697] {
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  height: 50px;
+  background-color: #fff;
+}
+.popup-height[data-v-7ec17697] {
+  width: 100%;
+  height: auto;
+}
