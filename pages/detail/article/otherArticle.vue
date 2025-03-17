@@ -2,7 +2,7 @@
 	<scroll-view scroll-y="true" class="detail">
 		<Loading v-if="article === null"></Loading>
 		<uni-card v-else class="card" :title="article.userName" :sub-title="article.createTime"
-			:thumbnail="article.userAvatar" @click="toOtherPage('index')">
+			thumbnail="/static/my/默认头像.jpg" @click="toOtherPage('index')">
 			<text class="uni-body">{{ article.articleContent }}</text>
 			<view class="photo" @click.stop="toOtherPage('image', null, article.articlePhotos)">
 				<template v-for="(photo, index) in JSON.parse(article.articlePhotos)">
@@ -39,28 +39,10 @@
 		const res = await queryOneApi(articleId.value)
 		article.value = res.data.data
 	})
-	onNavigationBarButtonTap(() => {
-		uni.showModal({
-			title: '温馨提示',
-			content: '确定删除该动态吗？',
-			success: async function(res) {
-				if (res.confirm) {
-					const res1 = await deleteArticleApi(articleId.value)
-					if (res1.data.code === 200) {
-						uni.navigateBack()
-						uni.showToast({
-							title: '删除成功'
-						})
-						uni.$emit('deleteArticle', articleId.value)
-					}
-				}
-			}
-		});
-	})
 	// 其他页面
 	const toOtherPage = (key, param, data) => {
 		const routes = {
-			'index': '/pages/my/myIndex/myIndex?identity=me',
+			'index': `/pages/my/myIndex/myIndex?identity=other&userId=${article.value.userId}`,
 			'image': '/pages/detail/image/image'
 		}
 		if (key === 'image') {

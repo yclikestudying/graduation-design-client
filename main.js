@@ -3,6 +3,7 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 import loading from '/components/loading/loading.vue'
 import centerLoading from '/components/loading/centerLoading.vue'
+import empty from "/components/empty/empty.vue"
 
 // #ifndef VUE3
 import Vue from 'vue'
@@ -22,6 +23,7 @@ export function createApp() {
   app.use(Vant)
   app.component('Loading', loading)
   app.component('CenterLoading', centerLoading)
+  app.component('Empty', empty)
   return {
     app
   }

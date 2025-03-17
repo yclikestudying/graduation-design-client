@@ -1,0 +1,22 @@
+.image[data-v-2c45889c] {
+  width: 100vw;
+  height: 100vh;
+}
+.image .swiper[data-v-2c45889c] {
+  width: 100%;
+  height: 100%;
+}
+.image .swiper .swiper-item[data-v-2c45889c] {
+  width: 100%;
+  height: 100%;
+}
+.image .swiper .swiper-item .scroll-view[data-v-2c45889c] {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image .swiper .swiper-item .scroll-view uni-image[data-v-2c45889c] {
+  width: 100%;
+}

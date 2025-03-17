@@ -48,7 +48,8 @@
 					uni.showToast({
 						title: "上传成功"
 					})
-					text.value = ''
+					// 上传成功，更新首页动态
+					uni.$emit('addArticle')
 				}
 				return;
 			}
@@ -65,8 +66,8 @@
 				uni.showToast({
 					title: "上传成功"
 				})
-				fileLists.value.length = 0
-				text.value = ''
+				// 上传成功，更新首页动态
+				uni.$emit('addArticle')
 			}
 		} finally {
 			isLoading.value = false

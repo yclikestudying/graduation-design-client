@@ -6,15 +6,27 @@
 				cancelButton="always" @cancel="cancel" @clear="clear" />
 		</view>
 		<scroll-view scroll-y="true" class="content">
-			<template v-for="(item, index) in user" :key="item.id">
-				<uni-list-chat :title="item.userName" :avatar="item.userAvatar" clickable :note="item.userProfile"
-					@click="toOtherPage('index', item.id)"></uni-list-chat>
+			<!-- 展示查询的用户 -->
+			<template v-if="type === '用户'" v-for="(user, index) in userList" :key="user.id">
+				<uni-list-chat :title="user.userName" :avatar="user.userAvatar" clickable :note="user.userProfile"
+					@click="toOtherPage('index', user.id)"></uni-list-chat>
 			</template>
+			<!-- 动态组件 -->
+			<ArticleList v-if="type === '动态'" :isScroll="true" type="搜索动态" :keyword="keyword"></ArticleList>
+			<!-- 集市组件 -->
+			<GoodsList v-if="type === '集市'" :isScroll="true" type="搜索商品" :keyword="keyword"></GoodsList>
+			<!-- 跑腿组件 -->
+			<ExpressList v-if="type === '跑腿'" :isScroll="true" type="搜索跑腿" :keyword="keyword"></ExpressList>
 		</scroll-view>
 	</view>
 </template>
 
 <script setup>
+	import ArticleList from "/components/article/articleList.vue"
+	import GoodsList from "/components/goods/goodsList.vue"
+	import ActivityList from "/components/activity/activityList.vue"
+	import ExpressList from "/components/express/expressList.vue"
+	import LostList from "/components/lost/lostList.vue"
 	import {
 		ref,
 		watch
@@ -27,8 +39,9 @@
 	} from "/pages/api/user/user.js"
 	// 变量
 	const statusBarHeight = ref(0);
-	const keyword = ref('');
+	const keyword = ref(null);
 	const select = ref(null)
+	const type = ref(null)
 	const range = [{
 			value: 0,
 			text: "用户"
@@ -39,7 +52,7 @@
 		},
 		{
 			value: 2,
-			text: "商品"
+			text: "集市"
 		},
 		{
 			value: 3,
@@ -54,16 +67,17 @@
 			text: "活动"
 		}
 	]
-	let user = ref(null);
-	watch(keyword, async (newValue) => {
-		if (select.value !== null) {
-			if (keyword.value !== '') {
-				if (range[select.value].text === '用户') {
-					const res = await queryUserApi(keyword.value)
-					user.value = res.data.data
-				}
+	const userList = ref([]);
+	const articleList = ref([]);
+	watch([select, keyword], async ([value1, value2]) => {
+		type.value = range[value1].text
+		keyword.value = value2
+		if (type.value === '用户') {
+			if (value2 !== '') {
+				const res = await queryUserApi(value2)
+				userList.value = res.data.data
 			} else {
-				user.value = null
+				userList.value.length = 0
 			}
 		}
 	})

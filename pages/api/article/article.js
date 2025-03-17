@@ -44,3 +44,32 @@ export const queryOneApi = async (articleId) => {
 export const deleteArticleApi = async (articleId) => {
 	return await request(`/article/deleteArticle?articleId=${articleId}`, "DELETE")
 }
+
+/**
+ * @description 查询校园动态
+ */
+export const queryArticleOfSchoolApi = async () => {
+	return await request(`/article/queryArticleOfSchool`, "GET")
+}
+
+/**
+ * @description 查询我的动态数量
+ */
+export const articleCountApi = async () => {
+	return await request(`/article/articleCount`, "GET")
+}
+
+/**
+ * @description 查询关注用户数量
+ */
+export const queryArticleOfAttentionApi = async () => {
+	return await request(`/article/queryArticleOfAttention`, "GET")
+}
+
+/**
+ * @description 关键字模糊查询动态
+ * @param keyword 关键字
+ */
+export const queryArticleByKeywordApi = async (keyword) => {
+	return await request(`/article/queryArticleByKeyword?keyword=${keyword}`, "GET")
+}

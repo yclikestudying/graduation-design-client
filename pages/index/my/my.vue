@@ -24,33 +24,27 @@
 		<view class="content">
 			<view class="data">
 				<view class="data-item">
-					<text>0</text>
+					<text>{{ articleCount }}</text>
 					<text>动态</text>
 				</view>
-				<view class="data-item">
-					<text>0</text>
+				<view class="data-item" @click="toOtherPage('userList', '互关')">
+					<text>{{ eachCount }}</text>
 					<text>互关</text>
 				</view>
-				<view class="data-item">
-					<text>0</text>
+				<view class="data-item" @click="toOtherPage('userList', '关注')">
+					<text>{{ friendCount }}</text>
 					<text>关注</text>
 				</view>
-				<view class="data-item">
-					<text>0</text>
+				<view class="data-item" @click="toOtherPage('userList', '粉丝')">
+					<text>{{ fansCount }}</text>
 					<text>粉丝</text>
 				</view>
 			</view>
 			<view class="function">
 				<van-cell title="功能" style="background-color: #F2F2F2;" />
 				<view class="item">
-					<van-cell title="访客" icon="eye-o"  is-link>
+					<van-cell title="访客" icon="eye-o" is-link>
 					</van-cell>
-<!-- 					<van-cell title="失物招领" icon="newspaper-o" is-link>
-					</van-cell>
-					<van-cell title="跑腿服务" icon="comment-o" is-link>
-					</van-cell>
-					<van-cell title="校园活动" icon="other-pay" is-link>
-					</van-cell> -->
 				</view>
 				<van-cell title="其他" style="background-color: #F2F2F2;" />
 				<view class="item">
@@ -63,17 +57,47 @@
 </template>
 
 <script setup>
-	import { ref } from 'vue';
-	import { onLoad, onShow } from "@dcloudio/uni-app"
+	import {
+		ref
+	} from 'vue';
+	import {
+		onLoad,
+		onShow
+	} from "@dcloudio/uni-app"
+	import {
+		articleCountApi
+	} from "/pages/api/article/article.js"
+	import {
+		friendCountApi,
+		fansCountApi,
+		eachCountApi
+	} from "/pages/api/friend/friend.js"
 	// 变量
 	const user = ref(uni.getStorageSync("user"))
-	onShow(() => {
+	const articleCount = ref(0);
+	const eachCount = ref(0);
+	const friendCount = ref(0);
+	const fansCount = ref(0);
+	onShow(async () => {
 		user.value = uni.getStorageSync("user")
+		// 查询我的动态数量
+		const res = await articleCountApi()
+		articleCount.value = res.data.data
+		// 查询互关数量
+		const res1 = await eachCountApi()
+		eachCount.value = res1.data.data
+		// 查询关注数量
+		const res2 = await friendCountApi()
+		friendCount.value = res2.data.data
+		// 查询粉丝数量
+		const res3 = await fansCountApi()
+		fansCount.value = res3.data.data
 	})
 	// 其他页面
-	const toOtherPage = (key) => {
+	const toOtherPage = (key, param) => {
 		const routes = {
-			'index': '/pages/my/myIndex/myIndex?identity=me'
+			'index': '/pages/my/myIndex/myIndex?identity=me',
+			'userList': `/pages/my/userList/userList?title=${param}`
 		}
 		const url = routes[`${key}`]
 		uni.navigateTo({

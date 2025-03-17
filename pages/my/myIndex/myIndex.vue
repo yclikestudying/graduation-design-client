@@ -16,10 +16,10 @@
 					<view v-else class="right">
 						<van-button style="width: 50px;background-color: #4496F9;border: none;" type="primary"
 							size="mini" @click="toOtherPage('info')">资料展示</van-button>
-						<!-- <van-button style="width: 40px;background-color: #4496F9;border: none;"
-							type="primary" size="mini" @click="unattention">已关注</van-button> -->
-						<van-button style="width: 40px;background-color: #4496F9;border: none;" type="primary"
-							size="mini">关注</van-button>
+						<van-button v-if="isFriend" style="width: 40px;background-color: #4496F9;border: none;"
+							type="primary" size="mini" @click="cancel">已关注</van-button>
+						<van-button v-else style="width: 40px;background-color: #4496F9;border: none;" type="primary"
+							size="mini" @click="add">关注</van-button>
 						<uni-icons type="chat" size="30"></uni-icons>
 					</view>
 				</view>
@@ -33,11 +33,11 @@
 				</view>
 				<view class="data">
 					<view class="data-item">
-						<text>0</text>
+						<text>{{ friendCount }}</text>
 						<text>关注</text>
 					</view>
 					<view class="data-item">
-						<text>0</text>
+						<text>{{ fansCount }}</text>
 						<text>粉丝</text>
 					</view>
 				</view>
@@ -93,26 +93,26 @@
 					<swiper-item>
 						<view class="swiper-item">
 							<scroll-view class="page" :scroll-y="isScroll">
-								
+
 							</scroll-view>
 						</view>
 					</swiper-item>
 					<swiper-item>
 						<view class="swiper-item">
 							<!-- 动态组件 -->
-							<ArticleList :isScroll="isScroll" type="主页动态"></ArticleList>
+							<ArticleList :isScroll="isScroll" type="个人动态" :currentUserId="currentUserId"></ArticleList>
 						</view>
 					</swiper-item>
 					<swiper-item>
 						<view class="swiper-item">
 							<!-- 集市组件 -->
-							<GoodsList :isScroll="isScroll"></GoodsList>
+							<GoodsList :isScroll="isScroll" type="个人商品" :currentUserId="currentUserId"></GoodsList>
 						</view>
 					</swiper-item>
 					<swiper-item>
 						<view class="swiper-item">
 							<!-- 跑腿组件 -->
-							<ExpressList :isScroll="isScroll"></ExpressList>
+							<ExpressList :isScroll="isScroll" type="个人跑腿" :currentUserId="currentUserId"></ExpressList>
 						</view>
 					</swiper-item>
 					<swiper-item>
@@ -151,30 +151,51 @@
 	import {
 		getUserApi
 	} from "/pages/api/user/user.js"
+	import {
+		queryFriendApi,
+		addApi,
+		cancelApi,
+		friendCountApi,
+		fansCountApi
+	} from "/pages/api/friend/friend.js"
 	// 变量
 	const currentOption = ref(0)
 	const isScroll = ref(false); // 是否允许内容滚动
 	const identity = ref(''); // 身份
-	const currentUserId = ref(uni.getStorageSync("user").id); // 当前用户id
+	const currentUserId = ref(null); // 当前用户id
 	const user = ref(uni.getStorageSync("user"))
+	const isFriend = ref(null)
+	const friendCount = ref(null); // 关注数量
+	const fansCount = ref(null); // 粉丝数量
 	onLoad((e) => {
 		identity.value = e.identity
 		if (e.userId) {
-			currentUserId.value = e.userId
+			currentUserId.value = Number(e.userId)
 		}
 	})
 	onShow(async () => {
-		plus.navigator.setFullscreen(false)
 		if (identity.value === 'me') {
 			user.value = uni.getStorageSync("user")
 		} else {
 			// 查询当前用户信息
 			const res = await getUserApi(currentUserId.value)
 			user.value = res.data.data
+			// 查询当前用户是否被我关注
+			const res1 = await queryFriendApi(currentUserId.value)
+			isFriend.value = res1.data.data
 		}
+		// 查询关注数量
+		const res2 = await friendCountApi(currentUserId.value)
+		friendCount.value = res2.data.data ?? 0
+		// 查询粉丝数量
+		const res3 = await fansCountApi(currentUserId.value)
+		fansCount.value = res3.data.data ?? 0
+		// 设置title为用户名
 		uni.setNavigationBarTitle({
 			title: user.value.userName
 		})
+		// 把当前用户头像存入本地缓存
+		uni.setStorageSync("avatar", user.value.userAvatar)
 	})
 	// 设置新的currentOption
 	const setCurrentOption = (index) => {
@@ -191,6 +212,52 @@
 		} else {
 			isScroll.value = false
 		}
+	}
+	// 添加关注
+	const add = async () => {
+		const res = await addApi(currentUserId.value)
+		if (res.data.code === 200) {
+			isFriend.value = true
+			fansCount.value++
+			uni.showToast({
+				title: '关注成功'
+			})
+			// 添加关注时，更新关注动态
+			uni.$emit('addFriend')
+		} else {
+			uni.showToast({
+				title: res.data.message,
+				icon: 'none'
+			})
+		}
+	}
+	// 取消关注
+	const cancel = () => {
+		uni.showModal({
+			title: '温馨提示',
+			content: '确定取消关注吗？',
+			success: async function(res) {
+				if (res.confirm) {
+					const res1 = await cancelApi(currentUserId.value)
+					if (res1.data.code === 200) {
+						isFriend.value = false
+						fansCount.value--
+						uni.showToast({
+							title: '取消成功'
+						})
+						// 取消关注时，更新关注动态
+						uni.$emit('cancelFriend', currentUserId.value)
+						// 取消关注时，更新关注和互关列表
+						uni.$emit('userList', currentUserId.value)
+					} else {
+						uni.showToast({
+							title: res1.data.message,
+							icon: 'none'
+						})
+					}
+				}
+			}
+		})
 	}
 	// 其他页面
 	const toOtherPage = (key) => {

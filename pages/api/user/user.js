@@ -41,3 +41,30 @@ export const getAvatarApi = async (userId) => {
 export const uploadAvatarApi = async (userId, filePath) => {
 	return await uploadNoText(`/user/uploadAvatar?userId=${userId}`, filePath)
 }
+
+/**
+ * @description 查询关注用户
+ * @param userId 用户id
+ */
+export const queryFriendApi = async (userId = null) => {
+	let url = userId ? `/user/queryFriend?userId=${userId}` : '/user/queryFriend'
+	return await request(url, "GET")
+}
+
+/**
+ * @description 查询粉丝用户
+ * @param userId 用户id
+ */
+export const queryFansApi = async (userId = null) => {
+	let url = userId ? `/user/queryFans?userId=${userId}` : '/user/queryFans'
+	return await request(url, "GET")
+}
+
+/**
+ * @description 查询互关用户
+ * @param userId 用户id
+ */
+export const queryEachApi = async (userId) => {
+	let url = userId ? `/user/queryEach?userId=${userId}` : '/user/queryEach'
+	return await request(url, "GET")
+}

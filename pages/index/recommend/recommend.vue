@@ -22,7 +22,7 @@
 				<swiper class="swiper" :current="currentOption" @change="onSwiperChange">
 					<swiper-item>
 						<view class="swiper-item">
-							<ArticleList isScroll="true" type="关注动态"></ArticleList>
+							<ArticleList :isScroll="true" type="关注动态"></ArticleList>
 						</view> 
 					</swiper-item>
 					<swiper-item>

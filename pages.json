@@ -307,15 +307,92 @@
 				"app-plus": {
 					"bounce": "none",
 					"scrollIndicator": "none",
-					"titleNView": false
+					"titleNView": {
+						"backgroundColor": "#ffffff",
+						"autoBackButton": false
+					}
 				}
 			}
 		},
 		{
-			"path" : "components/loading/centerLoading",
+			"path" : "pages/detail/image/image",
 			"style" : 
 			{
-				"navigationBarTitleText" : ""
+				"navigationBarTitleText" : "",
+				"animationType": "fade-in",
+				"animationDuration": 300,
+				"app-plus": {
+					"bounce": "none",
+					"scrollIndicator": "none",
+					"titleNView": {
+						"backgroundColor": "#ffffff",
+						"autoBackButton": false
+					}
+				}
+			}
+		},
+		{
+			"path" : "pages/detail/article/otherArticle",
+			"style" : 
+			{
+				"navigationBarTitleText" : "动态详情",
+				"animationType": "slide-in-right",
+				"animationDuration": 300,
+				"app-plus": {
+					"bounce": "none",
+					"scrollIndicator": "none",
+					"titleNView": {
+						"backgroundColor": "#ffffff"
+					}
+				}
+			}
+		},
+		{
+			"path" : "pages/my/userList/userList",
+			"style" : 
+			{
+				"navigationBarTitleText" : "用户列表",
+				"animationType": "slide-in-right",
+				"animationDuration": 300,
+				"app-plus": {
+					"bounce": "none",
+					"scrollIndicator": "none",
+					"titleNView": {
+						"backgroundColor": "#ffffff"
+					}
+				}
+			}
+		},
+		{
+			"path" : "pages/home/goodsMarket/goodsMarket",
+			"style" : 
+			{
+				"navigationBarTitleText" : "二手集市",
+				"animationType": "slide-in-right",
+				"animationDuration": 300,
+				"app-plus": {
+					"bounce": "none",
+					"scrollIndicator": "none",
+					"titleNView": {
+						"backgroundColor": "#ffffff"
+					}
+				}
+			}
+		},
+		{
+			"path" : "pages/home/express/express",
+			"style" : 
+			{
+				"navigationBarTitleText" : "跑腿服务",
+				"animationType": "slide-in-right",
+				"animationDuration": 300,
+				"app-plus": {
+					"bounce": "none",
+					"scrollIndicator": "none",
+					"titleNView": {
+						"backgroundColor": "#ffffff"
+					}
+				}
 			}
 		}
 	],

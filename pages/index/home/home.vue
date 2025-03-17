@@ -51,19 +51,19 @@
 					<swiper-item>
 						<view class="swiper-item">
 							<!-- 动态组件 -->
-							<ArticleList :isScroll="isScroll" type="首页动态"></ArticleList>
+							<ArticleList :isScroll="isScroll" type="校园动态"></ArticleList>
 						</view>
 					</swiper-item>
 					<swiper-item>
 						<view class="swiper-item">
 							<!-- 集市组件 -->
-							<GoodsList :isScroll="isScroll"></GoodsList>
+							<GoodsList :isScroll="isScroll" type="全部商品"></GoodsList>
 						</view>
 					</swiper-item>
 					<swiper-item>
 						<view class="swiper-item">
 							<!-- 跑腿组件 -->
-							<ExpressList :isScroll="isScroll"></ExpressList>
+							<ExpressList :isScroll="isScroll" type="全部跑腿"></ExpressList>
 						</view>
 					</swiper-item>
 					<swiper-item>

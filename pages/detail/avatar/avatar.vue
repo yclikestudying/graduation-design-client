@@ -25,16 +25,11 @@
 	// 变量
 	const identity = ref(null);
 	const userId = ref(null)
-	const avatar = ref(null)
+	const avatar = ref(uni.getStorageSync("avatar"))
 	const isLoading = ref(false)
 	onLoad(async (e) => {
 		identity.value = e.identity
 		userId.value = Number(e.userId)
-		plus.navigator.setFullscreen(true)
-		const res = await getAvatarApi(userId.value)
-		if (res.data.code === 200) {
-			avatar.value = res.data.data
-		}
 	})
 	// 返回
 	const back = () => {
@@ -68,7 +63,6 @@
 	.avatar {
 		width: 100vw;
 		height: 100vh;
-		background-color: black;
 		
 		.main {
 			width: 100%;

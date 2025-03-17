@@ -25,14 +25,19 @@ export const request = async (url, method, data = {}) => {
  * @description 上传文件
  * @param url 请求路径
  * @param files 文件数据
- * @param textContent 文本（可有可无）
+ * @param text 文本（可有可无）
+ * @param oldPrice
+ * @param price
  */
-export const upload = async (url, files, textContent = null) => {
+export const upload = async (url, files, text = null, title = null, oldPrice = null, price = null) => {
 	return await uni.uploadFile({
 		url: `${baseURL}${url}`,
 		files: files,
 		formData: {
-			"text": textContent // 文本内容
+			"text": text ,// 文本内容
+			"title": title,
+			"oldPrice": oldPrice,
+			"price": price
 		},
 		header: {
 			"Authorization": uni.getStorageSync("token")
