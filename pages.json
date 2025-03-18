@@ -394,6 +394,38 @@
 					}
 				}
 			}
+		},
+		{
+			"path" : "pages/home/lost/lost",
+			"style" : 
+			{
+				"navigationBarTitleText" : "寻物启事",
+				"animationType": "slide-in-right",
+				"animationDuration": 300,
+				"app-plus": {
+					"bounce": "none",
+					"scrollIndicator": "none",
+					"titleNView": {
+						"backgroundColor": "#ffffff"
+					}
+				}
+			}
+		},
+		{
+			"path" : "pages/home/activity/activity",
+			"style" : 
+			{
+				"navigationBarTitleText" : "发布活动",
+				"animationType": "slide-in-right",
+				"animationDuration": 300,
+				"app-plus": {
+					"bounce": "none",
+					"scrollIndicator": "none",
+					"titleNView": {
+						"backgroundColor": "#ffffff"
+					}
+				}
+			}
 		}
 	],
 	"globalStyle": {

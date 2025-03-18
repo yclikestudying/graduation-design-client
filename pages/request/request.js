@@ -34,7 +34,7 @@ export const upload = async (url, files, text = null, title = null, oldPrice = n
 		url: `${baseURL}${url}`,
 		files: files,
 		formData: {
-			"text": text ,// 文本内容
+			"text": text, // 文本内容
 			"title": title,
 			"oldPrice": oldPrice,
 			"price": price
@@ -59,4 +59,52 @@ export const uploadNoText = async (url, filePath) => {
 			"Authorization": uni.getStorageSync("token")
 		}
 	});
+}
+
+/**
+ * 寻物启事模块
+ * @description 上传文件
+ * @param url 请求路径
+ * @param files 文件数据
+ * @param type 类型
+ * @param title 名称
+ * @param description 描述
+ */
+export const uploadAboutLost = async (url, files, type, title, description) => {
+	return await uni.uploadFile({
+		url: `${baseURL}${url}`,
+		files: files,
+		formData: {
+			"type": type, // 文本内容
+			"title": title,
+			"description": description
+		},
+		header: {
+			"Authorization": uni.getStorageSync("token")
+		}
+	})
+}
+
+/**
+ * 活动模块
+ * @description 上传文件
+ * @param url 请求路径
+ * @param files 文件数据
+ * @param type 类型
+ * @param title 名称
+ * @param description 描述
+ */
+export const uploadAboutActivity = async (url, files, title, text, max) => {
+	return await uni.uploadFile({
+		url: `${baseURL}${url}`,
+		files: files,
+		formData: {
+			"title": title, // 文本内容
+			"text": text,
+			"max": max
+		},
+		header: {
+			"Authorization": uni.getStorageSync("token")
+		}
+	})
 }

@@ -39,6 +39,10 @@
 					<text>{{ fansCount }}</text>
 					<text>粉丝</text>
 				</view>
+				<view class="data-item">
+					<text>0</text>
+					<text>群聊</text>
+				</view>
 			</view>
 			<view class="function">
 				<van-cell title="功能" style="background-color: #F2F2F2;" />

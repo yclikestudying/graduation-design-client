@@ -17,6 +17,10 @@
 			<GoodsList v-if="type === '集市'" :isScroll="true" type="搜索商品" :keyword="keyword"></GoodsList>
 			<!-- 跑腿组件 -->
 			<ExpressList v-if="type === '跑腿'" :isScroll="true" type="搜索跑腿" :keyword="keyword"></ExpressList>
+			<!-- 跑腿组件 -->
+			<LostList v-if="type === '寻物'" :isScroll="true" type="搜索寻物" :keyword="keyword"></LostList>
+			<!-- 活动组件 -->
+			<ActivityList v-if="type === '活动'" :isScroll="true" type="搜索活动" :keyword="keyword"></ActivityList>
 		</scroll-view>
 	</view>
 </template>

@@ -1165,15 +1165,6 @@
   width: 100%;
   height: 100%;
 }
-.page .card .card-actions[data-v-4c2d632c] {
-  display: flex;
-  justify-content: space-around;
-}
-.page .card .photo uni-image[data-v-4c2d632c] {
-  margin-right: 1px;
-  width: 95px !important;
-  height: 95px;
-}
 
 .page[data-v-fbce0da4] {
   width: 100%;

@@ -63,40 +63,28 @@
 			</view>
 			<view class="option">
 				<view class="option-item" @click="setCurrentOption(0)">
-					<text :class="{'active-option-name': currentOption === 0}">主页</text>
-					<view class="underline active-underline"
-						:style="{transform: `translateX(${currentOption * (100 / 6)}vw)`}"></view>
+					<text :class="{'active-option-name': currentOption === 0}">动态</text>
+					<view class="underline active-underline" :style="{transform: `translateX(${currentOption * (100 / 5)}vw)`}"></view>
 				</view>
 				<view class="option-item" @click="setCurrentOption(1)">
-					<text :class="{'active-option-name': currentOption === 1}">动态</text>
+					<text :class="{'active-option-name': currentOption === 1}">集市</text>
 					<view class="underline"></view>
 				</view>
 				<view class="option-item" @click="setCurrentOption(2)">
-					<text :class="{'active-option-name': currentOption === 2}">集市</text>
+					<text :class="{'active-option-name': currentOption === 2}">跑腿</text>
 					<view class="underline"></view>
 				</view>
 				<view class="option-item" @click="setCurrentOption(3)">
-					<text :class="{'active-option-name': currentOption === 3}">跑腿</text>
+					<text :class="{'active-option-name': currentOption === 3}">寻物</text>
 					<view class="underline"></view>
 				</view>
 				<view class="option-item" @click="setCurrentOption(4)">
-					<text :class="{'active-option-name': currentOption === 4}">寻物</text>
-					<view class="underline"></view>
-				</view>
-				<view class="option-item" @click="setCurrentOption(5)">
-					<text :class="{'active-option-name': currentOption === 5}">活动</text>
+					<text :class="{'active-option-name': currentOption === 4}">活动</text>
 					<view class="underline"></view>
 				</view>
 			</view>
 			<view scroll-y="true" class="detail">
 				<swiper class="swiper" :current="currentOption" @change="onSwiperChange">
-					<swiper-item>
-						<view class="swiper-item">
-							<scroll-view class="page" :scroll-y="isScroll">
-
-							</scroll-view>
-						</view>
-					</swiper-item>
 					<swiper-item>
 						<view class="swiper-item">
 							<!-- 动态组件 -->
@@ -118,13 +106,13 @@
 					<swiper-item>
 						<view class="swiper-item">
 							<!-- 寻物组件 -->
-							<LostList :isScroll="isScroll"></LostList>
+							<LostList :isScroll="isScroll" type="个人寻物" :currentUserId="currentUserId"></LostList>
 						</view>
 					</swiper-item>
 					<swiper-item>
 						<view class="swiper-item">
 							<!-- 活动组件 -->
-							<ActivityList :isScroll="isScroll"></ActivityList>
+							<ActivityList :isScroll="isScroll" type="个人活动" :currentUserId="currentUserId"></ActivityList>
 						</view>
 					</swiper-item>
 				</swiper>

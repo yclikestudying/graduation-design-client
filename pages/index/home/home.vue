@@ -69,13 +69,13 @@
 					<swiper-item>
 						<view class="swiper-item">
 							<!-- 寻物组件 -->
-							<LostList :isScroll="isScroll"></LostList>
+							<LostList :isScroll="isScroll" type="全部寻物"></LostList>
 						</view>
 					</swiper-item>
 					<swiper-item>
 						<view class="swiper-item">
 							<!-- 活动组件 -->
-							<ActivityList :isScroll="isScroll"></ActivityList>
+							<ActivityList :isScroll="isScroll" type="全部活动"></ActivityList>
 						</view>
 					</swiper-item>
 				</swiper>
@@ -194,7 +194,9 @@
 		const routes = {
 			0: "/pages/home/schoolShare/schoolShare",
 			1: "/pages/home/goodsMarket/goodsMarket",
-			2: "/pages/home/express/express"
+			2: "/pages/home/express/express",
+			3: "/pages/home/lost/lost",
+			4: "/pages/home/activity/activity"
 		}
 		const url = routes[event.index]
 	
