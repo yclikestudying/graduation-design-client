@@ -107,7 +107,7 @@
 		})
 	}
 	// 上传成功，更新首页动态
-	uni.$on('addArticle', async () => {
+	uni.$on('uploadArticle', async () => {
 		if (props.type === '校园动态') {
 			const res = await queryArticleOfSchoolApi()
 			articleList.value = res.data.data ?? []

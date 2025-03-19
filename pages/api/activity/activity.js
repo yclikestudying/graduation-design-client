@@ -43,3 +43,26 @@ export const queryActivityByKeywordApi = async (keyword) => {
 export const deleteActivityApi = async (activityId) => {
 	return await request(`/activity/deleteActivity?activityId=${activityId}`, "DELETE")
 }
+
+/**
+ * @description 根据活动id查询活动
+ */
+export const queryActivityByIdApi = async (activityId) => {
+	return await request(`/activity/queryActivityById?activityId=${activityId}`, "GET")
+}
+
+/**
+ * @description 加入组队
+ */
+export const addActivityApi = async (activityId) => {
+	return await request(`/activityRelation/addActivity`, "POST", {
+		activityId: activityId
+	})
+}
+
+/**
+ * @description 查询活动数量
+ */
+export const queryCountApi = async () => {
+	return await request(`/activity/queryCount`, "GET")
+}

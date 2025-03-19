@@ -20,7 +20,7 @@
 							type="primary" size="mini" @click="cancel">已关注</van-button>
 						<van-button v-else style="width: 40px;background-color: #4496F9;border: none;" type="primary"
 							size="mini" @click="add">关注</van-button>
-						<uni-icons type="chat" size="30"></uni-icons>
+						<uni-icons type="chat" size="30" @click="toOtherPage('chat')"></uni-icons>
 					</view>
 				</view>
 				<view class="name">
@@ -155,6 +155,7 @@
 	const isFriend = ref(null)
 	const friendCount = ref(null); // 关注数量
 	const fansCount = ref(null); // 粉丝数量
+	const mySocket = getApp().globalData[`${uni.getStorageSync("user").id}`]
 	onLoad((e) => {
 		identity.value = e.identity
 		if (e.userId) {
@@ -162,6 +163,7 @@
 		}
 	})
 	onShow(async () => {
+		mySocket.setDirectMessage(null)
 		if (identity.value === 'me') {
 			user.value = uni.getStorageSync("user")
 		} else {
@@ -251,7 +253,8 @@
 	const toOtherPage = (key) => {
 		const routes = {
 			'info': `/pages/my/info/info?identity=${identity.value}&userId=${currentUserId.value}`,
-			'avatar': `/pages/detail/avatar/avatar?identity=${identity.value}&userId=${currentUserId.value}`
+			'avatar': `/pages/detail/avatar/avatar?identity=${identity.value}&userId=${currentUserId.value}`,
+			'chat': `/pages/message/chat/chat?userId=${currentUserId.value}&userName=${user.value.userName}`
 		}
 		const url = routes[`${key}`]
 		uni.navigateTo({

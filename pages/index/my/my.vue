@@ -39,9 +39,9 @@
 					<text>{{ fansCount }}</text>
 					<text>粉丝</text>
 				</view>
-				<view class="data-item">
-					<text>0</text>
-					<text>群聊</text>
+				<view class="data-item" @click="toOtherPage('activityList')">
+					<text>{{ activityCount }}</text>
+					<text>活动</text>
 				</view>
 			</view>
 			<view class="function">
@@ -51,7 +51,7 @@
 					</van-cell>
 				</view>
 				<van-cell title="其他" style="background-color: #F2F2F2;" />
-				<view class="item">
+				<view class="item" @click="toOtherPage('setting')">
 					<van-cell title="系统设置" icon="setting-o" is-link>
 					</van-cell>
 				</view>
@@ -76,12 +76,16 @@
 		fansCountApi,
 		eachCountApi
 	} from "/pages/api/friend/friend.js"
+	import {
+		queryCountApi
+	} from "/pages/api/activity/activity.js"
 	// 变量
 	const user = ref(uni.getStorageSync("user"))
 	const articleCount = ref(0);
 	const eachCount = ref(0);
 	const friendCount = ref(0);
 	const fansCount = ref(0);
+	const activityCount = ref(0)
 	onShow(async () => {
 		user.value = uni.getStorageSync("user")
 		// 查询我的动态数量
@@ -96,12 +100,17 @@
 		// 查询粉丝数量
 		const res3 = await fansCountApi()
 		fansCount.value = res3.data.data
+		// 查询活动数量
+		const res4 = await queryCountApi()
+		activityCount.value = res4.data.data
 	})
 	// 其他页面
 	const toOtherPage = (key, param) => {
 		const routes = {
 			'index': '/pages/my/myIndex/myIndex?identity=me',
-			'userList': `/pages/my/userList/userList?title=${param}`
+			'userList': `/pages/my/userList/userList?title=${param}`,
+			'setting': '/pages/my/setting/setting',
+			'activityList': '/pages/my/activityList/activityList'
 		}
 		const url = routes[`${key}`]
 		uni.navigateTo({

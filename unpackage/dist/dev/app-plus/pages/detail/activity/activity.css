@@ -1,0 +1,44 @@
+.activity[data-v-95f514ca] {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+.activity .info[data-v-95f514ca] {
+  padding: 0 20px;
+  width: 100%;
+  display: flex;
+}
+.activity .info .avatar[data-v-95f514ca] {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid lightgray;
+}
+.activity .info .avatar uni-image[data-v-95f514ca] {
+  width: 100%;
+  height: 100%;
+}
+.activity .info .right[data-v-95f514ca] {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.activity .info .right .top[data-v-95f514ca] {
+  font-size: 18px;
+}
+.activity .info .right .bottom[data-v-95f514ca] {
+  font-size: 12px;
+  color: darkgray;
+}
+.activity .button[data-v-95f514ca] {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+.activity .button .item[data-v-95f514ca] {
+  width: 200px;
+}

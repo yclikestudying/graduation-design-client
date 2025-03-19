@@ -71,6 +71,7 @@
 				uni.showToast({
 					title: "上传成功"
 				})
+				uni.$emit('updateActivity')
 			} else {
 				uni.showToast({
 					title: res.data.message,

@@ -49,7 +49,7 @@
 						title: "上传成功"
 					})
 					// 上传成功，更新首页动态
-					uni.$emit('addArticle')
+					uni.$emit('uploadArticle')
 				}
 				return;
 			}
@@ -67,7 +67,7 @@
 					title: "上传成功"
 				})
 				// 上传成功，更新首页动态
-				uni.$emit('addArticle')
+				uni.$emit('uploadArticle')
 			}
 		} finally {
 			isLoading.value = false

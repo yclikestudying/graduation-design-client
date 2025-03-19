@@ -35,6 +35,8 @@
 		loginApi,
 		registerApi
 	} from "/pages/api/login/login.js"
+	import { queryNoReadTotalApi } from "/pages/api/message/message.js"
+	import WebSocketClient from "/pages/util/socket.js"
 	// 变量
 	const currentState = ref('登录')
 	const loading = ref(false)
@@ -60,6 +62,21 @@
 				uni.switchTab({
 					url: "/pages/index/home/home"
 				})
+				// 连接服务器
+				const userId = data.data.user.id
+				const socket = new WebSocketClient(userId)
+				socket.connect()
+				// 把这个实例存储到本地
+				const app = getApp()
+				app.globalData[`${userId}`] = socket
+				// 查询未读消息总数
+				const res = await queryNoReadTotalApi()
+				if (res.data.data > 0) {
+					uni.setTabBarBadge({
+						index: 2,
+						text: res.data.data
+					})
+				}
 			} else {
 				uni.showToast({
 					title: data.message,

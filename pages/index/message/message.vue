@@ -19,9 +19,12 @@
 				<swiper-item>
 					<view class="swiper-item">
 						<scroll-view scroll-y="true" class="userList">
-							<uni-list-chat title="uni-app"
-								avatar="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloudlogo.png"
-								note="您收到一条新的消息" time="2020-02-02 20:20" badge-text="12"></uni-list-chat>
+							<template v-for="(message, index) in messageList" :key="message.id">
+								<uni-list-chat clickable :title="message.userName" :avatar="message.userAvatar"
+									:note="getMessage(message.messageContent, message.sendUserId)"
+									:time="message.createTime" :badge-text="message.noReadMessageCount"
+									@click="toOtherPage('chat', myId === message.sendUserId ? message.acceptUserId : message.sendUserId, message.userName)"></uni-list-chat>
+							</template>
 						</scroll-view>
 					</view>
 				</swiper-item>
@@ -47,8 +50,20 @@
 		onShow,
 		onLoad
 	} from "@dcloudio/uni-app"
+	import {
+		queryNoReadListApi,
+		queryNoReadTotalApi
+	} from "/pages/api/message/message.js"
 	// 数据
-	let currentOption = ref(0)
+	const currentOption = ref(0)
+	const messageList = ref(null)
+	const myId = ref(uni.getStorageSync("user").id)
+	onLoad(async (e) => {
+		const res = await queryNoReadListApi()
+		if (res.data.code === 200) {
+			messageList.value = res.data.data
+		}
+	})
 	// 设置新的currentOption
 	const setCurrentOption = (index) => {
 		currentOption.value = index
@@ -57,6 +72,49 @@
 	const onSwiperChange = (event) => {
 		currentOption.value = event.detail.current
 	}
+	// 判断最新消息是我发的还是别人发的
+	const getMessage = (content, userId) => {
+		if (myId.value === userId) {
+			// 我发的
+			return `我:${content}`
+		} else {
+			// 别人发的
+			return content
+		}
+	}
+	// 其他页面
+	const toOtherPage = (key, param1, param2) => {
+		const routes = {
+			'chat': `/pages/message/chat/chat?userId=${param1}&userName=${param2}`
+		}
+		const url = routes[`${key}`]
+		uni.navigateTo({
+			url: url
+		})
+	}
+	// 把消息列表中该用户给我发的未读消息清空
+	// 把未读总消息数更新
+	uni.$on('updateNoReadCount', async (userId) => {
+		// 获取该用户发我消息的未读总数
+		messageList.value = messageList.value.map(message => {
+			if (message.sendUserId === userId) {
+				message.noReadMessageCount = 0
+			}
+			return message
+		})
+		// 更新总的角标
+		// const res = await queryNoReadTotalApi()
+		// if (res.data.data > 0) {
+		// 	uni.setTabBarBadge({
+		// 		index: 2,
+		// 		text: res.data.data
+		// 	})
+		// } else {
+		// 	uni.removeTabBarBadge({
+		// 		index: 2
+		// 	})
+		// }
+	})
 </script>
 
 <style lang="less" scoped>

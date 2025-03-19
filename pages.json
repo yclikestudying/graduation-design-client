@@ -426,6 +426,70 @@
 					}
 				}
 			}
+		},
+		{
+			"path" : "pages/detail/activity/activity",
+			"style" : 
+			{
+				"navigationBarTitleText" : "组队活动详情",
+				"animationType": "slide-in-right",
+				"animationDuration": 300,
+				"app-plus": {
+					"bounce": "none",
+					"scrollIndicator": "none",
+					"titleNView": {
+						"backgroundColor": "#ffffff"
+					}
+				}
+			}
+		},
+		{
+			"path" : "pages/my/setting/setting",
+			"style" : 
+			{
+				"navigationBarTitleText" : "设置",
+				"animationType": "slide-in-right",
+				"animationDuration": 300,
+				"app-plus": {
+					"bounce": "none",
+					"scrollIndicator": "none",
+					"titleNView": {
+						"backgroundColor": "#ffffff"
+					}
+				}
+			}
+		},
+		{
+			"path" : "pages/my/activityList/activityList",
+			"style" : 
+			{
+				"navigationBarTitleText" : "活动",
+				"animationType": "slide-in-right",
+				"animationDuration": 300,
+				"app-plus": {
+					"bounce": "none",
+					"scrollIndicator": "none",
+					"titleNView": {
+						"backgroundColor": "#ffffff"
+					}
+				}
+			}
+		},
+		{
+			"path" : "pages/message/chat/chat",
+			"style" : 
+			{
+				"navigationBarTitleText" : "聊天页面",
+				"animationType": "slide-in-right",
+				"animationDuration": 300,
+				"app-plus": {
+					"bounce": "none",
+					"scrollIndicator": "none",
+					"titleNView": {
+						"backgroundColor": "#ffffff"
+					}
+				}
+			}
 		}
 	],
 	"globalStyle": {
