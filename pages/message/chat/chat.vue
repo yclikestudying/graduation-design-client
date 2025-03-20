@@ -13,7 +13,7 @@
 					@click="more" />
 			</view>
 			<view v-if="moreFunction" class="more">
-				<view class="item">
+				<view class="item" @click="sendImage">
 					<uni-icons type="image" size="40"></uni-icons>
 					<text class="text">图片</text>
 				</view>
@@ -57,7 +57,7 @@
 	})
 	const send = () => {
 		moreFunction.value = false
-		myScoket.send('directMessage', JSON.stringify({
+		myScoket.send('directMessageText', JSON.stringify({
 			userName: uni.getStorageSync("user").userName,
 			sendUserId: myId.value,
 			acceptUserId: userId.value,
@@ -69,6 +69,38 @@
 	const more = () => {
 		moreFunction.value = !moreFunction.value
 	}
+	// 发送图片
+	// const sendImage = () => {
+	// 	uni.chooseImage({
+	// 		count: 1,
+	// 		sizeType: ['original', 'compressed'],
+	// 		sourceType: ['album', 'camera'],
+	// 		success: async (res) => {
+	// 			try {
+	// 				// 获取图片的临时路径
+	// 				const tempFilePath = res.tempFilePaths[0];
+
+	// 				// 将图片转换为 ArrayBuffer
+	// 				const arrayBuffer = await getArrayBuffer(tempFilePath);
+
+	// 				// 通过 WebSocket 发送二进制数据
+	// 				const message = {
+	// 					userName: uni.getStorageSync("user").userName,
+	// 					sendUserId: myId.value,
+	// 					acceptUserId: userId.value,
+	// 					messageType: 'image',
+	// 					fileName: 'image.jpg' // 可以动态获取文件名
+	// 				};
+	// 				// 先发送元数据（JSON）
+	// 				myScoket.send(JSON.stringify(message));
+	// 				// 再发送二进制数据
+	// 				myScoket.send(arrayBuffer);
+	// 			} catch (err) {
+	// 				console.log(err);
+	// 			}
+	// 		}
+	// 	});
+	// };
 </script>
 
 <style lang="less" scoped>

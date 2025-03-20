@@ -10,10 +10,10 @@
 				app.globalData = {};
 			}
 
-			// 统一处理服务器消息
+			// 统一处理服务器推送消息
 			uni.$on('serverMessage', (message) => {
 				const res = JSON.parse(message)
-				if (res.type === 'directMessage') {
+				if (res.type === 'directMessageText') {
 					const msg = JSON.parse(res.data)
 					// 判断消息接收者是否连接服务器
 					let socket = getApp().globalData[`${msg.acceptUserId}`]
@@ -31,6 +31,8 @@
 					}
 					// 更新私聊消息
 					uni.$emit('updateDirectMessage');
+					// 更新消息列表
+					uni.$emit('updateMessageList');
 				}
 			});
 		}

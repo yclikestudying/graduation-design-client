@@ -6765,6 +6765,12 @@ ${o3}
           return message;
         });
       });
+      uni.$on("updateMessageList", async () => {
+        const res = await queryNoReadListApi();
+        if (res.data.code === 200) {
+          messageList.value = res.data.data;
+        }
+      });
       const __returned__ = { currentOption, messageList, myId, setCurrentOption, onSwiperChange, getMessage, toOtherPage, ref: vue.ref, get onShow() {
         return onShow;
       }, get onLoad() {
@@ -20198,7 +20204,7 @@ ${o3}
       });
       const send = () => {
         moreFunction.value = false;
-        myScoket.send("directMessage", JSON.stringify({
+        myScoket.send("directMessageText", JSON.stringify({
           userName: uni.getStorageSync("user").userName,
           sendUserId: myId.value,
           acceptUserId: userId.value,
@@ -20277,7 +20283,10 @@ ${o3}
             key: 0,
             class: "more"
           }, [
-            vue.createElementVNode("view", { class: "item" }, [
+            vue.createElementVNode("view", {
+              class: "item",
+              onClick: _cache[1] || (_cache[1] = (...args) => _ctx.sendImage && _ctx.sendImage(...args))
+            }, [
               vue.createVNode(_component_uni_icons, {
                 type: "image",
                 size: "40"
@@ -20330,7 +20339,7 @@ ${o3}
       }
       uni.$on("serverMessage", (message) => {
         const res = JSON.parse(message);
-        if (res.type === "directMessage") {
+        if (res.type === "directMessageText") {
           const msg = JSON.parse(res.data);
           let socket = getApp().globalData[`${msg.acceptUserId}`];
           if (socket && socket.getIsConnected()) {
@@ -20346,6 +20355,7 @@ ${o3}
             }
           }
           uni.$emit("updateDirectMessage");
+          uni.$emit("updateMessageList");
         }
       });
     }

@@ -115,6 +115,13 @@
 		// 	})
 		// }
 	})
+	// 更新消息列表
+	uni.$on('updateMessageList', async () => {
+		const res = await queryNoReadListApi()
+		if (res.data.code === 200) {
+			messageList.value = res.data.data
+		}
+	});
 </script>
 
 <style lang="less" scoped>
