@@ -479,7 +479,7 @@
 			"path" : "pages/message/chat/chat",
 			"style" : 
 			{
-				"navigationBarTitleText" : "聊天页面",
+				"navigationBarTitleText" : "私聊页面",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -487,6 +487,43 @@
 					"scrollIndicator": "none",
 					"titleNView": {
 						"backgroundColor": "#ffffff"
+					}
+				}
+			}
+		},
+		{
+			"path" : "pages/my/visit/visit",
+			"style" : 
+			{
+				"navigationBarTitleText" : "访客记录",
+				"animationType": "slide-in-right",
+				"animationDuration": 300,
+				"app-plus": {
+					"bounce": "none",
+					"scrollIndicator": "none",
+					"titleNView": {
+						"backgroundColor": "#ffffff"
+					}
+				}
+			}
+		},
+		{
+			"path" : "pages/message/groupChat/groupChat",
+			"style" : 
+			{
+				"navigationBarTitleText" : "群聊页面",
+				"animationType": "slide-in-right",
+				"animationDuration": 300,
+				"app-plus": {
+					"bounce": "none",
+					"scrollIndicator": "none",
+					"titleNView": {
+						"backgroundColor": "#ffffff",
+						"buttons": [
+							{
+								"type": "menu"
+							}
+						]
 					}
 				}
 			}

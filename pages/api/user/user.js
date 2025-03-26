@@ -1,10 +1,13 @@
-import { request, uploadNoText } from "../../request/request";
+import {
+	request,
+	uploadNoText
+} from "../../request/request";
 
 /**
  * @description 修改用户个人信息
  * @param data 修改数据
  */
-export const updateUserApi = async(data) => {
+export const updateUserApi = async (data) => {
 	return await request('/user/updateUser', "PUT", data)
 }
 
@@ -12,7 +15,7 @@ export const updateUserApi = async(data) => {
  * @description 获取用户信息
  * @param userId 用户id
  */
-export const getUserApi = async (userId=null) => {
+export const getUserApi = async (userId = null) => {
 	let url = userId === null ? '/user/getUser' : `/user/getUser?userId=${userId}`
 	return await request(url, "GET")
 }
@@ -67,4 +70,23 @@ export const queryFansApi = async (userId = null) => {
 export const queryEachApi = async (userId) => {
 	let url = userId ? `/user/queryEach?userId=${userId}` : '/user/queryEach'
 	return await request(url, "GET")
+}
+
+/**
+ * @description 添加访客记录
+ * @param visitorId 我的id
+ * @param visitedId 被访问者id
+ */
+export const addVisitApi = async (visitorId, visitedId) => {
+	return await request("/user/addVisit", "POST", {
+		visitorId: visitorId,
+		visitedId: visitedId
+	})
+}
+
+/**
+ * @description 查询访客记录
+ */
+export const queryVisitApi = async () => {
+	return await request("/user/queryVisit", "GET")
 }

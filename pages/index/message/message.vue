@@ -21,7 +21,7 @@
 						<scroll-view scroll-y="true" class="userList">
 							<template v-for="(message, index) in messageList" :key="message.id">
 								<uni-list-chat clickable :title="message.userName" :avatar="message.userAvatar"
-									:note="getMessage(message.messageContent, message.sendUserId)"
+									:note="getMessage(message.messageContent, message.messageType, message.sendUserId)"
 									:time="message.createTime" :badge-text="message.noReadMessageCount"
 									@click="toOtherPage('chat', myId === message.sendUserId ? message.acceptUserId : message.sendUserId, message.userName)"></uni-list-chat>
 							</template>
@@ -73,12 +73,18 @@
 		currentOption.value = event.detail.current
 	}
 	// 判断最新消息是我发的还是别人发的
-	const getMessage = (content, userId) => {
+	const getMessage = (content, type, userId) => {
 		if (myId.value === userId) {
 			// 我发的
+			if (type === 'image') {
+				return '我:[图片]'
+			}
 			return `我:${content}`
 		} else {
 			// 别人发的
+			if (type === 'image') {
+				return '[图片]'
+			}
 			return content
 		}
 	}

@@ -2,7 +2,7 @@
 	<view class="chat">
 		<view :class="{content: true, 'content-active': moreFunction}">
 			<!-- 聊天内容展示组件 -->
-			<Chat :userId="userId"></Chat>
+			<GroupChat></GroupChat>
 		</view>
 		<view :class="{send: true, 'send-active': moreFunction}">
 			<view class="input">
@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-	import Chat from "/components/chat/chat.vue"
+	import GroupChat from "/components/chat/groupChat.vue"
 	import {
 		ref
 	} from "vue";
@@ -35,35 +35,34 @@
 		isReadApi,
 		uploadImageApi
 	} from "/pages/api/message/message.js"
+	import { queryNameAndCountApi } from "/pages/api/activity/activity.js"
 	// 变量
 	const moreFunction = ref(false)
 	const content = ref(''); //消息内容
-	const userId = ref(null); // 对方id
-	const userName = ref(null); // 对方名称
+	const activityId = ref(null); // 群id
+	const activityName = ref(null); // 群名称
+	const personCount = ref(null); // 群人数
 	const myId = ref(uni.getStorageSync('user').id)
 	const myScoket = getApp().globalData[`${myId.value}`]
 	onLoad(async (e) => {
-		userId.value = Number(e.userId)
-		// 保存当前聊天页面用户的id，为了弹窗消息时判断
-		myScoket.setDirectMessage(userId.value)
-		userName.value = e.userName
+		activityId.value = e.activityId
+		const res = await queryNameAndCountApi(activityId.value)
+		if (res.data.code === 200) {
+			activityName.value = res.data.data.activityName
+			personCount.value = res.data.data.personCount
+		}
 		uni.setNavigationBarTitle({
-			title: userName.value
+			title: `${activityName.value}(${personCount.value})`
 		})
-		// 把未读消息设置成已读消息
-		await isReadApi(userId.value)
-		// 把消息列表中该用户给我发的未读消息清空
-		// 把未读总消息数更新
-		uni.$emit('updateNoReadCount', userId.value)
 	})
+	// 发送消息
 	const send = () => {
 		moreFunction.value = false
-		myScoket.send('directMessage', JSON.stringify({
-			userName: uni.getStorageSync("user").userName,
-			sendUserId: myId.value,
-			acceptUserId: userId.value,
-			messageContent: content.value,
-			messageType: 'text'
+		myScoket.send('groupMessage', JSON.stringify({
+			sendUserId: myId.value, // 发送者id（我的id）
+			activityId: activityId.value, // 群聊id
+			messageContent: content.value, // 消息内容
+			messageType: 'text' // 消息类型
 		}))
 		content.value = ''
 	}
@@ -84,13 +83,13 @@
 					console.log(res1)
 					if (JSON.parse(res1.data).code === 200) {
 						const messageContent = JSON.parse(res1.data).data
-						myScoket.send('directMessage', JSON.stringify({
-							userName: uni.getStorageSync("user").userName,
-							sendUserId: myId.value,
-							acceptUserId: userId.value,
-							messageContent: messageContent,
-							messageType: 'image'
+						myScoket.send('groupMessage', JSON.stringify({
+							sendUserId: myId.value, // 发送者id（我的id）
+							activityId: activityId.value, // 群聊id
+							messageContent: messageContent, // 消息内容
+							messageType: 'image' // 消息类型
 						}))
+						moreFunction.value = false
 					}
 				} catch (err) {
 					console.log(err);
@@ -105,46 +104,46 @@
 		width: 100vw;
 		height: 100vh;
 		overflow: hidden;
-
+	
 		.content {
 			width: 100%;
 			height: 93%;
 			transition: all .5s;
 		}
-
+	
 		.send {
 			padding: 0 20px;
 			width: 100%;
 			height: 7%;
-
+	
 			.input {
 				margin-top: 5px;
 				width: 100%;
 				display: flex;
 				align-items: center;
-
+	
 				.button {
 					width: 60px;
 					margin-left: 10px;
 				}
-
+	
 				.icon {
 					margin-left: 10px;
 					transition: all .5s;
 				}
 			}
-
+	
 			.more {
 				width: 100%;
 				height: 340px;
-
+	
 				.item {
 					width: 50px;
 					height: 50px;
 					display: flex;
 					flex-direction: column;
 					align-items: center;
-
+	
 					.text {
 						font-size: 12px;
 					}
@@ -152,15 +151,15 @@
 			}
 		}
 	}
-
+	
 	.icon-active {
 		transform: rotate(-45deg);
 	}
-
+	
 	.send-active {
 		height: 340px !important;
 	}
-
+	
 	.content-active {
 		height: calc(100% - 340px) !important;
 	}

@@ -88,7 +88,9 @@
 			return;
 		}
 		if (res.data.code === 200) {
-			articleList.value = res.data.data || []
+			articleList.value = res.data.data
+		} else {
+			articleList.value = []
 		}
 	})
 	// 其他页面

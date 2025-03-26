@@ -46,7 +46,7 @@
 			</view>
 			<view class="function">
 				<van-cell title="功能" style="background-color: #F2F2F2;" />
-				<view class="item">
+				<view class="item" @click="toOtherPage('visit')">
 					<van-cell title="访客" icon="eye-o" is-link>
 					</van-cell>
 				</view>
@@ -110,7 +110,8 @@
 			'index': '/pages/my/myIndex/myIndex?identity=me',
 			'userList': `/pages/my/userList/userList?title=${param}`,
 			'setting': '/pages/my/setting/setting',
-			'activityList': '/pages/my/activityList/activityList'
+			'activityList': '/pages/my/activityList/activityList',
+			'visit': '/pages/my/visit/visit'
 		}
 		const url = routes[`${key}`]
 		uni.navigateTo({

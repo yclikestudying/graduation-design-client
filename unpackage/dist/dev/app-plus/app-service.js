@@ -688,7 +688,7 @@ if (uni.restoreGlobal) {
     const reg = /^[0-9]*$/g;
     return typeof val === "number" || reg.test(val) ? val + "px" : val;
   };
-  const _sfc_main$V = {
+  const _sfc_main$Y = {
     name: "UniIcons",
     emits: ["click"],
     props: {
@@ -742,7 +742,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "text",
       {
@@ -757,7 +757,7 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_1$3 = /* @__PURE__ */ _export_sfc(_sfc_main$V, [["render", _sfc_render$V], ["__scopeId", "data-v-d31e1c47"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-icons/components/uni-icons/uni-icons.vue"]]);
+  const __easycom_1$3 = /* @__PURE__ */ _export_sfc(_sfc_main$Y, [["render", _sfc_render$Y], ["__scopeId", "data-v-d31e1c47"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-icons/components/uni-icons/uni-icons.vue"]]);
   const ON_SHOW = "onShow";
   const ON_HIDE = "onHide";
   const ON_LOAD = "onLoad";
@@ -870,6 +870,12 @@ if (uni.restoreGlobal) {
   const queryNoReadTotalApi = async () => {
     return await request("/message/queryNoReadTotal", "GET");
   };
+  const uploadImageApi = async (file) => {
+    return await uploadNoText("/message/uploadImage", file);
+  };
+  const queryGroupMessageApi = async (activityId) => {
+    return await request(`/groupMessage/queryGroupMessage/${activityId}`, "GET");
+  };
   class WebSocketClient {
     constructor(userId) {
       this.userId = userId;
@@ -963,7 +969,7 @@ if (uni.restoreGlobal) {
       return this.isConnected;
     }
   }
-  const _sfc_main$U = {
+  const _sfc_main$X = {
     __name: "login",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -1050,7 +1056,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_van_button = vue.resolveComponent("van-button");
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_1$3);
     return vue.openBlock(), vue.createElementBlock("view", { class: "login" }, [
@@ -1149,9 +1155,9 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$U, [["render", _sfc_render$U], ["__scopeId", "data-v-e4e4508d"], ["__file", "E:/code/design/client/graduation-design/pages/login/login.vue"]]);
+  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$X, [["render", _sfc_render$X], ["__scopeId", "data-v-e4e4508d"], ["__file", "E:/code/design/client/graduation-design/pages/login/login.vue"]]);
   let platform$1 = "other";
-  const _sfc_main$T = {
+  const _sfc_main$W = {
     name: "UniFab",
     emits: ["fabClick", "trigger"],
     props: {
@@ -1307,7 +1313,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_1$3);
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-cursor-point" }, [
       $props.popMenu && ($options.leftBottom || $options.rightBottom || $options.leftTop || $options.rightTop) && $props.content.length > 0 ? (vue.openBlock(), vue.createElementBlock(
@@ -1411,8 +1417,8 @@ if (uni.restoreGlobal) {
       )
     ]);
   }
-  const __easycom_0$7 = /* @__PURE__ */ _export_sfc(_sfc_main$T, [["render", _sfc_render$T], ["__scopeId", "data-v-85f34dfc"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-fab/components/uni-fab/uni-fab.vue"]]);
-  const _sfc_main$S = {
+  const __easycom_0$7 = /* @__PURE__ */ _export_sfc(_sfc_main$W, [["render", _sfc_render$W], ["__scopeId", "data-v-85f34dfc"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-fab/components/uni-fab/uni-fab.vue"]]);
+  const _sfc_main$V = {
     name: "UniCard",
     emits: ["click"],
     props: {
@@ -1473,7 +1479,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -1574,7 +1580,7 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$S, [["render", _sfc_render$S], ["__scopeId", "data-v-ae4bee67"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-card/components/uni-card/uni-card.vue"]]);
+  const __easycom_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$V, [["render", _sfc_render$V], ["__scopeId", "data-v-ae4bee67"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-card/components/uni-card/uni-card.vue"]]);
   const uploadApi$4 = async (files, text) => {
     return await upload("/article/upload", files, text);
   };
@@ -1603,7 +1609,7 @@ if (uni.restoreGlobal) {
   const queryArticleByKeywordApi = async (keyword) => {
     return await request(`/article/queryArticleByKeyword?keyword=${keyword}`, "GET");
   };
-  const _sfc_main$R = {
+  const _sfc_main$U = {
     __name: "articleList",
     props: {
       isScroll: {
@@ -1650,7 +1656,9 @@ if (uni.restoreGlobal) {
           return;
         }
         if (res.data.code === 200) {
-          articleList.value = res.data.data || [];
+          articleList.value = res.data.data;
+        } else {
+          articleList.value = [];
         }
       });
       const toOtherPage = (key, param, data) => {
@@ -1702,7 +1710,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     const _component_Loading = vue.resolveComponent("Loading");
     const _component_Empty = vue.resolveComponent("Empty");
@@ -1798,7 +1806,7 @@ if (uni.restoreGlobal) {
       ))
     ], 8, ["scroll-y"]);
   }
-  const ArticleList = /* @__PURE__ */ _export_sfc(_sfc_main$R, [["render", _sfc_render$R], ["__scopeId", "data-v-05333a35"], ["__file", "E:/code/design/client/graduation-design/components/article/articleList.vue"]]);
+  const ArticleList = /* @__PURE__ */ _export_sfc(_sfc_main$U, [["render", _sfc_render$U], ["__scopeId", "data-v-05333a35"], ["__file", "E:/code/design/client/graduation-design/components/article/articleList.vue"]]);
   const uploadApi$3 = async (files, text, title, oldPrice, price) => {
     return await upload("/goods/upload", files, text, title, oldPrice, price);
   };
@@ -1815,7 +1823,7 @@ if (uni.restoreGlobal) {
   const deleteGoodsApi = async (goodsId) => {
     return await request(`/goods/deleteGoods?goodsId=${goodsId}`, "DELETE");
   };
-  const _sfc_main$Q = {
+  const _sfc_main$T = {
     __name: "goodsList",
     props: {
       isScroll: {
@@ -1929,7 +1937,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     const _component_Loading = vue.resolveComponent("Loading");
     const _component_Empty = vue.resolveComponent("Empty");
@@ -1971,13 +1979,16 @@ if (uni.restoreGlobal) {
       ))
     ], 8, ["scroll-y"]);
   }
-  const GoodsList = /* @__PURE__ */ _export_sfc(_sfc_main$Q, [["render", _sfc_render$Q], ["__scopeId", "data-v-5642c54d"], ["__file", "E:/code/design/client/graduation-design/components/goods/goodsList.vue"]]);
+  const GoodsList = /* @__PURE__ */ _export_sfc(_sfc_main$T, [["render", _sfc_render$T], ["__scopeId", "data-v-5642c54d"], ["__file", "E:/code/design/client/graduation-design/components/goods/goodsList.vue"]]);
   const uploadApi$2 = async (file, title, text, max) => {
     return await uploadAboutActivity("/activity/upload", file, title, text, max);
   };
   const queryActivityApi = async (userId = null) => {
     let url = userId ? `/activity/queryActivity?userId=${userId}` : "/activity/queryActivity";
     return await request(url, "GET");
+  };
+  const queryJoinedActivityApi = async () => {
+    return await request("/activity/queryJoinedActivity", "GET");
   };
   const queryAllActivityApi = async () => {
     return await request("/activity/queryAllActivity", "GET");
@@ -1994,9 +2005,12 @@ if (uni.restoreGlobal) {
     });
   };
   const queryCountApi = async () => {
-    return await request(`/activity/queryCount`, "GET");
+    return await request(`/activityRelation/queryCount`, "GET");
   };
-  const _sfc_main$P = {
+  const queryNameAndCountApi = async (activityId) => {
+    return await request(`/activity/queryNameAndCount/${activityId}`, "GET");
+  };
+  const _sfc_main$S = {
     __name: "activityList",
     props: {
       isScroll: {
@@ -2069,7 +2083,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     const _component_Loading = vue.resolveComponent("Loading");
     const _component_Empty = vue.resolveComponent("Empty");
@@ -2109,7 +2123,7 @@ if (uni.restoreGlobal) {
       ))
     ], 8, ["scroll-y"]);
   }
-  const ActivityList = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["render", _sfc_render$P], ["__scopeId", "data-v-4c2d632c"], ["__file", "E:/code/design/client/graduation-design/components/activity/activityList.vue"]]);
+  const ActivityList = /* @__PURE__ */ _export_sfc(_sfc_main$S, [["render", _sfc_render$S], ["__scopeId", "data-v-4c2d632c"], ["__file", "E:/code/design/client/graduation-design/components/activity/activityList.vue"]]);
   const uploadApi$1 = async (text) => {
     return await request("/express/upload", "POST", { "text": text });
   };
@@ -2126,7 +2140,7 @@ if (uni.restoreGlobal) {
   const queryExpressByKeywordApi = async (keyword) => {
     return await request(`/express/queryExpressByKeyword?keyword=${keyword}`, "GET");
   };
-  const _sfc_main$O = {
+  const _sfc_main$R = {
     __name: "expressList",
     props: {
       isScroll: {
@@ -2227,7 +2241,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     const _component_Loading = vue.resolveComponent("Loading");
     const _component_Empty = vue.resolveComponent("Empty");
@@ -2266,7 +2280,7 @@ if (uni.restoreGlobal) {
       ))
     ], 8, ["scroll-y"]);
   }
-  const ExpressList = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["render", _sfc_render$O], ["__scopeId", "data-v-fbce0da4"], ["__file", "E:/code/design/client/graduation-design/components/express/expressList.vue"]]);
+  const ExpressList = /* @__PURE__ */ _export_sfc(_sfc_main$R, [["render", _sfc_render$R], ["__scopeId", "data-v-fbce0da4"], ["__file", "E:/code/design/client/graduation-design/components/express/expressList.vue"]]);
   const uploadApi = async (files, type, title, description) => {
     return await uploadAboutLost("/lost/upload", files, type, title, description);
   };
@@ -2290,7 +2304,7 @@ if (uni.restoreGlobal) {
   const deleteLostApi = async (lostId) => {
     return await request(`/lost/deleteLost?lostId=${lostId}`, "DELETE");
   };
-  const _sfc_main$N = {
+  const _sfc_main$Q = {
     __name: "lostList",
     props: {
       isScroll: {
@@ -2397,7 +2411,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     const _component_Loading = vue.resolveComponent("Loading");
     const _component_Empty = vue.resolveComponent("Empty");
@@ -2466,10 +2480,10 @@ if (uni.restoreGlobal) {
       ))
     ], 8, ["scroll-y"]);
   }
-  const LostList = /* @__PURE__ */ _export_sfc(_sfc_main$N, [["render", _sfc_render$N], ["__scopeId", "data-v-35a3b580"], ["__file", "E:/code/design/client/graduation-design/components/lost/lostList.vue"]]);
+  const LostList = /* @__PURE__ */ _export_sfc(_sfc_main$Q, [["render", _sfc_render$Q], ["__scopeId", "data-v-35a3b580"], ["__file", "E:/code/design/client/graduation-design/components/lost/lostList.vue"]]);
   const _imports_0$1 = "/static/home/重庆文理学院校徽.png";
   const _imports_1 = "/static/home/搜索.svg";
-  const _sfc_main$M = {
+  const _sfc_main$P = {
     __name: "home",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -2605,7 +2619,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_fab = resolveEasycom(vue.resolveDynamicComponent("uni-fab"), __easycom_0$7);
     return vue.openBlock(), vue.createElementBlock(
       vue.Fragment,
@@ -2811,7 +2825,7 @@ if (uni.restoreGlobal) {
       /* STABLE_FRAGMENT */
     );
   }
-  const PagesIndexHomeHome = /* @__PURE__ */ _export_sfc(_sfc_main$M, [["render", _sfc_render$M], ["__scopeId", "data-v-00503024"], ["__file", "E:/code/design/client/graduation-design/pages/index/home/home.vue"]]);
+  const PagesIndexHomeHome = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["render", _sfc_render$P], ["__scopeId", "data-v-00503024"], ["__file", "E:/code/design/client/graduation-design/pages/index/home/home.vue"]]);
   const queryFriendApi$1 = async (userId) => {
     return await request(`/friend/queryFriend?userId=${userId}`, "GET");
   };
@@ -2834,7 +2848,7 @@ if (uni.restoreGlobal) {
     return await request(url, "GET");
   };
   const _imports_0 = "/static/my/backgroundImage.jpg";
-  const _sfc_main$L = {
+  const _sfc_main$O = {
     __name: "my",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -2862,7 +2876,8 @@ if (uni.restoreGlobal) {
           "index": "/pages/my/myIndex/myIndex?identity=me",
           "userList": `/pages/my/userList/userList?title=${param}`,
           "setting": "/pages/my/setting/setting",
-          "activityList": "/pages/my/activityList/activityList"
+          "activityList": "/pages/my/activityList/activityList",
+          "visit": "/pages/my/visit/visit"
         };
         const url = routes[`${key}`];
         uni.navigateTo({
@@ -2888,7 +2903,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_van_tag = vue.resolveComponent("van-tag");
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_1$3);
     const _component_van_cell = vue.resolveComponent("van-cell");
@@ -3013,7 +3028,10 @@ if (uni.restoreGlobal) {
             title: "功能",
             style: { "background-color": "#F2F2F2" }
           }),
-          vue.createElementVNode("view", { class: "item" }, [
+          vue.createElementVNode("view", {
+            class: "item",
+            onClick: _cache[5] || (_cache[5] = ($event) => $setup.toOtherPage("visit"))
+          }, [
             vue.createVNode(_component_van_cell, {
               title: "访客",
               icon: "eye-o",
@@ -3026,7 +3044,7 @@ if (uni.restoreGlobal) {
           }),
           vue.createElementVNode("view", {
             class: "item",
-            onClick: _cache[5] || (_cache[5] = ($event) => $setup.toOtherPage("setting"))
+            onClick: _cache[6] || (_cache[6] = ($event) => $setup.toOtherPage("setting"))
           }, [
             vue.createVNode(_component_van_cell, {
               title: "系统设置",
@@ -3038,7 +3056,7 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesIndexMyMy = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["render", _sfc_render$L], ["__scopeId", "data-v-180b149f"], ["__file", "E:/code/design/client/graduation-design/pages/index/my/my.vue"]]);
+  const PagesIndexMyMy = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["render", _sfc_render$O], ["__scopeId", "data-v-180b149f"], ["__file", "E:/code/design/client/graduation-design/pages/index/my/my.vue"]]);
   const pages = [
     {
       path: "pages/login/login",
@@ -3490,7 +3508,7 @@ if (uni.restoreGlobal) {
     {
       path: "pages/message/chat/chat",
       style: {
-        navigationBarTitleText: "聊天页面",
+        navigationBarTitleText: "私聊页面",
         animationType: "slide-in-right",
         animationDuration: 300,
         "app-plus": {
@@ -3498,6 +3516,41 @@ if (uni.restoreGlobal) {
           scrollIndicator: "none",
           titleNView: {
             backgroundColor: "#ffffff"
+          }
+        }
+      }
+    },
+    {
+      path: "pages/my/visit/visit",
+      style: {
+        navigationBarTitleText: "访客记录",
+        animationType: "slide-in-right",
+        animationDuration: 300,
+        "app-plus": {
+          bounce: "none",
+          scrollIndicator: "none",
+          titleNView: {
+            backgroundColor: "#ffffff"
+          }
+        }
+      }
+    },
+    {
+      path: "pages/message/groupChat/groupChat",
+      style: {
+        navigationBarTitleText: "群聊页面",
+        animationType: "slide-in-right",
+        animationDuration: 300,
+        "app-plus": {
+          bounce: "none",
+          scrollIndicator: "none",
+          titleNView: {
+            backgroundColor: "#ffffff",
+            buttons: [
+              {
+                type: "menu"
+              }
+            ]
           }
         }
       }
@@ -6393,7 +6446,7 @@ ${o3}
   })();
   var er = Zs;
   const avatarWidth = 45;
-  const _sfc_main$K = {
+  const _sfc_main$N = {
     name: "UniListChat",
     emits: ["click"],
     props: {
@@ -6576,7 +6629,7 @@ ${o3}
       }
     }
   };
-  function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", {
       "hover-class": !$props.clickable && !$props.link ? "" : "uni-list-chat--hover",
       class: "uni-list-chat",
@@ -6721,8 +6774,8 @@ ${o3}
       ])
     ], 8, ["hover-class"]);
   }
-  const __easycom_0$6 = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-20df4ef0"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-list/components/uni-list-chat/uni-list-chat.vue"]]);
-  const _sfc_main$J = {
+  const __easycom_0$6 = /* @__PURE__ */ _export_sfc(_sfc_main$N, [["render", _sfc_render$N], ["__scopeId", "data-v-20df4ef0"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-list/components/uni-list-chat/uni-list-chat.vue"]]);
+  const _sfc_main$M = {
     __name: "message",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -6741,10 +6794,16 @@ ${o3}
       const onSwiperChange = (event) => {
         currentOption.value = event.detail.current;
       };
-      const getMessage = (content, userId) => {
+      const getMessage = (content, type, userId) => {
         if (myId.value === userId) {
+          if (type === "image") {
+            return "我:[图片]";
+          }
           return `我:${content}`;
         } else {
+          if (type === "image") {
+            return "[图片]";
+          }
           return content;
         }
       };
@@ -6784,7 +6843,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_list_chat = resolveEasycom(vue.resolveDynamicComponent("uni-list-chat"), __easycom_0$6);
     return vue.openBlock(), vue.createElementBlock("view", { class: "message" }, [
       vue.createElementVNode("view", { class: "title" }, [
@@ -6852,7 +6911,7 @@ ${o3}
                       clickable: "",
                       title: message.userName,
                       avatar: message.userAvatar,
-                      note: $setup.getMessage(message.messageContent, message.sendUserId),
+                      note: $setup.getMessage(message.messageContent, message.messageType, message.sendUserId),
                       time: message.createTime,
                       "badge-text": message.noReadMessageCount,
                       onClick: ($event) => $setup.toOtherPage("chat", $setup.myId === message.sendUserId ? message.acceptUserId : message.sendUserId, message.userName)
@@ -6884,8 +6943,8 @@ ${o3}
       ])
     ]);
   }
-  const PagesIndexMessageMessage = /* @__PURE__ */ _export_sfc(_sfc_main$J, [["render", _sfc_render$J], ["__scopeId", "data-v-5cda67d8"], ["__file", "E:/code/design/client/graduation-design/pages/index/message/message.vue"]]);
-  const _sfc_main$I = {
+  const PagesIndexMessageMessage = /* @__PURE__ */ _export_sfc(_sfc_main$M, [["render", _sfc_render$M], ["__scopeId", "data-v-5cda67d8"], ["__file", "E:/code/design/client/graduation-design/pages/index/message/message.vue"]]);
+  const _sfc_main$L = {
     __name: "recommend",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -6909,7 +6968,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "allPage" }, [
       vue.createElementVNode("view", {
         class: "share",
@@ -6985,7 +7044,7 @@ ${o3}
       ])
     ]);
   }
-  const PagesIndexRecommendRecommend = /* @__PURE__ */ _export_sfc(_sfc_main$I, [["render", _sfc_render$I], ["__scopeId", "data-v-a59000cd"], ["__file", "E:/code/design/client/graduation-design/pages/index/recommend/recommend.vue"]]);
+  const PagesIndexRecommendRecommend = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["render", _sfc_render$L], ["__scopeId", "data-v-a59000cd"], ["__file", "E:/code/design/client/graduation-design/pages/index/recommend/recommend.vue"]]);
   const userInfoProgress = () => {
     const user = uni.getStorageSync("user");
     const totle = Object.keys(user).length - 6;
@@ -7029,7 +7088,16 @@ ${o3}
     let url = userId ? `/user/queryEach?userId=${userId}` : "/user/queryEach";
     return await request(url, "GET");
   };
-  const _sfc_main$H = {
+  const addVisitApi = async (visitorId, visitedId) => {
+    return await request("/user/addVisit", "POST", {
+      visitorId,
+      visitedId
+    });
+  };
+  const queryVisitApi = async () => {
+    return await request("/user/queryVisit", "GET");
+  };
+  const _sfc_main$K = {
     __name: "myIndex",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -7057,6 +7125,7 @@ ${o3}
           user.value = res.data.data;
           const res1 = await queryFriendApi$1(currentUserId.value);
           isFriend.value = res1.data.data;
+          await addVisitApi(uni.getStorageSync("user").id, user.value.id);
         }
         const res2 = await friendCountApi(currentUserId.value);
         friendCount.value = res2.data.data ?? 0;
@@ -7140,6 +7209,8 @@ ${o3}
         return userInfoProgress;
       }, get getUserApi() {
         return getUserApi;
+      }, get addVisitApi() {
+        return addVisitApi;
       }, get queryFriendApi() {
         return queryFriendApi$1;
       }, get addApi() {
@@ -7155,7 +7226,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_van_icon = vue.resolveComponent("van-icon");
     const _component_van_button = vue.resolveComponent("van-button");
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_1$3);
@@ -7507,8 +7578,8 @@ ${o3}
       /* NEED_HYDRATION */
     );
   }
-  const PagesMyMyIndexMyIndex = /* @__PURE__ */ _export_sfc(_sfc_main$H, [["render", _sfc_render$H], ["__scopeId", "data-v-fc8ca2d6"], ["__file", "E:/code/design/client/graduation-design/pages/my/myIndex/myIndex.vue"]]);
-  const _sfc_main$G = {
+  const PagesMyMyIndexMyIndex = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-fc8ca2d6"], ["__file", "E:/code/design/client/graduation-design/pages/my/myIndex/myIndex.vue"]]);
+  const _sfc_main$J = {
     __name: "info",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -7556,7 +7627,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
     var _a, _b, _c, _d, _e2, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o;
     const _component_van_cell = vue.resolveComponent("van-cell");
     const _component_van_tag = vue.resolveComponent("van-tag");
@@ -7689,7 +7760,7 @@ ${o3}
       ])
     ]);
   }
-  const PagesMyInfoInfo = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["render", _sfc_render$G], ["__scopeId", "data-v-7ec17697"], ["__file", "E:/code/design/client/graduation-design/pages/my/info/info.vue"]]);
+  const PagesMyInfoInfo = /* @__PURE__ */ _export_sfc(_sfc_main$J, [["render", _sfc_render$J], ["__scopeId", "data-v-7ec17697"], ["__file", "E:/code/design/client/graduation-design/pages/my/info/info.vue"]]);
   function obj2strClass(obj) {
     let classess = "";
     for (let key in obj) {
@@ -7708,7 +7779,7 @@ ${o3}
     }
     return style;
   }
-  const _sfc_main$F = {
+  const _sfc_main$I = {
     name: "uni-easyinput",
     emits: [
       "click",
@@ -8065,7 +8136,7 @@ ${o3}
       }
     }
   };
-  function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_1$3);
     return vue.openBlock(), vue.createElementBlock(
       "view",
@@ -8190,8 +8261,8 @@ ${o3}
       /* CLASS, STYLE */
     );
   }
-  const __easycom_0$5 = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["render", _sfc_render$F], ["__scopeId", "data-v-09fd5285"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-easyinput/components/uni-easyinput/uni-easyinput.vue"]]);
-  const _sfc_main$E = {
+  const __easycom_0$5 = /* @__PURE__ */ _export_sfc(_sfc_main$I, [["render", _sfc_render$I], ["__scopeId", "data-v-09fd5285"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-easyinput/components/uni-easyinput/uni-easyinput.vue"]]);
+  const _sfc_main$H = {
     __name: "username",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -8245,7 +8316,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_easyinput = resolveEasycom(vue.resolveDynamicComponent("uni-easyinput"), __easycom_0$5);
     const _component_van_button = vue.resolveComponent("van-button");
     return vue.openBlock(), vue.createElementBlock("view", { class: "username" }, [
@@ -8276,8 +8347,8 @@ ${o3}
       ])
     ]);
   }
-  const PagesMyInfoUsername = /* @__PURE__ */ _export_sfc(_sfc_main$E, [["render", _sfc_render$E], ["__scopeId", "data-v-299000ea"], ["__file", "E:/code/design/client/graduation-design/pages/my/info/username.vue"]]);
-  const _sfc_main$D = {
+  const PagesMyInfoUsername = /* @__PURE__ */ _export_sfc(_sfc_main$H, [["render", _sfc_render$H], ["__scopeId", "data-v-299000ea"], ["__file", "E:/code/design/client/graduation-design/pages/my/info/username.vue"]]);
+  const _sfc_main$G = {
     __name: "profile",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -8340,7 +8411,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_easyinput = resolveEasycom(vue.resolveDynamicComponent("uni-easyinput"), __easycom_0$5);
     const _component_van_button = vue.resolveComponent("van-button");
     return vue.openBlock(), vue.createElementBlock("view", { class: "profile" }, [
@@ -8372,7 +8443,7 @@ ${o3}
       ])
     ]);
   }
-  const PagesMyInfoProfile = /* @__PURE__ */ _export_sfc(_sfc_main$D, [["render", _sfc_render$D], ["__scopeId", "data-v-67791a01"], ["__file", "E:/code/design/client/graduation-design/pages/my/info/profile.vue"]]);
+  const PagesMyInfoProfile = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["render", _sfc_render$G], ["__scopeId", "data-v-67791a01"], ["__file", "E:/code/design/client/graduation-design/pages/my/info/profile.vue"]]);
   const isObject$1 = (val) => val !== null && typeof val === "object";
   const defaultDelimiters = ["{", "}"];
   class BaseFormatter {
@@ -8686,7 +8757,7 @@ ${o3}
   const {
     t: t$o
   } = initVueI18n(messages$2);
-  const _sfc_main$C = {
+  const _sfc_main$F = {
     name: "UniLoadMore",
     emits: ["clickLoadMore"],
     props: {
@@ -8768,7 +8839,7 @@ ${o3}
       }
     }
   };
-  function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", {
       class: "uni-load-more",
       onClick: _cache[0] || (_cache[0] = (...args) => $options.onClick && $options.onClick(...args))
@@ -8843,8 +8914,8 @@ ${o3}
       )) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const __easycom_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["render", _sfc_render$C], ["__scopeId", "data-v-9245e42c"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-load-more/components/uni-load-more/uni-load-more.vue"]]);
-  const _sfc_main$B = {
+  const __easycom_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["render", _sfc_render$F], ["__scopeId", "data-v-9245e42c"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-load-more/components/uni-load-more/uni-load-more.vue"]]);
+  const _sfc_main$E = {
     name: "uniDataChecklist",
     mixins: [er.mixinDatacom || {}],
     emits: ["input", "update:modelValue", "change"],
@@ -9191,7 +9262,7 @@ ${o3}
       }
     }
   };
-  function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_load_more = resolveEasycom(vue.resolveDynamicComponent("uni-load-more"), __easycom_0$4);
     return vue.openBlock(), vue.createElementBlock(
       "view",
@@ -9404,8 +9475,8 @@ ${o3}
       /* STYLE */
     );
   }
-  const __easycom_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["render", _sfc_render$B], ["__scopeId", "data-v-2f788efd"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox.vue"]]);
-  const _sfc_main$A = {
+  const __easycom_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$E, [["render", _sfc_render$E], ["__scopeId", "data-v-2f788efd"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox.vue"]]);
+  const _sfc_main$D = {
     __name: "gender",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -9466,7 +9537,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_data_checkbox = resolveEasycom(vue.resolveDynamicComponent("uni-data-checkbox"), __easycom_0$3);
     const _component_van_button = vue.resolveComponent("van-button");
     return vue.openBlock(), vue.createElementBlock("view", { class: "gender" }, [
@@ -9497,7 +9568,7 @@ ${o3}
       ])
     ]);
   }
-  const PagesMyInfoGender = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-eab7ffdb"], ["__file", "E:/code/design/client/graduation-design/pages/my/info/gender.vue"]]);
+  const PagesMyInfoGender = /* @__PURE__ */ _export_sfc(_sfc_main$D, [["render", _sfc_render$D], ["__scopeId", "data-v-eab7ffdb"], ["__file", "E:/code/design/client/graduation-design/pages/my/info/gender.vue"]]);
   let Calendar$2 = class Calendar {
     constructor({
       selected,
@@ -9854,7 +9925,7 @@ ${o3}
     }
     return value;
   }
-  const _sfc_main$z = {
+  const _sfc_main$C = {
     props: {
       weeks: {
         type: Object,
@@ -9888,7 +9959,7 @@ ${o3}
       }
     }
   };
-  function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -9944,7 +10015,7 @@ ${o3}
       /* CLASS, NEED_HYDRATION */
     );
   }
-  const calendarItem = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["render", _sfc_render$z], ["__scopeId", "data-v-3c762a01"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-datetime-picker/components/uni-datetime-picker/calendar-item.vue"]]);
+  const calendarItem = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["render", _sfc_render$C], ["__scopeId", "data-v-3c762a01"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-datetime-picker/components/uni-datetime-picker/calendar-item.vue"]]);
   const en$1 = {
     "uni-datetime-picker.selectDate": "select date",
     "uni-datetime-picker.selectTime": "select time",
@@ -10019,7 +10090,7 @@ ${o3}
   const {
     t: t$n
   } = initVueI18n(i18nMessages);
-  const _sfc_main$y = {
+  const _sfc_main$B = {
     name: "UniDatetimePicker",
     data() {
       return {
@@ -10623,7 +10694,7 @@ ${o3}
       }
     }
   };
-  function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-datetime-picker" }, [
       vue.createElementVNode("view", {
         onClick: _cache[0] || (_cache[0] = (...args) => $options.initTimePicker && $options.initTimePicker(...args))
@@ -10900,11 +10971,11 @@ ${o3}
       )) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const TimePicker$1 = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$y], ["__scopeId", "data-v-1d532b70"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-datetime-picker/components/uni-datetime-picker/time-picker.vue"]]);
+  const TimePicker$1 = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["render", _sfc_render$B], ["__scopeId", "data-v-1d532b70"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-datetime-picker/components/uni-datetime-picker/time-picker.vue"]]);
   const {
     t: t$m
   } = initVueI18n(i18nMessages);
-  const _sfc_main$x = {
+  const _sfc_main$A = {
     components: {
       calendarItem,
       timePicker: TimePicker$1
@@ -11385,7 +11456,7 @@ ${o3}
       }
     }
   };
-  function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_calendar_item = vue.resolveComponent("calendar-item");
     const _component_time_picker = vue.resolveComponent("time-picker");
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_1$3);
@@ -11678,8 +11749,8 @@ ${o3}
       /* NEED_HYDRATION */
     );
   }
-  const Calendar$1 = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["render", _sfc_render$x], ["__scopeId", "data-v-1d379219"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-datetime-picker/components/uni-datetime-picker/calendar.vue"]]);
-  const _sfc_main$w = {
+  const Calendar$1 = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-1d379219"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-datetime-picker/components/uni-datetime-picker/calendar.vue"]]);
+  const _sfc_main$z = {
     name: "UniDatetimePicker",
     options: {
       virtualHost: true
@@ -12335,7 +12406,7 @@ ${o3}
       }
     }
   };
-  function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_1$3);
     const _component_time_picker = vue.resolveComponent("time-picker");
     const _component_Calendar = vue.resolveComponent("Calendar");
@@ -12679,8 +12750,8 @@ ${o3}
       }, null, 8, ["date", "defTime", "start-date", "end-date", "selectableTimes", "startPlaceholder", "endPlaceholder", "default-value", "pleStatus", "range", "hasTime", "hideSecond", "onConfirm", "onMaskClose", "onChange"])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const __easycom_0$2 = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", _sfc_render$w], ["__scopeId", "data-v-9802168a"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker.vue"]]);
-  const _sfc_main$v = {
+  const __easycom_0$2 = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["render", _sfc_render$z], ["__scopeId", "data-v-9802168a"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-datetime-picker/components/uni-datetime-picker/uni-datetime-picker.vue"]]);
+  const _sfc_main$y = {
     __name: "birthday",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -12734,7 +12805,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_van_cell = vue.resolveComponent("van-cell");
     const _component_uni_datetime_picker = resolveEasycom(vue.resolveDynamicComponent("uni-datetime-picker"), __easycom_0$2);
     const _component_van_button = vue.resolveComponent("van-button");
@@ -12776,7 +12847,7 @@ ${o3}
       ])
     ]);
   }
-  const PagesMyInfoBirthday = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$v], ["__scopeId", "data-v-87297493"], ["__file", "E:/code/design/client/graduation-design/pages/my/info/birthday.vue"]]);
+  const PagesMyInfoBirthday = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$y], ["__scopeId", "data-v-87297493"], ["__file", "E:/code/design/client/graduation-design/pages/my/info/birthday.vue"]]);
   const dataPicker = {
     props: {
       localdata: {
@@ -13321,7 +13392,7 @@ ${o3}
       }
     }
   };
-  const _sfc_main$u = {
+  const _sfc_main$x = {
     name: "UniDataPickerView",
     emits: ["nodeclick", "change", "datachange", "update:modelValue"],
     mixins: [dataPicker],
@@ -13425,7 +13496,7 @@ ${o3}
       }
     }
   };
-  function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_load_more = resolveEasycom(vue.resolveDynamicComponent("uni-load-more"), __easycom_0$4);
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-data-pickerview" }, [
       !_ctx.isCloudDataList ? (vue.openBlock(), vue.createElementBlock("scroll-view", {
@@ -13515,8 +13586,8 @@ ${o3}
       ])
     ]);
   }
-  const DataPickerView = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-91ec6a82"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-data-picker/components/uni-data-pickerview/uni-data-pickerview.vue"]]);
-  const _sfc_main$t = {
+  const DataPickerView = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["render", _sfc_render$x], ["__scopeId", "data-v-91ec6a82"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-data-picker/components/uni-data-pickerview/uni-data-pickerview.vue"]]);
+  const _sfc_main$w = {
     name: "UniDataPicker",
     emits: ["popupopened", "popupclosed", "nodeclick", "input", "change", "update:modelValue", "inputclick"],
     mixins: [dataPicker],
@@ -13720,7 +13791,7 @@ ${o3}
       }
     }
   };
-  function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_load_more = resolveEasycom(vue.resolveDynamicComponent("uni-load-more"), __easycom_0$4);
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_1$3);
     const _component_data_picker_view = vue.resolveComponent("data-picker-view");
@@ -13886,7 +13957,7 @@ ${o3}
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const __easycom_0$1 = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-2653531e"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-data-picker/components/uni-data-picker/uni-data-picker.vue"]]);
+  const __easycom_0$1 = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", _sfc_render$w], ["__scopeId", "data-v-2653531e"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-data-picker/components/uni-data-picker/uni-data-picker.vue"]]);
   const dataTree = [
     {
       "text": "北京市",
@@ -15691,7 +15762,7 @@ ${o3}
       ]
     }
   ];
-  const _sfc_main$s = {
+  const _sfc_main$v = {
     __name: "location",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -15747,7 +15818,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_van_cell = vue.resolveComponent("van-cell");
     const _component_uni_data_picker = resolveEasycom(vue.resolveDynamicComponent("uni-data-picker"), __easycom_0$1);
     const _component_van_button = vue.resolveComponent("van-button");
@@ -15789,8 +15860,8 @@ ${o3}
       ])
     ]);
   }
-  const PagesMyInfoLocation = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["render", _sfc_render$s], ["__scopeId", "data-v-9fc7ee3a"], ["__file", "E:/code/design/client/graduation-design/pages/my/info/location.vue"]]);
-  const _sfc_main$r = {
+  const PagesMyInfoLocation = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$v], ["__scopeId", "data-v-9fc7ee3a"], ["__file", "E:/code/design/client/graduation-design/pages/my/info/location.vue"]]);
+  const _sfc_main$u = {
     __name: "hometown",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -15846,7 +15917,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_van_cell = vue.resolveComponent("van-cell");
     const _component_uni_data_picker = resolveEasycom(vue.resolveDynamicComponent("uni-data-picker"), __easycom_0$1);
     const _component_van_button = vue.resolveComponent("van-button");
@@ -15888,7 +15959,7 @@ ${o3}
       ])
     ]);
   }
-  const PagesMyInfoHometown = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$r], ["__scopeId", "data-v-68ea560e"], ["__file", "E:/code/design/client/graduation-design/pages/my/info/hometown.vue"]]);
+  const PagesMyInfoHometown = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-68ea560e"], ["__file", "E:/code/design/client/graduation-design/pages/my/info/hometown.vue"]]);
   const profession = [
     {
       "text": "工程与技术",
@@ -16151,7 +16222,7 @@ ${o3}
     });
     return name2;
   };
-  const _sfc_main$q = {
+  const _sfc_main$t = {
     __name: "profession",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -16224,7 +16295,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_van_cell = vue.resolveComponent("van-cell");
     const _component_van_tree_select = vue.resolveComponent("van-tree-select");
     const _component_van_button = vue.resolveComponent("van-button");
@@ -16265,7 +16336,7 @@ ${o3}
       ])
     ]);
   }
-  const PagesMyInfoProfession = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$q], ["__scopeId", "data-v-eeecf7e5"], ["__file", "E:/code/design/client/graduation-design/pages/my/info/profession.vue"]]);
+  const PagesMyInfoProfession = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-eeecf7e5"], ["__file", "E:/code/design/client/graduation-design/pages/my/info/profession.vue"]]);
   const hobbies = [
     {
       text: "艺术创作",
@@ -16411,7 +16482,7 @@ ${o3}
       })
     );
   };
-  const _sfc_main$p = {
+  const _sfc_main$s = {
     __name: "tag",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -16490,7 +16561,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_van_tag = vue.resolveComponent("van-tag");
     const _component_van_tree_select = vue.resolveComponent("van-tree-select");
     const _component_van_button = vue.resolveComponent("van-button");
@@ -16565,8 +16636,8 @@ ${o3}
       ])
     ]);
   }
-  const PagesMyInfoTag = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$p], ["__scopeId", "data-v-bac29948"], ["__file", "E:/code/design/client/graduation-design/pages/my/info/tag.vue"]]);
-  const _sfc_main$o = {
+  const PagesMyInfoTag = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["render", _sfc_render$s], ["__scopeId", "data-v-bac29948"], ["__file", "E:/code/design/client/graduation-design/pages/my/info/tag.vue"]]);
+  const _sfc_main$r = {
     name: "uni-data-select",
     mixins: [er.mixinDatacom || {}],
     props: {
@@ -16818,7 +16889,7 @@ ${o3}
       }
     }
   };
-  function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_1$3);
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-stat__select" }, [
       $props.label ? (vue.openBlock(), vue.createElementBlock(
@@ -16958,7 +17029,7 @@ ${o3}
       )
     ]);
   }
-  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$o], ["__scopeId", "data-v-ddf9e0a2"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-data-select/components/uni-data-select/uni-data-select.vue"]]);
+  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$r], ["__scopeId", "data-v-ddf9e0a2"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-data-select/components/uni-data-select/uni-data-select.vue"]]);
   const en = {
     "uni-search-bar.cancel": "cancel",
     "uni-search-bar.placeholder": "Search enter content"
@@ -16979,7 +17050,7 @@ ${o3}
   const {
     t: t$l
   } = initVueI18n(messages$1);
-  const _sfc_main$n = {
+  const _sfc_main$q = {
     name: "UniSearchBar",
     emits: ["input", "update:modelValue", "clear", "cancel", "confirm", "blur", "focus"],
     props: {
@@ -17121,7 +17192,7 @@ ${o3}
       }
     }
   };
-  function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_1$3);
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-searchbar" }, [
       vue.createElementVNode(
@@ -17197,8 +17268,8 @@ ${o3}
       )) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const __easycom_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$n], ["__scopeId", "data-v-f07ef577"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar.vue"]]);
-  const _sfc_main$m = {
+  const __easycom_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$q], ["__scopeId", "data-v-f07ef577"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar.vue"]]);
+  const _sfc_main$p = {
     __name: "search",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -17274,7 +17345,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_data_select = resolveEasycom(vue.resolveDynamicComponent("uni-data-select"), __easycom_0);
     const _component_uni_search_bar = resolveEasycom(vue.resolveDynamicComponent("uni-search-bar"), __easycom_1$1);
     const _component_uni_list_chat = resolveEasycom(vue.resolveDynamicComponent("uni-list-chat"), __easycom_0$6);
@@ -17366,7 +17437,7 @@ ${o3}
       /* STYLE */
     );
   }
-  const PagesHomeSearchSearch = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-ab64327c"], ["__file", "E:/code/design/client/graduation-design/pages/home/search/search.vue"]]);
+  const PagesHomeSearchSearch = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$p], ["__scopeId", "data-v-ab64327c"], ["__file", "E:/code/design/client/graduation-design/pages/home/search/search.vue"]]);
   const ERR_MSG_OK = "chooseAndUploadFile:ok";
   const ERR_MSG_FAIL = "chooseAndUploadFile:fail";
   function chooseImage(opts) {
@@ -17648,7 +17719,7 @@ ${o3}
     }
     return filedata;
   };
-  const _sfc_main$l = {
+  const _sfc_main$o = {
     name: "uploadImage",
     emits: ["uploadFiles", "choose", "delFile"],
     props: {
@@ -17795,7 +17866,7 @@ ${o3}
       }
     }
   };
-  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-file-picker__container" }, [
       (vue.openBlock(true), vue.createElementBlock(
         vue.Fragment,
@@ -17888,8 +17959,8 @@ ${o3}
       )) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const uploadImage = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$l], ["__scopeId", "data-v-bdfc07e0"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-file-picker/components/uni-file-picker/upload-image.vue"]]);
-  const _sfc_main$k = {
+  const uploadImage = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$o], ["__scopeId", "data-v-bdfc07e0"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-file-picker/components/uni-file-picker/upload-image.vue"]]);
+  const _sfc_main$n = {
     name: "uploadFile",
     emits: ["uploadFiles", "choose", "delFile"],
     props: {
@@ -18025,7 +18096,7 @@ ${o3}
       }
     }
   };
-  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-file-picker__files" }, [
       !$props.readonly ? (vue.openBlock(), vue.createElementBlock("view", {
         key: 0,
@@ -18107,8 +18178,8 @@ ${o3}
       )) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const uploadFile = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$k], ["__scopeId", "data-v-a54939c6"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-file-picker/components/uni-file-picker/upload-file.vue"]]);
-  const _sfc_main$j = {
+  const uploadFile = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$n], ["__scopeId", "data-v-a54939c6"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-file-picker/components/uni-file-picker/upload-file.vue"]]);
+  const _sfc_main$m = {
     name: "uniFilePicker",
     components: {
       uploadImage,
@@ -18615,7 +18686,7 @@ ${o3}
       }
     }
   };
-  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_upload_image = vue.resolveComponent("upload-image");
     const _component_upload_file = vue.resolveComponent("upload-file");
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-file-picker" }, [
@@ -18685,8 +18756,8 @@ ${o3}
       }, 8, ["readonly", "list-styles", "files-list", "showType", "delIcon", "onUploadFiles", "onChoose", "onDelFile"])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const __easycom_1 = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$j], ["__scopeId", "data-v-6223573f"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-file-picker/components/uni-file-picker/uni-file-picker.vue"]]);
-  const _sfc_main$i = {
+  const __easycom_1 = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-6223573f"], ["__file", "E:/code/design/client/graduation-design/uni_modules/uni-file-picker/components/uni-file-picker/uni-file-picker.vue"]]);
+  const _sfc_main$l = {
     __name: "schoolShare",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -18754,7 +18825,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_easyinput = resolveEasycom(vue.resolveDynamicComponent("uni-easyinput"), __easycom_0$5);
     const _component_uni_file_picker = resolveEasycom(vue.resolveDynamicComponent("uni-file-picker"), __easycom_1);
     const _component_van_button = vue.resolveComponent("van-button");
@@ -18798,8 +18869,8 @@ ${o3}
       ])
     ]);
   }
-  const PagesHomeSchoolShareSchoolShare = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$i], ["__scopeId", "data-v-6bed706c"], ["__file", "E:/code/design/client/graduation-design/pages/home/schoolShare/schoolShare.vue"]]);
-  const _sfc_main$h = {
+  const PagesHomeSchoolShareSchoolShare = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$l], ["__scopeId", "data-v-6bed706c"], ["__file", "E:/code/design/client/graduation-design/pages/home/schoolShare/schoolShare.vue"]]);
+  const _sfc_main$k = {
     __name: "article",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -18854,7 +18925,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_Loading = vue.resolveComponent("Loading");
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_1$3);
     const _component_uni_card = resolveEasycom(vue.resolveDynamicComponent("uni-card"), __easycom_1$2);
@@ -18940,8 +19011,8 @@ ${o3}
       }, 8, ["title", "sub-title", "thumbnail"]))
     ]);
   }
-  const PagesDetailArticleArticle = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$h], ["__scopeId", "data-v-fc129c0f"], ["__file", "E:/code/design/client/graduation-design/pages/detail/article/article.vue"]]);
-  const _sfc_main$g = {
+  const PagesDetailArticleArticle = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$k], ["__scopeId", "data-v-fc129c0f"], ["__file", "E:/code/design/client/graduation-design/pages/detail/article/article.vue"]]);
+  const _sfc_main$j = {
     __name: "avatar",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -18989,7 +19060,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_CenterLoading = vue.resolveComponent("CenterLoading");
     const _component_van_button = vue.resolveComponent("van-button");
     return vue.openBlock(), vue.createElementBlock("view", {
@@ -19024,8 +19095,8 @@ ${o3}
       ]))
     ]);
   }
-  const PagesDetailAvatarAvatar = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$g], ["__scopeId", "data-v-edc06afc"], ["__file", "E:/code/design/client/graduation-design/pages/detail/avatar/avatar.vue"]]);
-  const _sfc_main$f = {
+  const PagesDetailAvatarAvatar = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$j], ["__scopeId", "data-v-edc06afc"], ["__file", "E:/code/design/client/graduation-design/pages/detail/avatar/avatar.vue"]]);
+  const _sfc_main$i = {
     __name: "image",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -19055,7 +19126,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", {
       class: "image",
       onClick: $setup.back
@@ -19087,8 +19158,8 @@ ${o3}
       ], 40, ["current"])
     ]);
   }
-  const PagesDetailImageImage = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$f], ["__scopeId", "data-v-2c45889c"], ["__file", "E:/code/design/client/graduation-design/pages/detail/image/image.vue"]]);
-  const _sfc_main$e = {
+  const PagesDetailImageImage = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$i], ["__scopeId", "data-v-2c45889c"], ["__file", "E:/code/design/client/graduation-design/pages/detail/image/image.vue"]]);
+  const _sfc_main$h = {
     __name: "otherArticle",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -19125,7 +19196,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_Loading = vue.resolveComponent("Loading");
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_1$3);
     const _component_uni_card = resolveEasycom(vue.resolveDynamicComponent("uni-card"), __easycom_1$2);
@@ -19211,8 +19282,8 @@ ${o3}
       }, 8, ["title", "sub-title"]))
     ]);
   }
-  const PagesDetailArticleOtherArticle = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$e], ["__scopeId", "data-v-097e8577"], ["__file", "E:/code/design/client/graduation-design/pages/detail/article/otherArticle.vue"]]);
-  const _sfc_main$d = {
+  const PagesDetailArticleOtherArticle = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$h], ["__scopeId", "data-v-097e8577"], ["__file", "E:/code/design/client/graduation-design/pages/detail/article/otherArticle.vue"]]);
+  const _sfc_main$g = {
     __name: "userList",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -19260,7 +19331,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     const _component_CenterLoading = vue.resolveComponent("CenterLoading");
     const _component_Empty = vue.resolveComponent("Empty");
@@ -19287,8 +19358,8 @@ ${o3}
       ))
     ]);
   }
-  const PagesMyUserListUserList = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$d], ["__scopeId", "data-v-8725ffee"], ["__file", "E:/code/design/client/graduation-design/pages/my/userList/userList.vue"]]);
-  const _sfc_main$c = {
+  const PagesMyUserListUserList = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$g], ["__scopeId", "data-v-8725ffee"], ["__file", "E:/code/design/client/graduation-design/pages/my/userList/userList.vue"]]);
+  const _sfc_main$f = {
     __name: "goodsMarket",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -19366,7 +19437,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_easyinput = resolveEasycom(vue.resolveDynamicComponent("uni-easyinput"), __easycom_0$5);
     const _component_van_cell = vue.resolveComponent("van-cell");
     const _component_uni_file_picker = resolveEasycom(vue.resolveDynamicComponent("uni-file-picker"), __easycom_1);
@@ -19471,8 +19542,8 @@ ${o3}
       /* STABLE_FRAGMENT */
     );
   }
-  const PagesHomeGoodsMarketGoodsMarket = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$c], ["__scopeId", "data-v-2cb6e9eb"], ["__file", "E:/code/design/client/graduation-design/pages/home/goodsMarket/goodsMarket.vue"]]);
-  const _sfc_main$b = {
+  const PagesHomeGoodsMarketGoodsMarket = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$f], ["__scopeId", "data-v-2cb6e9eb"], ["__file", "E:/code/design/client/graduation-design/pages/home/goodsMarket/goodsMarket.vue"]]);
+  const _sfc_main$e = {
     __name: "express",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -19500,7 +19571,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_easyinput = resolveEasycom(vue.resolveDynamicComponent("uni-easyinput"), __easycom_0$5);
     const _component_van_button = vue.resolveComponent("van-button");
     return vue.openBlock(), vue.createElementBlock("view", {
@@ -19536,8 +19607,8 @@ ${o3}
       ])
     ]);
   }
-  const PagesHomeExpressExpress = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$b], ["__scopeId", "data-v-7943b478"], ["__file", "E:/code/design/client/graduation-design/pages/home/express/express.vue"]]);
-  const _sfc_main$a = {
+  const PagesHomeExpressExpress = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$e], ["__scopeId", "data-v-7943b478"], ["__file", "E:/code/design/client/graduation-design/pages/home/express/express.vue"]]);
+  const _sfc_main$d = {
     __name: "lost",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -19662,7 +19733,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_van_cell = vue.resolveComponent("van-cell");
     const _component_uni_data_select = resolveEasycom(vue.resolveDynamicComponent("uni-data-select"), __easycom_0);
     const _component_uni_easyinput = resolveEasycom(vue.resolveDynamicComponent("uni-easyinput"), __easycom_0$5);
@@ -19726,8 +19797,8 @@ ${o3}
       ])
     ]);
   }
-  const PagesHomeLostLost = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$a], ["__scopeId", "data-v-ce455ba2"], ["__file", "E:/code/design/client/graduation-design/pages/home/lost/lost.vue"]]);
-  const _sfc_main$9 = {
+  const PagesHomeLostLost = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$d], ["__scopeId", "data-v-ce455ba2"], ["__file", "E:/code/design/client/graduation-design/pages/home/lost/lost.vue"]]);
+  const _sfc_main$c = {
     __name: "activity",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -19788,7 +19859,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_easyinput = resolveEasycom(vue.resolveDynamicComponent("uni-easyinput"), __easycom_0$5);
     const _component_uni_file_picker = resolveEasycom(vue.resolveDynamicComponent("uni-file-picker"), __easycom_1);
     const _component_van_button = vue.resolveComponent("van-button");
@@ -19847,8 +19918,8 @@ ${o3}
       ])
     ]);
   }
-  const PagesHomeActivityActivity = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$9], ["__scopeId", "data-v-2e5a3112"], ["__file", "E:/code/design/client/graduation-design/pages/home/activity/activity.vue"]]);
-  const _sfc_main$8 = {
+  const PagesHomeActivityActivity = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$c], ["__scopeId", "data-v-2e5a3112"], ["__file", "E:/code/design/client/graduation-design/pages/home/activity/activity.vue"]]);
+  const _sfc_main$b = {
     __name: "activity",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -19898,7 +19969,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
     var _a, _b, _c, _d;
     const _component_CenterLoading = vue.resolveComponent("CenterLoading");
     const _component_van_cell = vue.resolveComponent("van-cell");
@@ -19984,8 +20055,8 @@ ${o3}
       ])
     ]));
   }
-  const PagesDetailActivityActivity = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$8], ["__scopeId", "data-v-95f514ca"], ["__file", "E:/code/design/client/graduation-design/pages/detail/activity/activity.vue"]]);
-  const _sfc_main$7 = {
+  const PagesDetailActivityActivity = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$b], ["__scopeId", "data-v-95f514ca"], ["__file", "E:/code/design/client/graduation-design/pages/detail/activity/activity.vue"]]);
+  const _sfc_main$a = {
     __name: "setting",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -20013,7 +20084,7 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_van_cell = vue.resolveComponent("van-cell");
     return vue.openBlock(), vue.createElementBlock("view", { class: "setting" }, [
       vue.createElementVNode("view", { class: "function" }, [
@@ -20030,8 +20101,8 @@ ${o3}
       ])
     ]);
   }
-  const PagesMySettingSetting = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$7], ["__scopeId", "data-v-1c9f95e0"], ["__file", "E:/code/design/client/graduation-design/pages/my/setting/setting.vue"]]);
-  const _sfc_main$6 = {
+  const PagesMySettingSetting = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$a], ["__scopeId", "data-v-1c9f95e0"], ["__file", "E:/code/design/client/graduation-design/pages/my/setting/setting.vue"]]);
+  const _sfc_main$9 = {
     __name: "activityList",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -20040,21 +20111,30 @@ ${o3}
         return current2 + "/" + total + "人";
       };
       onLoad(async (e2) => {
-        const res = await queryActivityApi();
+        const res = await queryJoinedActivityApi();
         if (res.data.code === 200) {
           activityList.value = res.data.data;
         }
       });
-      const __returned__ = { activityList, getPeople, ref: vue.ref, get onLoad() {
+      const toOtherPage = (key, activityId) => {
+        const routes = {
+          "groupChat": `/pages/message/groupChat/groupChat?activityId=${activityId}`
+        };
+        const url = routes[`${key}`];
+        uni.navigateTo({
+          url
+        });
+      };
+      const __returned__ = { activityList, getPeople, toOtherPage, ref: vue.ref, get onLoad() {
         return onLoad;
-      }, get queryActivityApi() {
-        return queryActivityApi;
+      }, get queryJoinedActivityApi() {
+        return queryJoinedActivityApi;
       } };
       Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
       return __returned__;
     }
   };
-  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     const _component_CenterLoading = vue.resolveComponent("CenterLoading");
     const _component_Empty = vue.resolveComponent("Empty");
@@ -20070,16 +20150,17 @@ ${o3}
             title: activity.activityName,
             avatar: activity.activityPhoto,
             note: activity.activityDescription,
-            time: $setup.getPeople(activity.currentPeople, activity.activityMaxPeople)
-          }, null, 8, ["title", "avatar", "note", "time"]);
+            time: $setup.getPeople(activity.currentPeople, activity.activityMaxPeople),
+            onClick: ($event) => $setup.toOtherPage("groupChat", activity.id)
+          }, null, 8, ["title", "avatar", "note", "time", "onClick"]);
         }),
         128
         /* KEYED_FRAGMENT */
       ))
     ]);
   }
-  const PagesMyActivityListActivityList = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$6], ["__scopeId", "data-v-e9bb35ea"], ["__file", "E:/code/design/client/graduation-design/pages/my/activityList/activityList.vue"]]);
-  const _sfc_main$5 = {
+  const PagesMyActivityListActivityList = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$9], ["__scopeId", "data-v-e9bb35ea"], ["__file", "E:/code/design/client/graduation-design/pages/my/activityList/activityList.vue"]]);
+  const _sfc_main$8 = {
     __name: "chat",
     props: {
       userId: {
@@ -20091,11 +20172,14 @@ ${o3}
       __expose();
       const myId = vue.ref(uni.getStorageSync("user").id);
       const messageList = vue.ref(null);
+      const scrollIntoId = vue.ref("");
       const props2 = __props;
       const updateDirectMessage = async () => {
+        var _a;
         const res = await queryMessageApi(props2.userId);
         if (res.data.code === 200) {
           messageList.value = res.data.data;
+          scrollIntoId.value = `message${(_a = messageList == null ? void 0 : messageList.value) == null ? void 0 : _a.length}`;
         }
       };
       onLoad((e2) => {
@@ -20104,7 +20188,7 @@ ${o3}
       uni.$on("updateDirectMessage", () => {
         updateDirectMessage();
       });
-      const __returned__ = { myId, messageList, props: props2, updateDirectMessage, ref: vue.ref, get onLoad() {
+      const __returned__ = { myId, messageList, scrollIntoId, props: props2, updateDirectMessage, ref: vue.ref, get onLoad() {
         return onLoad;
       }, get queryMessageApi() {
         return queryMessageApi;
@@ -20113,15 +20197,17 @@ ${o3}
       return __returned__;
     }
   };
-  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("scroll-view", {
       "scroll-y": "true",
-      class: "chat-content"
+      class: "chat-content",
+      "scroll-into-view": $setup.scrollIntoId
     }, [
       (vue.openBlock(true), vue.createElementBlock(
         vue.Fragment,
         null,
         vue.renderList($setup.messageList, (message, index) => {
+          var _a, _b;
           return vue.openBlock(), vue.createElementBlock(
             vue.Fragment,
             {
@@ -20137,40 +20223,43 @@ ${o3}
                   /* TEXT */
                 )
               ]),
-              vue.createElementVNode(
-                "view",
-                {
-                  class: vue.normalizeClass({ user: true, me: message.sendUserId === $setup.myId })
-                },
-                [
-                  vue.createElementVNode("view", { class: "image" }, [
-                    vue.createElementVNode("image", {
-                      class: "avatar",
-                      "lazy-load": "true",
-                      src: message.userAvatar,
-                      mode: ""
-                    }, null, 8, ["src"])
-                  ]),
-                  vue.createElementVNode("view", { class: "message" }, [
-                    vue.createElementVNode(
-                      "text",
-                      null,
-                      vue.toDisplayString(message.messageContent),
-                      1
-                      /* TEXT */
-                    )
-                  ]),
-                  vue.createCommentVNode(` <view v-else-if="message.type === 'link'" class="message" @click="checkGoods(message.content)">\r
+              vue.createElementVNode("view", {
+                id: index + 1 === ((_a = $setup.messageList) == null ? void 0 : _a.length) ? `message${(_b = $setup.messageList) == null ? void 0 : _b.length}` : "",
+                class: vue.normalizeClass({ user: true, me: message.sendUserId === $setup.myId })
+              }, [
+                vue.createElementVNode("view", { class: "image" }, [
+                  vue.createElementVNode("image", {
+                    class: "avatar",
+                    "lazy-load": "true",
+                    src: message.userAvatar,
+                    mode: ""
+                  }, null, 8, ["src"])
+                ]),
+                message.messageType === "text" ? (vue.openBlock(), vue.createElementBlock("view", {
+                  key: 0,
+                  class: "message"
+                }, [
+                  vue.createElementVNode(
+                    "text",
+                    null,
+                    vue.toDisplayString(message.messageContent),
+                    1
+                    /* TEXT */
+                  )
+                ])) : message.messageType === "image" ? (vue.openBlock(), vue.createElementBlock("view", {
+                  key: 1,
+                  class: "messageImage"
+                }, [
+                  vue.createElementVNode("image", {
+                    "lazy-load": "true",
+                    src: message.messageContent,
+                    mode: "widthFix"
+                  }, null, 8, ["src"])
+                ])) : vue.createCommentVNode("v-if", true),
+                vue.createCommentVNode(` 	<view v-else-if="message.type === 'link'" class="message" @click="checkGoods(message.content)">\r
 					<text style="color: blue;">{{ message.content }}</text>\r
-				</view>\r
-				<view v-else class="messageImage"\r
-					@click="toOtherPage('image', role, permission, message.content, 'image')">\r
-					<image lazy-load="true" :src="message.content" mode="widthFix"></image>\r
 				</view> `)
-                ],
-                2
-                /* CLASS */
-              )
+              ], 10, ["id"])
             ],
             64
             /* STABLE_FRAGMENT */
@@ -20179,10 +20268,10 @@ ${o3}
         128
         /* KEYED_FRAGMENT */
       ))
-    ]);
+    ], 8, ["scroll-into-view"]);
   }
-  const Chat = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$5], ["__scopeId", "data-v-5a9fb32a"], ["__file", "E:/code/design/client/graduation-design/components/chat/chat.vue"]]);
-  const _sfc_main$4 = {
+  const Chat = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$8], ["__scopeId", "data-v-5a9fb32a"], ["__file", "E:/code/design/client/graduation-design/components/chat/chat.vue"]]);
+  const _sfc_main$7 = {
     __name: "chat",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -20204,7 +20293,7 @@ ${o3}
       });
       const send = () => {
         moreFunction.value = false;
-        myScoket.send("directMessageText", JSON.stringify({
+        myScoket.send("directMessage", JSON.stringify({
           userName: uni.getStorageSync("user").userName,
           sendUserId: myId.value,
           acceptUserId: userId.value,
@@ -20216,18 +20305,46 @@ ${o3}
       const more = () => {
         moreFunction.value = !moreFunction.value;
       };
-      const __returned__ = { moreFunction, content, userId, userName, myId, myScoket, send, more, Chat, ref: vue.ref, get onLoad() {
+      const sendImage = async () => {
+        uni.chooseImage({
+          count: 1,
+          sizeType: ["original", "compressed"],
+          sourceType: ["album", "camera"],
+          success: async (res) => {
+            try {
+              const tempFilePath = res.tempFilePaths[0];
+              const res1 = await uploadImageApi(tempFilePath);
+              formatAppLog("log", "at pages/message/chat/chat.vue:84", res1);
+              if (JSON.parse(res1.data).code === 200) {
+                const messageContent = JSON.parse(res1.data).data;
+                myScoket.send("directMessage", JSON.stringify({
+                  userName: uni.getStorageSync("user").userName,
+                  sendUserId: myId.value,
+                  acceptUserId: userId.value,
+                  messageContent,
+                  messageType: "image"
+                }));
+              }
+            } catch (err) {
+              formatAppLog("log", "at pages/message/chat/chat.vue:96", err);
+            }
+          }
+        });
+      };
+      const __returned__ = { moreFunction, content, userId, userName, myId, myScoket, send, more, sendImage, Chat, ref: vue.ref, get onLoad() {
         return onLoad;
       }, get queryMessageApi() {
         return queryMessageApi;
       }, get isReadApi() {
         return isReadApi;
+      }, get uploadImageApi() {
+        return uploadImageApi;
       } };
       Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
       return __returned__;
     }
   };
-  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_easyinput = resolveEasycom(vue.resolveDynamicComponent("uni-easyinput"), __easycom_0$5);
     const _component_van_button = vue.resolveComponent("van-button");
     const _component_van_icon = vue.resolveComponent("van-icon");
@@ -20285,7 +20402,7 @@ ${o3}
           }, [
             vue.createElementVNode("view", {
               class: "item",
-              onClick: _cache[1] || (_cache[1] = (...args) => _ctx.sendImage && _ctx.sendImage(...args))
+              onClick: $setup.sendImage
             }, [
               vue.createVNode(_component_uni_icons, {
                 type: "image",
@@ -20300,7 +20417,322 @@ ${o3}
       )
     ]);
   }
-  const PagesMessageChatChat = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$4], ["__scopeId", "data-v-c17b1733"], ["__file", "E:/code/design/client/graduation-design/pages/message/chat/chat.vue"]]);
+  const PagesMessageChatChat = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$7], ["__scopeId", "data-v-c17b1733"], ["__file", "E:/code/design/client/graduation-design/pages/message/chat/chat.vue"]]);
+  const _sfc_main$6 = {
+    __name: "visit",
+    setup(__props, { expose: __expose }) {
+      __expose();
+      const userList = vue.ref(null);
+      onLoad(async (e2) => {
+        const res = await queryVisitApi();
+        if (res.data.code === 200) {
+          userList.value = res.data.data;
+        }
+      });
+      const __returned__ = { userList, ref: vue.ref, get onLoad() {
+        return onLoad;
+      }, get queryVisitApi() {
+        return queryVisitApi;
+      } };
+      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+      return __returned__;
+    }
+  };
+  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+    var _a;
+    const _component_CenterLoading = vue.resolveComponent("CenterLoading");
+    const _component_Empty = vue.resolveComponent("Empty");
+    const _component_uni_list_chat = resolveEasycom(vue.resolveDynamicComponent("uni-list-chat"), __easycom_0$6);
+    return vue.openBlock(), vue.createElementBlock("view", { class: "visit" }, [
+      $setup.userList === null ? (vue.openBlock(), vue.createBlock(_component_CenterLoading, { key: 0 })) : ((_a = $setup.userList) == null ? void 0 : _a.length) === 0 ? (vue.openBlock(), vue.createBlock(_component_Empty, { key: 1 })) : (vue.openBlock(true), vue.createElementBlock(
+        vue.Fragment,
+        { key: 2 },
+        vue.renderList($setup.userList, (user, index) => {
+          return vue.openBlock(), vue.createBlock(_component_uni_list_chat, {
+            key: user.id,
+            clickable: "",
+            title: user.userName,
+            avatar: user.userAvatar,
+            note: user.userProfile,
+            time: user.visitTime
+          }, null, 8, ["title", "avatar", "note", "time"]);
+        }),
+        128
+        /* KEYED_FRAGMENT */
+      ))
+    ]);
+  }
+  const PagesMyVisitVisit = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$6], ["__scopeId", "data-v-588c2b23"], ["__file", "E:/code/design/client/graduation-design/pages/my/visit/visit.vue"]]);
+  const _sfc_main$5 = {
+    __name: "groupChat",
+    setup(__props, { expose: __expose }) {
+      __expose();
+      const activityId = vue.ref(null);
+      const messageList = vue.ref(null);
+      const myId = vue.ref(uni.getStorageSync("user").id);
+      const scrollIntoId = vue.ref(null);
+      const queryMessageList = async () => {
+        var _a;
+        const res = await queryGroupMessageApi(activityId.value);
+        if (res.data.code === 200) {
+          messageList.value = res.data.data;
+          scrollIntoId.value = `message${(_a = messageList == null ? void 0 : messageList.value) == null ? void 0 : _a.length}`;
+        }
+      };
+      onLoad((e2) => {
+        activityId.value = e2.activityId;
+        queryMessageList();
+      });
+      uni.$on("updateGroupMessage", () => {
+        queryMessageList();
+      });
+      const __returned__ = { activityId, messageList, myId, scrollIntoId, queryMessageList, ref: vue.ref, get onLoad() {
+        return onLoad;
+      }, get queryGroupMessageApi() {
+        return queryGroupMessageApi;
+      } };
+      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+      return __returned__;
+    }
+  };
+  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("scroll-view", {
+      "scroll-y": "true",
+      class: "chat-content",
+      "scroll-into-view": $setup.scrollIntoId
+    }, [
+      (vue.openBlock(true), vue.createElementBlock(
+        vue.Fragment,
+        null,
+        vue.renderList($setup.messageList, (message, index) => {
+          var _a, _b;
+          return vue.openBlock(), vue.createElementBlock("view", {
+            class: "content",
+            id: index + 1 === ((_a = $setup.messageList) == null ? void 0 : _a.length) ? `message${(_b = $setup.messageList) == null ? void 0 : _b.length}` : ""
+          }, [
+            vue.createElementVNode("view", { class: "top" }, [
+              vue.createElementVNode(
+                "text",
+                null,
+                vue.toDisplayString(message.sendTime),
+                1
+                /* TEXT */
+              )
+            ]),
+            vue.createElementVNode(
+              "view",
+              {
+                class: vue.normalizeClass({ bottom: true, me: message.sendUserId === $setup.myId })
+              },
+              [
+                vue.createElementVNode("view", { class: "left" }, [
+                  vue.createElementVNode("image", {
+                    src: message.userAvatar,
+                    mode: ""
+                  }, null, 8, ["src"])
+                ]),
+                vue.createElementVNode("view", { class: "right" }, [
+                  vue.createElementVNode("view", { class: "right-top" }, [
+                    vue.createElementVNode(
+                      "text",
+                      null,
+                      vue.toDisplayString(message.userName),
+                      1
+                      /* TEXT */
+                    )
+                  ]),
+                  message.messageType === "text" ? (vue.openBlock(), vue.createElementBlock("view", {
+                    key: 0,
+                    class: "right-bottom"
+                  }, [
+                    vue.createElementVNode(
+                      "text",
+                      null,
+                      vue.toDisplayString(message.messageContent),
+                      1
+                      /* TEXT */
+                    )
+                  ])) : message.messageType === "image" ? (vue.openBlock(), vue.createElementBlock("view", {
+                    key: 1,
+                    class: "messageImage"
+                  }, [
+                    vue.createElementVNode("image", {
+                      "lazy-load": "true",
+                      src: message.messageContent,
+                      mode: "widthFix"
+                    }, null, 8, ["src"])
+                  ])) : vue.createCommentVNode("v-if", true)
+                ])
+              ],
+              2
+              /* CLASS */
+            )
+          ], 8, ["id"]);
+        }),
+        256
+        /* UNKEYED_FRAGMENT */
+      ))
+    ], 8, ["scroll-into-view"]);
+  }
+  const GroupChat = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$5], ["__scopeId", "data-v-dd2d5c63"], ["__file", "E:/code/design/client/graduation-design/components/chat/groupChat.vue"]]);
+  const _sfc_main$4 = {
+    __name: "groupChat",
+    setup(__props, { expose: __expose }) {
+      __expose();
+      const moreFunction = vue.ref(false);
+      const content = vue.ref("");
+      const activityId = vue.ref(null);
+      const activityName = vue.ref(null);
+      const personCount = vue.ref(null);
+      const myId = vue.ref(uni.getStorageSync("user").id);
+      const myScoket = getApp().globalData[`${myId.value}`];
+      onLoad(async (e2) => {
+        activityId.value = e2.activityId;
+        const res = await queryNameAndCountApi(activityId.value);
+        if (res.data.code === 200) {
+          activityName.value = res.data.data.activityName;
+          personCount.value = res.data.data.personCount;
+        }
+        uni.setNavigationBarTitle({
+          title: `${activityName.value}(${personCount.value})`
+        });
+      });
+      const send = () => {
+        moreFunction.value = false;
+        myScoket.send("groupMessage", JSON.stringify({
+          sendUserId: myId.value,
+          // 发送者id（我的id）
+          activityId: activityId.value,
+          // 群聊id
+          messageContent: content.value,
+          // 消息内容
+          messageType: "text"
+          // 消息类型
+        }));
+        content.value = "";
+      };
+      const more = () => {
+        moreFunction.value = !moreFunction.value;
+      };
+      const sendImage = async () => {
+        uni.chooseImage({
+          count: 1,
+          sizeType: ["original", "compressed"],
+          sourceType: ["album", "camera"],
+          success: async (res) => {
+            try {
+              const tempFilePath = res.tempFilePaths[0];
+              const res1 = await uploadImageApi(tempFilePath);
+              formatAppLog("log", "at pages/message/groupChat/groupChat.vue:83", res1);
+              if (JSON.parse(res1.data).code === 200) {
+                const messageContent = JSON.parse(res1.data).data;
+                myScoket.send("groupMessage", JSON.stringify({
+                  sendUserId: myId.value,
+                  // 发送者id（我的id）
+                  activityId: activityId.value,
+                  // 群聊id
+                  messageContent,
+                  // 消息内容
+                  messageType: "image"
+                  // 消息类型
+                }));
+                moreFunction.value = false;
+              }
+            } catch (err) {
+              formatAppLog("log", "at pages/message/groupChat/groupChat.vue:95", err);
+            }
+          }
+        });
+      };
+      const __returned__ = { moreFunction, content, activityId, activityName, personCount, myId, myScoket, send, more, sendImage, GroupChat, ref: vue.ref, get onLoad() {
+        return onLoad;
+      }, get queryMessageApi() {
+        return queryMessageApi;
+      }, get isReadApi() {
+        return isReadApi;
+      }, get uploadImageApi() {
+        return uploadImageApi;
+      }, get queryNameAndCountApi() {
+        return queryNameAndCountApi;
+      } };
+      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+      return __returned__;
+    }
+  };
+  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_uni_easyinput = resolveEasycom(vue.resolveDynamicComponent("uni-easyinput"), __easycom_0$5);
+    const _component_van_button = vue.resolveComponent("van-button");
+    const _component_van_icon = vue.resolveComponent("van-icon");
+    const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_1$3);
+    return vue.openBlock(), vue.createElementBlock("view", { class: "chat" }, [
+      vue.createElementVNode(
+        "view",
+        {
+          class: vue.normalizeClass({ content: true, "content-active": $setup.moreFunction })
+        },
+        [
+          vue.createCommentVNode(" 聊天内容展示组件 "),
+          vue.createVNode($setup["GroupChat"])
+        ],
+        2
+        /* CLASS */
+      ),
+      vue.createElementVNode(
+        "view",
+        {
+          class: vue.normalizeClass({ send: true, "send-active": $setup.moreFunction })
+        },
+        [
+          vue.createElementVNode("view", { class: "input" }, [
+            vue.createVNode(_component_uni_easyinput, {
+              class: "uni-mt-5",
+              modelValue: $setup.content,
+              "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $setup.content = $event),
+              trim: "all",
+              placeholder: "请输入内容"
+            }, null, 8, ["modelValue"]),
+            $setup.content !== "" ? (vue.openBlock(), vue.createBlock(_component_van_button, {
+              key: 0,
+              class: "button",
+              type: "primary",
+              size: "small",
+              onClick: $setup.send
+            }, {
+              default: vue.withCtx(() => [
+                vue.createTextVNode("发送")
+              ]),
+              _: 1
+              /* STABLE */
+            })) : (vue.openBlock(), vue.createBlock(_component_van_icon, {
+              key: 1,
+              name: "plus",
+              size: "25",
+              class: vue.normalizeClass({ icon: true, "icon-active": $setup.moreFunction }),
+              onClick: $setup.more
+            }, null, 8, ["class"]))
+          ]),
+          $setup.moreFunction ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 0,
+            class: "more"
+          }, [
+            vue.createElementVNode("view", {
+              class: "item",
+              onClick: $setup.sendImage
+            }, [
+              vue.createVNode(_component_uni_icons, {
+                type: "image",
+                size: "40"
+              }),
+              vue.createElementVNode("text", { class: "text" }, "图片")
+            ])
+          ])) : vue.createCommentVNode("v-if", true)
+        ],
+        2
+        /* CLASS */
+      )
+    ]);
+  }
+  const PagesMessageGroupChatGroupChat = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$4], ["__scopeId", "data-v-095a98ff"], ["__file", "E:/code/design/client/graduation-design/pages/message/groupChat/groupChat.vue"]]);
   __definePage("pages/login/login", PagesLoginLogin);
   __definePage("pages/index/home/home", PagesIndexHomeHome);
   __definePage("pages/index/my/my", PagesIndexMyMy);
@@ -20331,6 +20763,8 @@ ${o3}
   __definePage("pages/my/setting/setting", PagesMySettingSetting);
   __definePage("pages/my/activityList/activityList", PagesMyActivityListActivityList);
   __definePage("pages/message/chat/chat", PagesMessageChatChat);
+  __definePage("pages/my/visit/visit", PagesMyVisitVisit);
+  __definePage("pages/message/groupChat/groupChat", PagesMessageGroupChatGroupChat);
   const _sfc_main$3 = {
     onLaunch() {
       const app = getApp();
@@ -20339,7 +20773,7 @@ ${o3}
       }
       uni.$on("serverMessage", (message) => {
         const res = JSON.parse(message);
-        if (res.type === "directMessageText") {
+        if (res.type === "directMessage") {
           const msg = JSON.parse(res.data);
           let socket = getApp().globalData[`${msg.acceptUserId}`];
           if (socket && socket.getIsConnected()) {
@@ -20356,6 +20790,8 @@ ${o3}
           }
           uni.$emit("updateDirectMessage");
           uni.$emit("updateMessageList");
+        } else if (res.type === "groupMessage") {
+          uni.$emit("updateGroupMessage");
         }
       });
     }

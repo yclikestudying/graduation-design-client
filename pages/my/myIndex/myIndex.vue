@@ -137,7 +137,8 @@
 		userInfoProgress
 	} from "/pages/util/index.js"
 	import {
-		getUserApi
+		getUserApi,
+		addVisitApi
 	} from "/pages/api/user/user.js"
 	import {
 		queryFriendApi,
@@ -173,6 +174,8 @@
 			// 查询当前用户是否被我关注
 			const res1 = await queryFriendApi(currentUserId.value)
 			isFriend.value = res1.data.data
+			// 记录下访客记录
+			await addVisitApi(uni.getStorageSync("user").id, user.value.id)
 		}
 		// 查询关注数量
 		const res2 = await friendCountApi(currentUserId.value)

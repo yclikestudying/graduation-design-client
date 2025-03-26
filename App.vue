@@ -13,7 +13,7 @@
 			// 统一处理服务器推送消息
 			uni.$on('serverMessage', (message) => {
 				const res = JSON.parse(message)
-				if (res.type === 'directMessageText') {
+				if (res.type === 'directMessage') {
 					const msg = JSON.parse(res.data)
 					// 判断消息接收者是否连接服务器
 					let socket = getApp().globalData[`${msg.acceptUserId}`]
@@ -33,6 +33,9 @@
 					uni.$emit('updateDirectMessage');
 					// 更新消息列表
 					uni.$emit('updateMessageList');
+				} else if(res.type === 'groupMessage') {
+					// 更新群聊消息
+					uni.$emit('updateGroupMessage')
 				}
 			});
 		}

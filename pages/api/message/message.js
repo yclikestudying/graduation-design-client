@@ -1,5 +1,6 @@
 import {
-	request
+	request,
+	uploadNoText
 } from "../../request/request";
 
 /**
@@ -34,3 +35,18 @@ export const queryNoReadTotalApi = async () => {
 	return await request('/message/queryNoReadTotal', "GET")
 }
 
+/**
+ * @description 上传图片
+ * @param file 图片
+ */
+export const uploadImageApi = async (file) => {
+	return await uploadNoText('/message/uploadImage', file)
+}
+
+/**
+ * @description 查询群聊消息
+ * @param activityId 群聊id
+ */
+export const queryGroupMessageApi = async (activityId) => {
+	return await request(`/groupMessage/queryGroupMessage/${activityId}`, "GET")
+}

@@ -24,6 +24,13 @@ export const queryActivityApi = async (userId = null) => {
 }
 
 /**
+ * @description 查询所参加的活动
+ */
+export const queryJoinedActivityApi = async () => {
+	return await request('/activity/queryJoinedActivity', "GET")
+}
+
+/**
  * @description 查询所有活动
  */
 export const queryAllActivityApi = async () => {
@@ -64,5 +71,13 @@ export const addActivityApi = async (activityId) => {
  * @description 查询活动数量
  */
 export const queryCountApi = async () => {
-	return await request(`/activity/queryCount`, "GET")
+	return await request(`/activityRelation/queryCount`, "GET")
+}
+
+/**
+ * @description 查询群名称和群人数
+ * @param activityId 群id
+ */
+export const queryNameAndCountApi = async (activityId) => {
+	return await request(`/activity/queryNameAndCount/${activityId}`, "GET")
 }
