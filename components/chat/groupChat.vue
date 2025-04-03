@@ -3,7 +3,9 @@
 		<template v-for="(message, index) in messageList">
 			<view class="content" :id="index + 1 === messageList?.length ? `message${messageList?.length}` : ''">
 				<view class="top">
-					<text>{{ message.sendTime }}</text>
+					<text v-if="index === 0">{{ message.sendTime }}</text>
+					<text
+						v-else>{{ message.sendTime === messageList[index - 1].sendTime ? '' : message.sendTime }}</text>
 				</view>
 				<view :class="{bottom: true, me: message.sendUserId === myId}">
 					<view class="left">
@@ -37,6 +39,9 @@
 	import {
 		queryGroupMessageApi
 	} from "/pages/api/message/message.js"
+	import {
+		formatWeChatTime
+	} from "../../pages/util/index.js"
 	// 变量
 	const activityId = ref(null); // 群聊id
 	const messageList = ref(null); // 群消息列表
@@ -47,6 +52,10 @@
 		const res = await queryGroupMessageApi(activityId.value)
 		if (res.data.code === 200) {
 			messageList.value = res.data.data
+			messageList.value = messageList.value.map(message => {
+				message.sendTime = formatWeChatTime(message.sendTime)
+				return message
+			})
 			scrollIntoId.value = `message${messageList?.value?.length}`	
 		}
 	}

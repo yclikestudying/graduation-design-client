@@ -37,7 +37,7 @@
 	let userProfession = ref('')
 	const loading = ref(false)
 	onLoad((e) => {
-		if (e.userProfession) {
+		if (e.userProfession !== "null") {
 			const data = JSON.parse(e.userProfession)
 			userProfession.value = data.text
 			activeIndex.value = data.activeIndex

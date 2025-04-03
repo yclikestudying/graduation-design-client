@@ -1,7 +1,6 @@
 {
-	"pages": [
-		{
-			"path" : "pages/login/login",
+	"pages": [{
+			"path": "pages/login/login",
 			"style": {
 				"navigationBarTitleText": "登录页面",
 				"animationType": "slide-in-right", // 全局配置跳转动画
@@ -18,10 +17,9 @@
 			}
 		},
 		{
-			"path" : "pages/index/home/home",
-			"style" : 
-			{
-				"navigationBarTitleText" : "首页",
+			"path": "pages/index/home/home",
+			"style": {
+				"navigationBarTitleText": "首页",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -36,10 +34,9 @@
 			}
 		},
 		{
-			"path" : "pages/index/my/my",
-			"style" : 
-			{
-				"navigationBarTitleText" : "我的",
+			"path": "pages/index/my/my",
+			"style": {
+				"navigationBarTitleText": "我的",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -49,10 +46,9 @@
 			}
 		},
 		{
-			"path" : "pages/index/message/message",
-			"style" : 
-			{
-				"navigationBarTitleText" : "消息",
+			"path": "pages/index/message/message",
+			"style": {
+				"navigationBarTitleText": "消息",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -66,10 +62,9 @@
 			}
 		},
 		{
-			"path" : "pages/index/recommend/recommend",
-			"style" : 
-			{
-				"navigationBarTitleText" : "推荐",
+			"path": "pages/index/recommend/recommend",
+			"style": {
+				"navigationBarTitleText": "推荐",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -80,10 +75,9 @@
 			}
 		},
 		{
-			"path" : "pages/my/myIndex/myIndex",
-			"style" : 
-			{
-				"navigationBarTitleText" : "用户名",
+			"path": "pages/my/myIndex/myIndex",
+			"style": {
+				"navigationBarTitleText": "用户名",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -92,20 +86,17 @@
 					"titleNView": {
 						"backgroundColor": "#ffffff",
 						"type": "transparent",
-						"buttons": [
-							{
-								"type": "menu"
-							}
-						]
+						"buttons": [{
+							"type": "menu"
+						}]
 					}
 				}
 			}
 		},
 		{
-			"path" : "pages/my/info/info",
-			"style" : 
-			{
-				"navigationBarTitleText" : "基本信息",
+			"path": "pages/my/info/info",
+			"style": {
+				"navigationBarTitleText": "基本信息",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -118,10 +109,9 @@
 			}
 		},
 		{
-			"path" : "pages/my/info/username",
-			"style" : 
-			{
-				"navigationBarTitleText" : "用户名",
+			"path": "pages/my/info/username",
+			"style": {
+				"navigationBarTitleText": "用户名",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -134,10 +124,9 @@
 			}
 		},
 		{
-			"path" : "pages/my/info/profile",
-			"style" : 
-			{
-				"navigationBarTitleText" : "个人简介",
+			"path": "pages/my/info/profile",
+			"style": {
+				"navigationBarTitleText": "个人简介",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -150,10 +139,9 @@
 			}
 		},
 		{
-			"path" : "pages/my/info/gender",
-			"style" : 
-			{
-				"navigationBarTitleText" : "性别",
+			"path": "pages/my/info/gender",
+			"style": {
+				"navigationBarTitleText": "性别",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -166,10 +154,9 @@
 			}
 		},
 		{
-			"path" : "pages/my/info/birthday",
-			"style" : 
-			{
-				"navigationBarTitleText" : "生日",
+			"path": "pages/my/info/birthday",
+			"style": {
+				"navigationBarTitleText": "生日",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -182,10 +169,9 @@
 			}
 		},
 		{
-			"path" : "pages/my/info/location",
-			"style" : 
-			{
-				"navigationBarTitleText" : "所在地",
+			"path": "pages/my/info/location",
+			"style": {
+				"navigationBarTitleText": "所在地",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -198,10 +184,9 @@
 			}
 		},
 		{
-			"path" : "pages/my/info/hometown",
-			"style" : 
-			{
-				"navigationBarTitleText" : "家乡",
+			"path": "pages/my/info/hometown",
+			"style": {
+				"navigationBarTitleText": "家乡",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -214,10 +199,9 @@
 			}
 		},
 		{
-			"path" : "pages/my/info/profession",
-			"style" : 
-			{
-				"navigationBarTitleText" : "专业",
+			"path": "pages/my/info/profession",
+			"style": {
+				"navigationBarTitleText": "专业",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -230,10 +214,9 @@
 			}
 		},
 		{
-			"path" : "pages/my/info/tag",
-			"style" : 
-			{
-				"navigationBarTitleText" : "标签",
+			"path": "pages/my/info/tag",
+			"style": {
+				"navigationBarTitleText": "标签",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -246,9 +229,8 @@
 			}
 		},
 		{
-			"path" : "pages/home/search/search",
-			"style" : 
-			{
+			"path": "pages/home/search/search",
+			"style": {
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -259,10 +241,9 @@
 			}
 		},
 		{
-			"path" : "pages/home/schoolShare/schoolShare",
-			"style" : 
-			{
-				"navigationBarTitleText" : "校园动态",
+			"path": "pages/home/schoolShare/schoolShare",
+			"style": {
+				"navigationBarTitleText": "校园动态",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -275,10 +256,9 @@
 			}
 		},
 		{
-			"path" : "pages/detail/article/article",
-			"style" : 
-			{
-				"navigationBarTitleText" : "动态详情",
+			"path": "pages/detail/article/article",
+			"style": {
+				"navigationBarTitleText": "动态详情",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -286,22 +266,19 @@
 					"scrollIndicator": "none",
 					"titleNView": {
 						"backgroundColor": "#ffffff",
-						"buttons": [
-							{
-								"text": "删除",
-								"color": "#4496F9",
-								"fontSize": "14px"
-							}
-						]
+						"buttons": [{
+							"text": "删除",
+							"color": "#4496F9",
+							"fontSize": "14px"
+						}]
 					}
 				}
 			}
 		},
 		{
-			"path" : "pages/detail/avatar/avatar",
-			"style" : 
-			{
-				"navigationBarTitleText" : "头像详情",
+			"path": "pages/detail/avatar/avatar",
+			"style": {
+				"navigationBarTitleText": "头像详情",
 				"animationType": "fade-in",
 				"animationDuration": 300,
 				"app-plus": {
@@ -315,10 +292,9 @@
 			}
 		},
 		{
-			"path" : "pages/detail/image/image",
-			"style" : 
-			{
-				"navigationBarTitleText" : "",
+			"path": "pages/detail/image/image",
+			"style": {
+				"navigationBarTitleText": "",
 				"animationType": "fade-in",
 				"animationDuration": 300,
 				"app-plus": {
@@ -332,10 +308,9 @@
 			}
 		},
 		{
-			"path" : "pages/detail/article/otherArticle",
-			"style" : 
-			{
-				"navigationBarTitleText" : "动态详情",
+			"path": "pages/detail/article/otherArticle",
+			"style": {
+				"navigationBarTitleText": "动态详情",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -348,10 +323,9 @@
 			}
 		},
 		{
-			"path" : "pages/my/userList/userList",
-			"style" : 
-			{
-				"navigationBarTitleText" : "用户列表",
+			"path": "pages/my/userList/userList",
+			"style": {
+				"navigationBarTitleText": "用户列表",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -364,10 +338,9 @@
 			}
 		},
 		{
-			"path" : "pages/home/goodsMarket/goodsMarket",
-			"style" : 
-			{
-				"navigationBarTitleText" : "二手集市",
+			"path": "pages/home/goodsMarket/goodsMarket",
+			"style": {
+				"navigationBarTitleText": "二手集市",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -380,10 +353,9 @@
 			}
 		},
 		{
-			"path" : "pages/home/express/express",
-			"style" : 
-			{
-				"navigationBarTitleText" : "跑腿服务",
+			"path": "pages/home/express/express",
+			"style": {
+				"navigationBarTitleText": "跑腿服务",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -396,10 +368,9 @@
 			}
 		},
 		{
-			"path" : "pages/home/lost/lost",
-			"style" : 
-			{
-				"navigationBarTitleText" : "寻物启事",
+			"path": "pages/home/lost/lost",
+			"style": {
+				"navigationBarTitleText": "寻物启事",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -412,10 +383,9 @@
 			}
 		},
 		{
-			"path" : "pages/home/activity/activity",
-			"style" : 
-			{
-				"navigationBarTitleText" : "发布活动",
+			"path": "pages/home/activity/activity",
+			"style": {
+				"navigationBarTitleText": "发布活动",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -428,10 +398,9 @@
 			}
 		},
 		{
-			"path" : "pages/detail/activity/activity",
-			"style" : 
-			{
-				"navigationBarTitleText" : "组队活动详情",
+			"path": "pages/detail/activity/activity",
+			"style": {
+				"navigationBarTitleText": "群聊",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -444,10 +413,9 @@
 			}
 		},
 		{
-			"path" : "pages/my/setting/setting",
-			"style" : 
-			{
-				"navigationBarTitleText" : "设置",
+			"path": "pages/my/setting/setting",
+			"style": {
+				"navigationBarTitleText": "设置",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -460,10 +428,9 @@
 			}
 		},
 		{
-			"path" : "pages/my/activityList/activityList",
-			"style" : 
-			{
-				"navigationBarTitleText" : "活动",
+			"path": "pages/my/activityList/activityList",
+			"style": {
+				"navigationBarTitleText": "群聊列表",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -476,10 +443,9 @@
 			}
 		},
 		{
-			"path" : "pages/message/chat/chat",
-			"style" : 
-			{
-				"navigationBarTitleText" : "私聊页面",
+			"path": "pages/message/chat/chat",
+			"style": {
+				"navigationBarTitleText": "私聊页面",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -492,10 +458,9 @@
 			}
 		},
 		{
-			"path" : "pages/my/visit/visit",
-			"style" : 
-			{
-				"navigationBarTitleText" : "访客记录",
+			"path": "pages/my/visit/visit",
+			"style": {
+				"navigationBarTitleText": "访客记录",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -508,10 +473,9 @@
 			}
 		},
 		{
-			"path" : "pages/message/groupChat/groupChat",
-			"style" : 
-			{
-				"navigationBarTitleText" : "群聊页面",
+			"path": "pages/message/groupChat/groupChat",
+			"style": {
+				"navigationBarTitleText": "群聊页面",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
@@ -519,11 +483,24 @@
 					"scrollIndicator": "none",
 					"titleNView": {
 						"backgroundColor": "#ffffff",
-						"buttons": [
-							{
-								"type": "menu"
-							}
-						]
+						"buttons": [{
+							"type": "menu"
+						}]
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/message/groupChatInfo/groupChatInfo",
+			"style": {
+				"navigationBarTitleText": "群聊设置",
+				"animationType": "slide-in-right",
+				"animationDuration": 300,
+				"app-plus": {
+					"bounce": "none",
+					"scrollIndicator": "none",
+					"titleNView": {
+						"backgroundColor": "#F2F2F2"
 					}
 				}
 			}

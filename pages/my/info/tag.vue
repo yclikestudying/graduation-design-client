@@ -53,7 +53,7 @@
 		tags.value = getHobbies(value)
 	})
 	onLoad((e) => {
-		if (e.userTags) {
+		if (e.userTags !== "null") {
 			tags.value = JSON.parse(e.userTags)
 			activeIds.value = tags.value.map(tag => tag.id)
 		}

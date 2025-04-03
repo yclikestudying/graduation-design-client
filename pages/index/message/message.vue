@@ -8,7 +8,7 @@
 				</view>
 			</view>
 			<view class="title-item" @click="setCurrentOption(1)">
-				<text :class="{'active-title-item-text': currentOption === 1}">活动通知</text>
+				<text :class="{'active-title-item-text': currentOption === 1}">群聊通知</text>
 				<view class="underline">
 
 				</view>
@@ -19,10 +19,12 @@
 				<swiper-item>
 					<view class="swiper-item">
 						<scroll-view scroll-y="true" class="userList">
-							<template v-for="(message, index) in messageList" :key="message.id">
+							<Loading v-if="messageList === null"></Loading>
+							<Empty v-else-if="messageList?.length === 0"></Empty>
+							<template v-else v-for="(message, index) in messageList" :key="message.id">
 								<uni-list-chat clickable :title="message.userName" :avatar="message.userAvatar"
 									:note="getMessage(message.messageContent, message.messageType, message.sendUserId)"
-									:time="message.createTime" :badge-text="message.noReadMessageCount"
+									:time="formatWeChatTime(message.createTime)" :badge-text="message.noReadMessageCount"
 									@click="toOtherPage('chat', myId === message.sendUserId ? message.acceptUserId : message.sendUserId, message.userName)"></uni-list-chat>
 							</template>
 						</scroll-view>
@@ -54,6 +56,7 @@
 		queryNoReadListApi,
 		queryNoReadTotalApi
 	} from "/pages/api/message/message.js"
+	import { formatWeChatTime } from '../../util';
 	// 数据
 	const currentOption = ref(0)
 	const messageList = ref(null)
@@ -61,7 +64,7 @@
 	onLoad(async (e) => {
 		const res = await queryNoReadListApi()
 		if (res.data.code === 200) {
-			messageList.value = res.data.data
+			messageList.value = res.data.data || []
 		}
 	})
 	// 设置新的currentOption

@@ -660,7 +660,7 @@
 }
 .detail .card .card-actions[data-v-097e8577] {
   display: flex;
-  justify-content: space-around;
+  justify-content: right;
 }
 .detail .card .photo uni-image[data-v-097e8577] {
   margin-right: 1px;

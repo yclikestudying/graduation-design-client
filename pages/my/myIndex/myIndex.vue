@@ -79,7 +79,7 @@
 					<view class="underline"></view>
 				</view>
 				<view class="option-item" @click="setCurrentOption(4)">
-					<text :class="{'active-option-name': currentOption === 4}">活动</text>
+					<text :class="{'active-option-name': currentOption === 4}">群聊</text>
 					<view class="underline"></view>
 				</view>
 			</view>
@@ -112,7 +112,7 @@
 					<swiper-item>
 						<view class="swiper-item">
 							<!-- 活动组件 -->
-							<ActivityList :isScroll="isScroll" type="个人活动" :currentUserId="currentUserId"></ActivityList>
+							<ActivityList :isScroll="isScroll" type="个人群聊" :currentUserId="currentUserId"></ActivityList>
 						</view>
 					</swiper-item>
 				</swiper>
@@ -239,9 +239,7 @@
 							title: '取消成功'
 						})
 						// 取消关注时，更新关注动态
-						uni.$emit('cancelFriend', currentUserId.value)
-						// 取消关注时，更新关注和互关列表
-						uni.$emit('userList', currentUserId.value)
+						uni.$emit('addFriend')
 					} else {
 						uni.showToast({
 							title: res1.data.message,

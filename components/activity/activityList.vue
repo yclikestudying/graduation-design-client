@@ -62,10 +62,10 @@
 	})
 	onLoad(async (e) => {
 		let res;
-		if (props.type === "个人活动") {
+		if (props.type === "个人群聊") {
 			res = await queryActivityApi(props.currentUserId)
 
-		} else if (props.type === "全部活动") {
+		} else if (props.type === "全部群聊") {
 			res = await queryAllActivityApi()
 		} else {
 			activityList.value = []

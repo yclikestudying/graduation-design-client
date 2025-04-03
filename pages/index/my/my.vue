@@ -41,7 +41,7 @@
 				</view>
 				<view class="data-item" @click="toOtherPage('activityList')">
 					<text>{{ activityCount }}</text>
-					<text>活动</text>
+					<text>群聊</text>
 				</view>
 			</view>
 			<view class="function">

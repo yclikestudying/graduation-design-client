@@ -9,11 +9,11 @@
 					<view class="name">
 						<text>校园集市</text>
 					</view>
-					<view class="number">
+					<!-- <view class="number">
 						<text>7.9k动态</text>
 						<text>&emsp;</text>
 						<text>1w吃瓜群众</text>
-					</view>
+					</view> -->
 				</view>
 			</view>
 		</view>
@@ -38,12 +38,13 @@
 						<view class="underline"></view>
 					</view>
 					<view class="option-item" @click="setCurrentOption(4)">
-						<text :class="{'active-optionName': currentOption === 4}">活动</text>
+						<text :class="{'active-optionName': currentOption === 4}">群聊</text>
 						<view class="underline"></view>
 					</view>
 				</view>
-				<view class="search" @click="toOtherPage('search')">
-					<image src="/static/home/搜索.svg" mode=""></image>
+				<view class="search">
+					<image class="image1" src="/static/home/搜索.svg" mode="" @click="toOtherPage('search')"></image>
+					<image class="image2" src="/static/home/刷新.svg" mode="" @click="refresh"></image>
 				</view>
 			</view>
 			<view class="share">
@@ -51,7 +52,7 @@
 					<swiper-item>
 						<view class="swiper-item">
 							<!-- 动态组件 -->
-							<ArticleList :isScroll="isScroll" type="校园动态"></ArticleList>
+							<ArticleList :key="articleKey" :isScroll="isScroll" type="校园动态"></ArticleList>
 						</view>
 					</swiper-item>
 					<swiper-item>
@@ -75,7 +76,7 @@
 					<swiper-item>
 						<view class="swiper-item">
 							<!-- 活动组件 -->
-							<ActivityList :isScroll="isScroll" type="全部活动"></ActivityList>
+							<ActivityList :isScroll="isScroll" type="全部群聊"></ActivityList>
 						</view>
 					</swiper-item>
 				</swiper>
@@ -94,7 +95,8 @@
 	import LostList from "/components/lost/lostList.vue"
 	import {
 		onShow,
-		onLoad
+		onLoad,
+		onPullDownRefresh
 	} from "@dcloudio/uni-app"
 	import {
 		ref,
@@ -141,6 +143,7 @@
 			active: false
 		}
 	])
+	const articleKey = ref(0)
 	watch(currentOption, (newValue) => {
 		let title
 		if (currentOption.value === 0) {
@@ -204,6 +207,12 @@
 			url: url
 		})
 	};
+	// 点击刷新
+	const refresh = () => {
+		if (currentOption.value === 0) {
+			articleKey.value++
+		}	
+	}
 </script>
 
 <style lang="less" scoped>
@@ -239,8 +248,7 @@
 
 				.text {
 					display: flex;
-					flex-direction: column;
-					justify-content: space-between;
+					align-items: center;
 					color: white;
 					margin-left: 10px;
 
@@ -303,7 +311,15 @@
 					align-items: center;
 					justify-content: center;
 
-					image {
+					.image1 {
+						width: 50%;
+						height: 50%;
+						object-fit: contain;
+					}
+					
+					.image2 {
+						position: relative;
+						bottom: 2px;
 						width: 50%;
 						height: 50%;
 						object-fit: contain;

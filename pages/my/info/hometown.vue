@@ -23,10 +23,10 @@
 	} from "@dcloudio/uni-app"
 	import { updateUserApi, getUserApi } from "/pages/api/user/user.js"
 	// 数据
-	let hometown = ref('')
+	let hometown = ref('所在家乡')
 	const loading = ref(false)
 	onLoad((e) => {
-		if (e.userHometown) {
+		if (e.userHometown !== "null") {
 			hometown.value = e.userHometown
 		}
 	})

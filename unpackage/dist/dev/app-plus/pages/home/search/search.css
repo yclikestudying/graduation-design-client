@@ -1139,7 +1139,7 @@
 }
 .page .card .card-actions[data-v-05333a35] {
   display: flex;
-  justify-content: space-around;
+  justify-content: right;
 }
 .page .card .photo uni-image[data-v-05333a35] {
   margin-right: 1px;
@@ -1211,4 +1211,13 @@
 .search .content[data-v-ab64327c] {
   width: 100%;
   height: calc(100% - 56px);
+}
+.search .content .card .card-actions[data-v-ab64327c] {
+  display: flex;
+  justify-content: right;
+}
+.search .content .card .photo uni-image[data-v-ab64327c] {
+  margin-right: 1px;
+  width: 95px !important;
+  height: 95px;
 }

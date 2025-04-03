@@ -24,7 +24,7 @@
 	} from "/pages/api/user/user.js"
 	// 数据
 	let loading = ref(false)
-	let radio = ref(0)
+	let radio = ref(2)
 	const sex = [{
 		text: '女',
 		value: 0
@@ -36,9 +36,10 @@
 		value: 2
 	}]
 	onLoad((e) => {
-		if (e.userGender) {
+		console.log(e)
+		if (e.userGender !== "null") {
 			radio.value = Number(e.userGender)
-		}	
+		}
 	})
 	// 提交
 	const onSubmit = async () => {

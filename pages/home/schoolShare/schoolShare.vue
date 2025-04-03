@@ -48,8 +48,6 @@
 					uni.showToast({
 						title: "上传成功"
 					})
-					// 上传成功，更新首页动态
-					uni.$emit('uploadArticle')
 				}
 				return;
 			}
@@ -66,8 +64,6 @@
 				uni.showToast({
 					title: "上传成功"
 				})
-				// 上传成功，更新首页动态
-				uni.$emit('uploadArticle')
 			}
 		} finally {
 			isLoading.value = false

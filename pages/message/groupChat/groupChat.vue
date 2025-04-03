@@ -28,7 +28,8 @@
 		ref
 	} from "vue";
 	import {
-		onLoad
+		onLoad,
+		onNavigationBarButtonTap
 	} from "@dcloudio/uni-app"
 	import {
 		queryMessageApi,
@@ -53,6 +54,11 @@
 		}
 		uni.setNavigationBarTitle({
 			title: `${activityName.value}(${personCount.value})`
+		})
+	})
+	onNavigationBarButtonTap(() => {
+		uni.navigateTo({
+			url: '/pages/message/groupChatInfo/groupChatInfo'
 		})
 	})
 	// 发送消息

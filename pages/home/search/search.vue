@@ -6,13 +6,43 @@
 				cancelButton="always" @cancel="cancel" @clear="clear" />
 		</view>
 		<scroll-view scroll-y="true" class="content">
-			<!-- 展示查询的用户 -->
-			<template v-if="type === '用户'" v-for="(user, index) in userList" :key="user.id">
-				<uni-list-chat :title="user.userName" :avatar="user.userAvatar" clickable :note="user.userProfile"
-					@click="toOtherPage('index', user.id)"></uni-list-chat>
-			</template>
-			<!-- 动态组件 -->
-			<ArticleList v-if="type === '动态'" :isScroll="true" type="搜索动态" :keyword="keyword"></ArticleList>
+			<view v-if="type === '用户'">
+				<!-- 展示查询的用户 -->
+				<Loading v-if="userList === null"></Loading>
+				<Empty v-else-if="userList?.length === 0"></Empty>
+				<template v-else v-if="type === '用户'" v-for="(user, index) in userList" :key="user.id">
+					<uni-list-chat :title="user.userName" :avatar="user.userAvatar" clickable :note="user.userProfile"
+						@click="toOtherPage('index', user.id)"></uni-list-chat>
+				</template>
+			</view>
+			<view v-if="type === '动态'">
+				<!-- 展示查询的动态 -->
+				<Loading v-if="articleList === null"></Loading>
+				<Empty v-else-if="articleList?.length === 0"></Empty>
+				<template v-else v-for="(article, index) in articleList" :key="article.id">
+					<uni-card class="card" :title="article.userName" :sub-title="formatWeChatTime(article.createTime)"
+						thumbnail="/static/my/默认头像.jpg"
+						@click="articleDetail('otherArticle', article.id)">
+						<text class="uni-body">{{ article.articleContent }}</text>
+						<view class="photo" @click.stop="articleDetail('image', null, article.articlePhotos)">
+							<template v-for="(photo, index) in JSON.parse(article.articlePhotos)">
+								<image slot='cover' style="width: 100%;" :src="photo"></image>
+							</template>
+						</view>
+						<view slot="actions" class="card-actions">
+							<view class="card-actions-item" @click.stop="onLike(article.like, article.id)">
+								<uni-icons v-if="article.like === true" type="hand-up-filled" size="25" color="#ff0000"></uni-icons>
+								<uni-icons v-else type="hand-up" size="25" color="#999"></uni-icons>
+								<text class="card-actions-item-text">{{ article.likeCount === 0 ? '' : article.likeCount }}</text>
+							</view>
+							<view class="card-actions-item">
+								<uni-icons type="chat" size="25" color="#999"></uni-icons>
+								<text class="card-actions-item-text">10</text>
+							</view>
+						</view>
+					</uni-card>
+				</template>
+			</view>
 			<!-- 集市组件 -->
 			<GoodsList v-if="type === '集市'" :isScroll="true" type="搜索商品" :keyword="keyword"></GoodsList>
 			<!-- 跑腿组件 -->
@@ -41,6 +71,14 @@
 	import {
 		queryUserApi
 	} from "/pages/api/user/user.js"
+	import {
+		queryArticleByKeywordApi,
+		likeApi,
+		cancelLikeApi
+	} from "/pages/api/article/article.js"
+	import {
+		formatWeChatTime
+	} from '../../util';
 	// 变量
 	const statusBarHeight = ref(0);
 	const keyword = ref(null);
@@ -79,9 +117,16 @@
 		if (type.value === '用户') {
 			if (value2 !== '') {
 				const res = await queryUserApi(value2)
-				userList.value = res.data.data
+				userList.value = res.data.data || []
 			} else {
 				userList.value.length = 0
+			}
+		} else if (type.value === '动态') {
+			if (value2 !== '') {
+				const res = await queryArticleByKeywordApi(value2)
+				articleList.value = res.data.data || []
+			} else {
+				articleList.value.length = 0
 			}
 		}
 	})
@@ -107,6 +152,53 @@
 			url: url
 		})
 	}
+	// 其他页面
+	const articleDetail = (key, param, data) => {
+		const routes = {
+			'article': `/pages/detail/article/article?articleId=${param}`,
+			'otherArticle': `/pages/detail/article/otherArticle?articleId=${param}`,
+			'image': '/pages/detail/image/image'
+		}
+		if (key === 'image') {
+			uni.setStorageSync("image", data)
+		}
+		const url = routes[`${key}`]
+		uni.navigateTo({
+			url: url
+		})
+	}
+	// 点赞
+	const onLike = async (like, articleId) => {
+		if (like === false) {
+			// 进行点赞
+			const res = await likeApi(articleId)
+			if (res.data.code === 200) {
+				articleList.value = articleList.value.map(article => {
+					if (article.id === articleId) {
+						article.likeCount++;
+						article.like = true;
+					}
+					return article
+				})
+			}
+		} else {
+			// 取消点赞
+			const res = await cancelLikeApi(articleId)
+			if (res.data.code === 200) {
+				articleList.value = articleList.value.map(article => {
+					if (article.id === articleId) {
+						article.likeCount--;
+						article.like = false;	
+					}
+					return article
+				})
+			}
+		}
+	}
+	uni.$on('likeArticle', async () => {
+		const res = await queryArticleByKeywordApi(keyword.value)
+		articleList.value = res.data.data || []
+	})
 </script>
 
 <style lang="less" scoped>
@@ -130,6 +222,23 @@
 		.content {
 			width: 100%;
 			height: calc(100% - 56px);
+			
+			.card {
+			
+				.card-actions {
+					display: flex;
+					justify-content: right;
+				}
+			
+				.photo {
+			
+					image {
+						margin-right: 1px;
+						width: 95px !important;
+						height: 95px;
+					}
+				}
+			}
 		}
 	}
 </style>

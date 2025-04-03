@@ -3,8 +3,9 @@
 		<Loading v-if="articleList === null"></Loading>
 		<Empty v-else-if="articleList?.length === 0"></Empty>
 		<template v-else v-for="(article, index) in articleList" :key="article.id">
-			<uni-card class="card" :title="article.userName" :sub-title="article.createTime"
-				thumbnail="/static/my/默认头像.jpg" @click="toOtherPage((props.type === '个人动态' && props.currentUserId === null) ? 'article' : 'otherArticle', article.id)">
+			<uni-card class="card" :title="article.userName" :sub-title="formatWeChatTime(article.createTime)"
+				thumbnail="/static/my/默认头像.jpg"
+				@click="toOtherPage((props.type === '个人动态' && props.currentUserId === null) ? 'article' : 'otherArticle', article.id)">
 				<text class="uni-body">{{ article.articleContent }}</text>
 				<view class="photo" @click.stop="toOtherPage('image', null, article.articlePhotos)">
 					<template v-for="(photo, index) in JSON.parse(article.articlePhotos)">
@@ -12,17 +13,14 @@
 					</template>
 				</view>
 				<view slot="actions" class="card-actions">
-					<view class="card-actions-item" @click="actionsClick('分享')">
-						<uni-icons type="redo" size="18" color="#999"></uni-icons>
-						<text class="card-actions-item-text">分享</text>
+					<view class="card-actions-item" @click.stop="onLike(article.like, article.id)">
+						<uni-icons v-if="article.like === true" type="hand-up-filled" size="25" color="#ff0000"></uni-icons>
+						<uni-icons v-else type="hand-up" size="25" color="#999"></uni-icons>
+						<text class="card-actions-item-text">{{ article.likeCount === 0 ? '' : article.likeCount }}</text>
 					</view>
-					<view class="card-actions-item" @click="actionsClick('点赞')">
-						<uni-icons type="heart" size="18" color="#999"></uni-icons>
-						<text class="card-actions-item-text">点赞 10</text>
-					</view>
-					<view class="card-actions-item" @click="actionsClick('评论')">
-						<uni-icons type="chatbubble" size="18" color="#999"></uni-icons>
-						<text class="card-actions-item-text">评论 10</text>
+					<view class="card-actions-item">
+						<uni-icons type="chat" size="25" color="#999"></uni-icons>
+						<text class="card-actions-item-text">10</text>
 					</view>
 				</view>
 			</uni-card>
@@ -43,8 +41,12 @@
 		queryArticleApi,
 		queryArticleOfSchoolApi,
 		queryArticleOfAttentionApi,
-		queryArticleByKeywordApi
+		likeApi,
+		cancelLikeApi
 	} from "/pages/api/article/article.js"
+	import {
+		formatWeChatTime
+	} from '../../pages/util';
 	// 变量
 	const articleList = ref(null);
 	const props = defineProps({
@@ -59,20 +61,6 @@
 		currentUserId: {
 			type: Number,
 			default: null
-		},
-		keyword: {
-			type: String,
-			default: null
-		}
-	})
-	watch(() => props.keyword, async (value) => {
-		if (value !== '') {
-			const res = await queryArticleByKeywordApi(value)
-			if (res.data.code === 200) {
-				articleList.value = res.data.data || []
-			}
-		} else {
-			articleList.value.length = 0
 		}
 	})
 	onLoad(async (e) => {
@@ -83,11 +71,8 @@
 			res = await queryArticleOfSchoolApi()
 		} else if (props.type === '关注动态') {
 			res = await queryArticleOfAttentionApi()
-		} else {
-			articleList.value = []
-			return;
 		}
-		if (res.data.code === 200) {
+		if (res && res.data.code === 200) {
 			articleList.value = res.data.data
 		} else {
 			articleList.value = []
@@ -108,28 +93,55 @@
 			url: url
 		})
 	}
-	// 上传成功，更新首页动态
-	uni.$on('uploadArticle', async () => {
-		if (props.type === '校园动态') {
-			const res = await queryArticleOfSchoolApi()
-			articleList.value = res.data.data ?? []
-		}	
-	})
-	// 用户删除动态时，清除这个组件里面的相关动态
-	uni.$on('deleteArticle', (articleId) => {
+	// 点赞
+	const onLike = async (like, articleId) => {
+		if (like === false) {
+			// 进行点赞
+			const res = await likeApi(articleId)
+			if (res.data.code === 200) {
+				articleList.value = articleList.value.map(article => {
+					if (article.id === articleId) {
+						article.likeCount++;
+						article.like = true;
+					}
+					return article
+				})
+			}
+		} else {
+			// 取消点赞
+			const res = await cancelLikeApi(articleId)
+			if (res.data.code === 200) {
+				articleList.value = articleList.value.map(article => {
+					if (article.id === articleId) {
+						article.likeCount--;
+						article.like = false;	
+					}
+					return article
+				})
+			}
+		}
+	}
+	
+	// 自己删除动态之后，更新所有的动态列表
+	uni.$on('updateArticle', (articleId) => {
 		articleList.value = articleList.value.filter(article => article.id !== articleId)
 	})
-	// 取消关注用户时，关注用户的动态进行删除
-	uni.$on('cancelFriend', (userId) => {
-		if (props.type === '关注动态') {
-			articleList.value = articleList.value.filter(article => article.userId !== userId)
+	// 点赞或取消点赞之后更新动态
+	uni.$on('likeArticle', async () => {
+		if (props.type === '个人动态') {
+			const res = await queryArticleApi(props.currentUserId)
+			articleList.value = res.data.data
+		}
+		if (props.type === '校园动态') {
+			const res = await queryArticleOfSchoolApi()
+			articleList.value = res.data.data
 		}
 	})
 	// 添加关注时，更新关注动态
 	uni.$on('addFriend', async () => {
 		if (props.type === '关注动态') {
 			const res = await queryArticleOfAttentionApi()
-			articleList.value = res.data.data ?? []
+			articleList.value = res.data.data
 		}
 	})
 </script>
@@ -143,7 +155,7 @@
 
 			.card-actions {
 				display: flex;
-				justify-content: space-around;
+				justify-content: right;
 			}
 
 			.photo {

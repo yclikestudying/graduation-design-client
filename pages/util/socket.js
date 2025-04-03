@@ -6,6 +6,7 @@ class WebSocketClient {
 		this.reconnectTimer = null;
 		this.reconnectInterval = 5000;
 		this.directMessage = null; // 如果处于与哪个用户的聊天页面，那么记录他的id，否则就是null
+		this.groupMessage = null; // 群聊
 		this.baseURL = "http://192.168.113.28:8080/wsConnect";
 	}
 
@@ -98,6 +99,14 @@ class WebSocketClient {
 
 	setDirectMessage(id) {
 		this.directMessage = id
+	}
+	
+	getGroupMessage() {
+		return this.groupMessage
+	}
+	
+	setGroupMessage(id) {
+		this.groupMessage = id
 	}
 
 	getIsConnected() {

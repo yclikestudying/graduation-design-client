@@ -2,7 +2,9 @@
 	<scroll-view scroll-y="true" class="chat-content" :scroll-into-view="scrollIntoId">
 		<template v-for="(message, index) in messageList" :key="message.id">
 			<view class="date">
-				<text>{{ message.createTime }}</text>
+				<text v-if="index === 0">{{ message.createTime }}</text>
+				<text
+					v-else>{{ message.createTime === messageList[index - 1].createTime ? '' : message.createTime }}</text>
 			</view>
 			<view :id="index + 1 === messageList?.length ? `message${messageList?.length}` : ''"
 				:class="{user: true, me: message.sendUserId === myId}">
@@ -15,7 +17,7 @@
 				<view v-else-if="message.messageType === 'image'" class="messageImage">
 					<image lazy-load="true" :src="message.messageContent" mode="widthFix"></image>
 				</view>
-			<!-- 	<view v-else-if="message.type === 'link'" class="message" @click="checkGoods(message.content)">
+				<!-- 	<view v-else-if="message.type === 'link'" class="message" @click="checkGoods(message.content)">
 					<text style="color: blue;">{{ message.content }}</text>
 				</view> -->
 			</view>
@@ -34,6 +36,9 @@
 	import {
 		queryMessageApi
 	} from "/pages/api/message/message.js"
+	import {
+		formatWeChatTime
+	} from "../../pages/util/index.js"
 	const myId = ref(uni.getStorageSync("user").id)
 	const messageList = ref(null)
 	const scrollIntoId = ref('');
@@ -48,7 +53,11 @@
 		const res = await queryMessageApi(props.userId)
 		if (res.data.code === 200) {
 			messageList.value = res.data.data
-			scrollIntoId.value = `message${messageList?.value?.length}`	
+			messageList.value = messageList.value.map(message => {
+				message.createTime = formatWeChatTime(message.createTime)
+				return message
+			})
+			scrollIntoId.value = `message${messageList?.value?.length}`
 		}
 	}
 	onLoad((e) => {

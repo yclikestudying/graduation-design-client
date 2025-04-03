@@ -73,3 +73,19 @@ export const queryArticleOfAttentionApi = async () => {
 export const queryArticleByKeywordApi = async (keyword) => {
 	return await request(`/article/queryArticleByKeyword?keyword=${keyword}`, "GET")
 }
+
+/**
+ * @description 点赞
+ * @param articleId 动态id
+ */
+export const likeApi = async (articleId) => {
+	return await request(`/likes/like`, "POST", {articleId: articleId})
+}
+
+/**
+ * @description 取消点赞
+ * @param articleId 动态id
+ */
+export const cancelLikeApi = async (articleId) => {
+	return await request(`/likes/cancelLike`, "POST", {articleId: articleId})
+}
