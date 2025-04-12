@@ -9,11 +9,11 @@
 					<view class="name">
 						<text>校园集市</text>
 					</view>
-					<!-- <view class="number">
-						<text>7.9k动态</text>
+					<view class="number">
+						<text>99动态</text>
 						<text>&emsp;</text>
-						<text>1w吃瓜群众</text>
-					</view> -->
+						<text>20吃瓜群众</text>
+					</view>
 				</view>
 			</view>
 		</view>
@@ -248,7 +248,7 @@
 
 				.text {
 					display: flex;
-					align-items: center;
+					flex-direction: column;
 					color: white;
 					margin-left: 10px;
 

@@ -910,7 +910,7 @@
 }
 .home .title .title-item .text[data-v-00503024] {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   color: white;
   margin-left: 10px;
 }

@@ -2720,7 +2720,11 @@ if (uni.restoreGlobal) {
                   vue.createElementVNode("view", { class: "name" }, [
                     vue.createElementVNode("text", null, "校园集市")
                   ]),
-                  vue.createCommentVNode(' <view class="number">\r\n						<text>7.9k动态</text>\r\n						<text>&emsp;</text>\r\n						<text>1w吃瓜群众</text>\r\n					</view> ')
+                  vue.createElementVNode("view", { class: "number" }, [
+                    vue.createElementVNode("text", null, "99动态"),
+                    vue.createElementVNode("text", null, " "),
+                    vue.createElementVNode("text", null, "20吃瓜群众")
+                  ])
                 ])
               ])
             ]),
