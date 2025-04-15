@@ -33,15 +33,24 @@
 				<swiper-item>
 					<view class="swiper-item">
 						<scroll-view scroll-y="true" class="userList">
-							<uni-list-chat title="uni-app"
-								avatar="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/unicloudlogo.png"
-								note="您收到一条新的消息" time="2020-02-02 20:20" badge-text="12"></uni-list-chat>
+							<Loading v-if="groupMessageList === null"></Loading>
+							<Empty v-else-if="groupMessageList?.length === 0"></Empty>
+							<template v-else v-for="(message, index) in groupMessageList">
+								<uni-list-chat clickable :title="message.activityName" :avatar="message.activityPhoto"
+									:note="getGroupMessage(message.messageContent, message.messageType, message.userName, message.sendUserId)"
+									:time="formatWeChatTime(message.sendTime)"
+									@click="toOtherPage('groupChat', message.activityId, message.sendUserId)"
+									>
+									</uni-list-chat>
+							</template>
 						</scroll-view>
 					</view>
 				</swiper-item>
 			</swiper>
 		</scroll-view>
 	</view>
+	
+	<!-- :badge-text="message.noReadMessageCount" -->
 </template>
 
 <script setup>
@@ -54,17 +63,26 @@
 	} from "@dcloudio/uni-app"
 	import {
 		queryNoReadListApi,
-		queryNoReadTotalApi
+		queryNoReadTotalApi,
+		queryGroupChatLatestMessageApi
 	} from "/pages/api/message/message.js"
 	import { formatWeChatTime } from '../../util';
 	// 数据
 	const currentOption = ref(0)
-	const messageList = ref(null)
+	const messageList = ref(null); // 私聊消息列表
+	const groupMessageList = ref(null); // 群聊消息列表
 	const myId = ref(uni.getStorageSync("user").id)
 	onLoad(async (e) => {
+		// 查询最新私聊消息列表
 		const res = await queryNoReadListApi()
 		if (res.data.code === 200) {
 			messageList.value = res.data.data || []
+		}
+		
+		// 查询最新群聊消息列表
+		const res2 = await queryGroupChatLatestMessageApi()
+		if (res2.data.code === 200) {
+			groupMessageList.value = res2.data.data || []
 		}
 	})
 	// 设置新的currentOption
@@ -75,6 +93,7 @@
 	const onSwiperChange = (event) => {
 		currentOption.value = event.detail.current
 	}
+	
 	// 判断最新消息是我发的还是别人发的
 	const getMessage = (content, type, userId) => {
 		if (myId.value === userId) {
@@ -91,39 +110,36 @@
 			return content
 		}
 	}
+	
+	// 判断最新消息是我发的还是别人发的
+	const getGroupMessage = (content, type, userName, userId) => {
+		if (myId.value === userId) {
+			// 我发的
+			if (type === 'image') {
+				return '我:[图片]'
+			}
+			return `我:${content}`
+		} else {
+			// 别人发的
+			if (type === 'image') {
+				return `${userName}:[图片]`
+			}
+			return `${userName}:${content}`
+		}
+	}
+	
 	// 其他页面
 	const toOtherPage = (key, param1, param2) => {
 		const routes = {
-			'chat': `/pages/message/chat/chat?userId=${param1}&userName=${param2}`
+			'chat': `/pages/message/chat/chat?userId=${param1}&userName=${param2}`,
+			'groupChat': `/pages/message/groupChat/groupChat?activityId=${param1}`
 		}
 		const url = routes[`${key}`]
 		uni.navigateTo({
 			url: url
 		})
 	}
-	// 把消息列表中该用户给我发的未读消息清空
-	// 把未读总消息数更新
-	uni.$on('updateNoReadCount', async (userId) => {
-		// 获取该用户发我消息的未读总数
-		messageList.value = messageList.value.map(message => {
-			if (message.sendUserId === userId) {
-				message.noReadMessageCount = 0
-			}
-			return message
-		})
-		// 更新总的角标
-		// const res = await queryNoReadTotalApi()
-		// if (res.data.data > 0) {
-		// 	uni.setTabBarBadge({
-		// 		index: 2,
-		// 		text: res.data.data
-		// 	})
-		// } else {
-		// 	uni.removeTabBarBadge({
-		// 		index: 2
-		// 	})
-		// }
-	})
+
 	// 更新消息列表
 	uni.$on('updateMessageList', async () => {
 		const res = await queryNoReadListApi()

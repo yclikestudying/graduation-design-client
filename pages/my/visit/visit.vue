@@ -14,18 +14,38 @@
 		ref
 	} from 'vue';
 	import {
-		onLoad
+		onLoad,
+		onNavigationBarButtonTap
 	} from "@dcloudio/uni-app"
 	import {
-		queryVisitApi
-	} from "/pages/api/user/user.js"
+		queryVisitorApi
+	} from "/pages/api/visitor/visitor.js"
+	import {
+		deleteVisitorApi
+	} from "/pages/api/visitor/visitor.js"
 	// 变量
 	const userList = ref(null)
 	onLoad(async (e) => {
-		const res = await queryVisitApi()
+		const res = await queryVisitorApi()
 		if (res.data.code === 200) {
 			userList.value = res.data.data
 		}
+	})
+	
+	// 监听页面删除按钮
+	onNavigationBarButtonTap(() => {
+		uni.showModal({
+			title: '温馨提示',
+			content: '确认清空全部访问记录吗？',
+			success: async function(res) {
+				if (res.confirm) {
+					const res2 = await deleteVisitorApi()
+					if (res2.data.code === 200) {
+						userList.value.length = 0
+					}
+				}
+			}
+		})
 	})
 </script>
 

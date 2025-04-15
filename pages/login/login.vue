@@ -69,14 +69,6 @@
 				// 把这个实例存储到本地
 				const app = getApp()
 				app.globalData[`${userId}`] = socket
-				// 查询未读消息总数
-				const res = await queryNoReadTotalApi()
-				if (res.data.data > 0) {
-					uni.setTabBarBadge({
-						index: 2,
-						text: res.data.data
-					})
-				}
 			} else {
 				uni.showToast({
 					title: data.message,

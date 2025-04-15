@@ -99,7 +99,7 @@
 				.avatar {
 					width: 100%;
 					height: 100%;
-					object-fit: contain;
+					object-fit: cover;
 				}
 			}
 
@@ -115,12 +115,11 @@
 			.messageImage {
 				margin: 0 10px;
 				width: 150px;
-				border-radius: 5px;
 				overflow: hidden;
-				border: 1px solid lightgray;
 
 				image {
 					width: 100%;
+					border-radius: 5px;
 				}
 			}
 		}

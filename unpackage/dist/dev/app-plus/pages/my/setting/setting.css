@@ -10,9 +10,12 @@
 .setting .function .item[data-v-1c9f95e0] {
   position: relative;
   left: 2.5%;
-  top: 10px;
   width: 95%;
   border: 1px solid white;
   border-radius: 10px;
   overflow: hidden;
+}
+.setting .function .item .van-cell[data-v-1c9f95e0] {
+  display: flex;
+  align-items: center;
 }

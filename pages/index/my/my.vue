@@ -46,13 +46,15 @@
 			</view>
 			<view class="function">
 				<van-cell title="功能" style="background-color: #F2F2F2;" />
-				<view class="item" @click="toOtherPage('visit')">
-					<van-cell title="访客" icon="eye-o" is-link>
+				<view class="item">
+					<van-cell title="访客" icon="eye-o" is-link @click="toOtherPage('visit')">
+					</van-cell>
+					<van-cell title="意见反馈" icon="service-o" is-link @click="toOtherPage('problem')">
 					</van-cell>
 				</view>
 				<van-cell title="其他" style="background-color: #F2F2F2;" />
 				<view class="item" @click="toOtherPage('setting')">
-					<van-cell title="系统设置" icon="setting-o" is-link>
+					<van-cell title="设置" icon="setting-o" is-link>
 					</van-cell>
 				</view>
 			</view>
@@ -111,7 +113,8 @@
 			'userList': `/pages/my/userList/userList?title=${param}`,
 			'setting': '/pages/my/setting/setting',
 			'activityList': '/pages/my/activityList/activityList',
-			'visit': '/pages/my/visit/visit'
+			'visit': '/pages/my/visit/visit',
+			'problem': '/pages/my/problem/problem'
 		}
 		const url = routes[`${key}`]
 		uni.navigateTo({

@@ -67,7 +67,7 @@
 					<view class="underline active-underline" :style="{transform: `translateX(${currentOption * (100 / 5)}vw)`}"></view>
 				</view>
 				<view class="option-item" @click="setCurrentOption(1)">
-					<text :class="{'active-option-name': currentOption === 1}">集市</text>
+					<text :class="{'active-option-name': currentOption === 1}">物品</text>
 					<view class="underline"></view>
 				</view>
 				<view class="option-item" @click="setCurrentOption(2)">
@@ -137,9 +137,11 @@
 		userInfoProgress
 	} from "/pages/util/index.js"
 	import {
-		getUserApi,
-		addVisitApi
+		getUserApi
 	} from "/pages/api/user/user.js"
+	import {
+		addVisitorApi
+	} from "/pages/api/visitor/visitor.js"
 	import {
 		queryFriendApi,
 		addApi,
@@ -175,7 +177,7 @@
 			const res1 = await queryFriendApi(currentUserId.value)
 			isFriend.value = res1.data.data
 			// 记录下访客记录
-			await addVisitApi(uni.getStorageSync("user").id, user.value.id)
+			await addVisitorApi(uni.getStorageSync("user").id, user.value.id)
 		}
 		// 查询关注数量
 		const res2 = await friendCountApi(currentUserId.value)

@@ -52,9 +52,8 @@
 		})
 		// 把未读消息设置成已读消息
 		await isReadApi(userId.value)
-		// 把消息列表中该用户给我发的未读消息清空
-		// 把未读总消息数更新
-		uni.$emit('updateNoReadCount', userId.value)
+		// 更新消息列表
+		uni.$emit('updateMessageList')
 	})
 	const send = () => {
 		moreFunction.value = false

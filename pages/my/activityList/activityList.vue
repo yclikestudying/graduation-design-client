@@ -6,7 +6,7 @@
 			<uni-list-chat clickable :title="activity.activityName" :avatar="activity.activityPhoto"
 				:note="activity.activityDescription"
 				:time="getPeople(activity.currentPeople, activity.activityMaxPeople)"
-				@click="toOtherPage('groupChat', activity.id)"></uni-list-chat>
+				@click="toOtherPage('groupChat', activity.id, activity.userId)"></uni-list-chat>
 		</template>
 	</view>
 </template>
@@ -33,7 +33,7 @@
 		}
 	})
 	// 其他页面
-	const toOtherPage = (key, activityId) => {
+	const toOtherPage = (key, activityId, userId) => {
 		const routes = {
 			'groupChat': `/pages/message/groupChat/groupChat?activityId=${activityId}`
 		}

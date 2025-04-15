@@ -460,14 +460,19 @@
 		{
 			"path": "pages/my/visit/visit",
 			"style": {
-				"navigationBarTitleText": "访客记录",
+				"navigationBarTitleText": "最近访问",
 				"animationType": "slide-in-right",
 				"animationDuration": 300,
 				"app-plus": {
 					"bounce": "none",
 					"scrollIndicator": "none",
 					"titleNView": {
-						"backgroundColor": "#ffffff"
+						"backgroundColor": "#ffffff",
+						"buttons": [{
+							"text": "清空",
+							"fontSize": "14px",
+							"color": "#4496F9"
+						}]
 					}
 				}
 			}
@@ -501,6 +506,43 @@
 					"scrollIndicator": "none",
 					"titleNView": {
 						"backgroundColor": "#F2F2F2"
+					}
+				}
+			}
+		},
+		{
+			"path" : "pages/my/problem/problem",
+			"style" : 
+			{
+				"navigationBarTitleText" : "意见反馈",
+				"animationType": "slide-in-right",
+				"animationDuration": 300,
+				"app-plus": {
+					"bounce": "none",
+					"scrollIndicator": "none",
+					"titleNView": {
+						"backgroundColor": "#ffffff"
+					}
+				}
+			}
+		},
+		{
+			"path" : "pages/my/problemList/problemList",
+			"style" : 
+			{
+				"navigationBarTitleText" : "反馈列表",
+				"animationType": "slide-in-right",
+				"animationDuration": 300,
+				"app-plus": {
+					"bounce": "none",
+					"scrollIndicator": "none",
+					"titleNView": {
+						"backgroundColor": "#ffffff",
+						"buttons": [{
+							"text": "清空",
+							"fontSize": "14px",
+							"color": "#4496F9"
+						}]
 					}
 				}
 			}

@@ -73,7 +73,6 @@
 	// 上传
 	const publish = async () => {
 		if (files.value === null) {
-			console.log('进入第一层if')
 			try {
 				isLoading.value = true
 				const res = await uploadNoFileApi(range[type.value].text, name.value, des.value)

@@ -1,4 +1,4 @@
-const baseURL = "http://192.168.113.28:8080"
+const baseURL = "http://192.168.194.28:8080" // 开发环境
 
 /**
  * @description 普通请求
@@ -102,6 +102,27 @@ export const uploadAboutActivity = async (url, files, title, text, max) => {
 			"title": title, // 文本内容
 			"text": text,
 			"max": max
+		},
+		header: {
+			"Authorization": uni.getStorageSync("token")
+		}
+	})
+}
+
+/**
+ * @description 问题和意见
+ * @param url 请求路径
+ * @param files 文件数据
+ * @param content 内容
+ * @param phone 联系电话
+ */
+export const uploadAboutProblem = async (url, files, content, phone) => {
+	return await uni.uploadFile({
+		url: `${baseURL}${url}`,
+		files: files,
+		formData: {
+			"content": content, // 内容
+			"phone": phone // 联系电话
 		},
 		header: {
 			"Authorization": uni.getStorageSync("token")

@@ -71,22 +71,3 @@ export const queryEachApi = async (userId) => {
 	let url = userId ? `/user/queryEach?userId=${userId}` : '/user/queryEach'
 	return await request(url, "GET")
 }
-
-/**
- * @description 添加访客记录
- * @param visitorId 我的id
- * @param visitedId 被访问者id
- */
-export const addVisitApi = async (visitorId, visitedId) => {
-	return await request("/user/addVisit", "POST", {
-		visitorId: visitorId,
-		visitedId: visitedId
-	})
-}
-
-/**
- * @description 查询访客记录
- */
-export const queryVisitApi = async () => {
-	return await request("/user/queryVisit", "GET")
-}

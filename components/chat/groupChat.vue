@@ -44,6 +44,7 @@
 	} from "../../pages/util/index.js"
 	// 变量
 	const activityId = ref(null); // 群聊id
+	const userId = ref(null); // 创建者id
 	const messageList = ref(null); // 群消息列表
 	const myId = ref(uni.getStorageSync("user").id); // 我的id
 	const scrollIntoId = ref(null);
@@ -60,7 +61,7 @@
 		}
 	}
 	onLoad((e) => {
-		activityId.value = e.activityId
+		activityId.value = Number(e.activityId)
 		queryMessageList()
 	})
 	// 更新群聊消息

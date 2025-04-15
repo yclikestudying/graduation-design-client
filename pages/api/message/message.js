@@ -22,10 +22,17 @@ export const isReadApi = async (userId) => {
 }
 
 /**
- * @description 查询最新消息列表
+ * @description 查询最新私聊消息列表
  */
 export const queryNoReadListApi = async () => {
 	return await request('/message/queryNoReadList', "GET")
+}
+
+/**
+ * @description 查询最新群聊消息列表
+ */
+export const queryGroupChatLatestMessageApi = async () => {
+	return await request('/groupMessage/queryGroupChatLatestMessage', "GET")
 }
 
 /**
