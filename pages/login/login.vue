@@ -1,7 +1,7 @@
 <template>
 	<view class="login">
 		<view class="form">
-			<input class="input" type="text" v-model="userPhone" placeholder="输入账号" />
+			<input class="input" type="number" v-model="userPhone" placeholder="输入账号" />
 			<input class="input" type="password" v-model="userPassword" placeholder="输入密码" />
 			<input v-if="currentState === '注册'" class="input" type="password" v-model="checkPassword"
 				placeholder="确认密码" />

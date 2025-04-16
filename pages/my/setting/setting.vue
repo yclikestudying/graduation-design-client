@@ -3,9 +3,9 @@
 		<view class="function">
 			<van-cell title="账号与安全" style="background-color: #F2F2F2;" />
 			<view class="item">
-				<van-cell title="手机号" :value="userPhone" icon="phone-o" is-link>
+				<van-cell title="手机号" :value="userPhone" icon="phone-o" is-link @click="toOtherPage('phone')">
 				</van-cell>
-				<van-cell title="修改密码" :value="userPassword" icon="edit" is-link>
+				<van-cell title="修改密码" :value="userPassword" icon="edit" is-link @click="toOtherPage('password')">
 				</van-cell>
 			</view>
 			<van-cell title="主页隐私" style="background-color: #F2F2F2;" />
@@ -50,8 +50,8 @@
 
 <script setup>
 	import { ref } from 'vue'
-	const myId = ref(uni.getStorageSync("user").id)
 	
+	const myId = ref(uni.getStorageSync("user").id)
 	const userPhone = ref(uni.getStorageSync("user").userPhone); // 手机号
 	const userPassword = ref(uni.getStorageSync("user").userPassword); // 密码
 	const userAvatar = ref(uni.getStorageSync("user").userAvatar); // 头像
@@ -74,6 +74,18 @@
 					})
 				}
 			}
+		})
+	}
+	
+	// 其他页面
+	const toOtherPage = (key) => {
+		const routes = {
+			'phone': `/pages/my/phone/phone`,
+			'password': '/pages/my/password/password'
+		}
+		const url = routes[`${key}`]
+		uni.navigateTo({
+			url: url
 		})
 	}
 </script>

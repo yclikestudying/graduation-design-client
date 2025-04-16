@@ -71,3 +71,29 @@ export const queryEachApi = async (userId) => {
 	let url = userId ? `/user/queryEach?userId=${userId}` : '/user/queryEach'
 	return await request(url, "GET")
 }
+
+/**
+ * @description 修改手机
+ * @param oldPhone 旧手机
+ * @param newPhone 新手机
+ */
+export const editPhoneApi = async (oldPhone, newPhone) => {
+	return await request(`/user/editPhone`, "PUT", {
+		'oldPhone': oldPhone,
+		'newPhone': newPhone
+	})
+}
+
+/**
+ * @description 修改密码
+ * @param oldPassword 旧密码
+ * @param newPassword 新密码
+ * @param checkPassword 确认密码
+ */
+export const editPasswordApi = async (oldPassword, newPassword, checkPassword) => {
+	return await request(`/user/editPassword`, "PUT", {
+		'oldPassword': oldPassword,
+		'newPassword': newPassword,
+		'checkPassword': checkPassword
+	})
+}

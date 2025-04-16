@@ -546,6 +546,38 @@
 					}
 				}
 			}
+		},
+		{
+			"path" : "pages/my/phone/phone",
+			"style" : 
+			{
+				"navigationBarTitleText" : "更换手机",
+				"animationType": "slide-in-right",
+				"animationDuration": 300,
+				"app-plus": {
+					"bounce": "none",
+					"scrollIndicator": "none",
+					"titleNView": {
+						"backgroundColor": "#ffffff"
+					}
+				}
+			}
+		},
+		{
+			"path" : "pages/my/password/password",
+			"style" : 
+			{
+				"navigationBarTitleText" : "修改密码",
+				"animationType": "slide-in-right",
+				"animationDuration": 300,
+				"app-plus": {
+					"bounce": "none",
+					"scrollIndicator": "none",
+					"titleNView": {
+						"backgroundColor": "#ffffff"
+					}
+				}
+			}
 		}
 	],
 	"globalStyle": {
