@@ -26,7 +26,6 @@
 	let birthday = ref('');
 	const loading = ref(false)
 	onLoad((e) => {
-		console.log(e)
 		if (e.userBirthday !== "null") {
 			birthday.value = e.userBirthday
 		}

@@ -26,7 +26,7 @@
 							:style="{transform: `translateX(${currentOption * 85/5}vw)`}"></view>
 					</view>
 					<view class="option-item" @click="setCurrentOption(1)">
-						<text :class="{'active-optionName': currentOption === 1}">集市</text>
+						<text :class="{'active-optionName': currentOption === 1}">物品</text>
 						<view class="underline"></view>
 					</view>
 					<view class="option-item" @click="setCurrentOption(2)">

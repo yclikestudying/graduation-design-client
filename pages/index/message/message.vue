@@ -76,13 +76,17 @@
 		// 查询最新私聊消息列表
 		const res = await queryNoReadListApi()
 		if (res.data.code === 200) {
-			messageList.value = res.data.data || []
+			messageList.value = res.data.data ?? []
+		} else {
+			messageList.value = []
 		}
 		
 		// 查询最新群聊消息列表
 		const res2 = await queryGroupChatLatestMessageApi()
 		if (res2.data.code === 200) {
-			groupMessageList.value = res2.data.data || []
+			groupMessageList.value = res2.data.data ?? []
+		} else {
+			groupMessageList.value = []
 		}
 	})
 	// 设置新的currentOption

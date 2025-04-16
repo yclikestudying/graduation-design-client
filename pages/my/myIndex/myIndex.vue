@@ -149,11 +149,13 @@
 		friendCountApi,
 		fansCountApi
 	} from "/pages/api/friend/friend.js"
+	
 	// 变量
 	const currentOption = ref(0)
 	const isScroll = ref(false); // 是否允许内容滚动
 	const identity = ref(''); // 身份
 	const currentUserId = ref(null); // 当前用户id
+	const myId = ref(uni.getStorageSync("user").id); // 我的id
 	const user = ref(uni.getStorageSync("user"))
 	const isFriend = ref(null)
 	const friendCount = ref(null); // 关注数量

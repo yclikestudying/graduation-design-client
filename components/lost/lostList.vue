@@ -1,7 +1,10 @@
 <template>
 	<scroll-view class="page" :scroll-y="isScroll">
 		<Loading v-if="lostList === null"></Loading>
-		<Empty v-else-if="lostList?.length === 0"></Empty>
+		<view v-else-if="lostList?.length === 0">
+			<PrivateSetting v-if="lostSetting === 1"></PrivateSetting>
+			<Empty v-else></Empty>
+		</view>
 		<template v-else v-for="(lost, index) in lostList" :key="lost.id">
 			<template v-if="lost.lostPhoto === null">
 				<uni-card :title="lost.userName" :sub-title="lost.createTime"
@@ -38,7 +41,12 @@
 		queryLostByKeywordApi,
 		deleteLostApi
 	} from "/pages/api/lost/lost.js"
+	import {
+		querySettingApi
+	} from "/pages/api/private/private.js"
+	
 	// 变量
+	const lostSetting = ref(false); // 寻物启事隐私设置
 	const myId = ref(uni.getStorageSync("user").id)
 	const lostList = ref(null)
 	const props = defineProps({
@@ -70,17 +78,25 @@
 		}
 	})
 	onLoad(async (e) => {
+		// 查询当前用户的隐私设置
+		if (props.currentUserId !== null && props.type === '个人寻物') {
+			const res2 = await querySettingApi(props.currentUserId)
+			lostSetting.value = res2.data.data.lostSetting
+		}
+		
 		let res;
 		if (props.type === "个人寻物") {
 			res = await queryLostApi(props.currentUserId)
 
 		} else if (props.type === "全部寻物") {
 			res = await queryAllLostApi()
+		}
+		
+		if (res && res.data.code === 200) {
+			lostList.value = res.data.data ?? []
 		} else {
 			lostList.value = []
-			return;
 		}
-		lostList.value = res.data.data ?? []
 	})
 	// 查看图片
 	const check = (key, param, data) => {

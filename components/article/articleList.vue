@@ -1,7 +1,10 @@
 <template>
 	<scroll-view class="page" :scroll-y="isScroll">
 		<Loading v-if="articleList === null"></Loading>
-		<Empty v-else-if="articleList?.length === 0"></Empty>
+		<view v-else-if="articleList?.length === 0">
+			<PrivateSetting v-if="articleSetting === 1"></PrivateSetting>
+			<Empty v-else></Empty>
+		</view>
 		<template v-else v-for="(article, index) in articleList" :key="article.id">
 			<uni-card class="card" :title="article.userName" :sub-title="formatWeChatTime(article.createTime)"
 				thumbnail="/static/my/默认头像.jpg"
@@ -14,9 +17,11 @@
 				</view>
 				<view slot="actions" class="card-actions">
 					<view class="card-actions-item" @click.stop="onLike(article.like, article.id)">
-						<uni-icons v-if="article.like === true" type="hand-up-filled" size="25" color="#ff0000"></uni-icons>
+						<uni-icons v-if="article.like === true" type="hand-up-filled" size="25"
+							color="#ff0000"></uni-icons>
 						<uni-icons v-else type="hand-up" size="25" color="#999"></uni-icons>
-						<text class="card-actions-item-text">{{ article.likeCount === 0 ? '' : article.likeCount }}</text>
+						<text
+							class="card-actions-item-text">{{ article.likeCount === 0 ? '' : article.likeCount }}</text>
 					</view>
 					<view class="card-actions-item">
 						<uni-icons type="chat" size="25" color="#999"></uni-icons>
@@ -47,7 +52,12 @@
 	import {
 		formatWeChatTime
 	} from '../../pages/util';
+	import {
+		querySettingApi
+	} from "/pages/api/private/private.js"
+
 	// 变量
+	const articleSetting = ref(false); // 动态隐私设置
 	const articleList = ref(null);
 	const props = defineProps({
 		isScroll: {
@@ -64,16 +74,25 @@
 		}
 	})
 	onLoad(async (e) => {
+		// 查询当前用户的隐私设置
+		if (props.currentUserId !== null && props.type === '个人动态') {
+			const res2 = await querySettingApi(props.currentUserId)
+			articleSetting.value = res2.data.data.articleSetting
+		}
+
 		let res;
 		if (props.type === '个人动态') {
-			res = await queryArticleApi(props.currentUserId)
+			if (articleSetting.value !== 1) {
+				res = await queryArticleApi(props.currentUserId)
+			}
 		} else if (props.type === '校园动态') {
 			res = await queryArticleOfSchoolApi()
 		} else if (props.type === '关注动态') {
 			res = await queryArticleOfAttentionApi()
 		}
+		
 		if (res && res.data.code === 200) {
-			articleList.value = res.data.data
+			articleList.value = res.data.data ?? []
 		} else {
 			articleList.value = []
 		}
@@ -114,14 +133,14 @@
 				articleList.value = articleList.value.map(article => {
 					if (article.id === articleId) {
 						article.likeCount--;
-						article.like = false;	
+						article.like = false;
 					}
 					return article
 				})
 			}
 		}
 	}
-	
+
 	// 自己删除动态之后，更新所有的动态列表
 	uni.$on('updateArticle', (articleId) => {
 		articleList.value = articleList.value.filter(article => article.id !== articleId)

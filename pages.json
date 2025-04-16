@@ -578,6 +578,13 @@
 					}
 				}
 			}
+		},
+		{
+			"path" : "components/private/private",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
 		}
 	],
 	"globalStyle": {

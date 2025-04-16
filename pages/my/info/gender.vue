@@ -36,7 +36,6 @@
 		value: 2
 	}]
 	onLoad((e) => {
-		console.log(e)
 		if (e.userGender !== "null") {
 			radio.value = Number(e.userGender)
 		}

@@ -1,7 +1,10 @@
 <template>
 	<scroll-view class="page" :scroll-y="isScroll">
 		<Loading v-if="goodsList === null"></Loading>
-		<Empty v-else-if="goodsList?.length === 0"></Empty>
+		<view v-else-if="goodsList?.length === 0">
+			<PrivateSetting v-if="goodsSetting === 1"></PrivateSetting>
+			<Empty v-else></Empty>
+		</view>
 		<template v-else v-for="(goods, index) in goodsList" :key="goods.id">
 			<uni-card class="card" :title="goods.userName" :sub-title="goods.createTime"
 				:extra="type === '个人商品' && goods.userId === myId ? '点击删除' : type !== '个人商品' && goods.userId === myId ? '自己' : '联系我'"
@@ -30,7 +33,12 @@
 		queryGoodsByKeywordApi,
 		deleteGoodsApi
 	} from "/pages/api/goods/goods.js"
+	import {
+		querySettingApi
+	} from "/pages/api/private/private.js"
+	
 	// 变量
+	const goodsSetting = ref(false); // 物品隐私设置
 	const myId = ref(uni.getStorageSync("user").id)
 	const goodsList = ref(null);
 	const extra = ref(null);
@@ -63,17 +71,29 @@
 		}
 	})
 	onLoad(async (e) => {
+		// 查询当前用户的隐私设置
+		if (props.currentUserId !== null && props.type === '个人商品') {
+			const res2 = await querySettingApi(props.currentUserId)
+			goodsSetting.value = res2.data.data.goodsSetting
+		}
 		let res;
 		if (props.type === "个人商品") {
-			res = await queryGoodsApi(props.currentUserId)
-
+			if (goodsSetting.value !== 1) {
+				res = await queryGoodsApi(props.currentUserId)
+			}
 		} else if (props.type === "全部商品") {
 			res = await queryAllGoodsApi()
 		} else {
 			goodsList.value = []
 			return;
 		}
-		goodsList.value = res.data.data ?? []
+		
+		if (res && res.data.code === 200) {
+			goodsList.value = res.data.data ?? []
+		} else {
+			goodsList.value = []
+		}
+		
 	})
 	// 查看图片
 	const check = (key, param, data) => {
